@@ -4,7 +4,6 @@ import { IntlProvider } from 'react-intl'
 
 import {
   StyleSheet,
-  Text,
   View,
   AppRegistry,
 } from 'react-native'
@@ -18,16 +17,22 @@ import {
 import store from './store'
 import en from './locales/en'
 
-const Home = () =>
-  <View>
-    <Text>HOME</Text>
-  </View>
+import Loading from './modules/Shared/components/Loading'
+
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 20,
+  },
+})
 
 const App = () =>
   <Provider store={store}>
     <IntlProvider locale="en" messages={en}>
       <NativeRouter>
-        <Route exact path="/" component={Home} />
+        <View style={style.container}>
+          <Route exact path="/" component={Loading} />
+        </View>
       </NativeRouter>
     </IntlProvider>
   </Provider>
