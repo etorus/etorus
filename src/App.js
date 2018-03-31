@@ -1,11 +1,13 @@
+import 'intl'
+
 import React from 'react'
 import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 
 import {
-  StyleSheet,
   View,
   AppRegistry,
+  StatusBar,
 } from 'react-native'
 
 import {
@@ -17,21 +19,19 @@ import {
 import store from './store'
 import en from './locales/en'
 
-import Loading from './modules/Shared/components/Loading'
-
-const style = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 20,
-  },
-})
+import Splash from './modules/Login/components/Splash'
 
 const App = () =>
   <Provider store={store}>
     <IntlProvider locale="en" messages={en}>
       <NativeRouter>
-        <View style={style.container}>
-          <Route exact path="/" component={Loading} />
+        <View style={{ flex: 1 }}>
+          <StatusBar
+            translucent
+            barStyle="light-content"
+            animated
+          />
+          <Route exact path="/" component={Splash} />
         </View>
       </NativeRouter>
     </IntlProvider>
