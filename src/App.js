@@ -13,13 +13,21 @@ import {
 import {
   NativeRouter,
   Route,
-  Link,
 } from 'react-router-native'
 
 import store from './store'
 import en from './locales/en'
 
 import Splash from './modules/Login/components/Splash'
+import Loading from './modules/Shared/components/Loading'
+import PrivateRoute from './modules/Shared/components/PrivateRoute'
+
+// Fake authentication
+const getAuthToken = () => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(''), 2000)
+  });
+}
 
 const App = () =>
   <Provider store={store}>
@@ -31,7 +39,9 @@ const App = () =>
             barStyle="light-content"
             animated
           />
-          <Route exact path="/" component={Splash} />
+
+          <PrivateRoute exact path="/" component={Loading} getAuthToken={getAuthToken} />
+          <Route path="/login" component={Splash} />
         </View>
       </NativeRouter>
     </IntlProvider>
