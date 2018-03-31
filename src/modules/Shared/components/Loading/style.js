@@ -9,7 +9,7 @@ export default StyleSheet.create({
   },
 
   imageContainer: {
-    flex: 3,
+    flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
   },
