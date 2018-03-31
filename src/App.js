@@ -1,4 +1,7 @@
 import 'intl'
+import pt from 'react-intl/locale-data/pt';
+import { addLocaleData } from 'react-intl';
+addLocaleData([...pt]);
 
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -16,9 +19,9 @@ import {
 } from 'react-router-native'
 
 import store from './store'
-import en from './locales/en'
+import * as locales from './locales';
 
-import Splash from './modules/Login/components/Splash'
+import Splash from './modules/Login/containers/Splash'
 import Loading from './modules/Shared/components/Loading'
 import PrivateRoute from './modules/Shared/components/PrivateRoute'
 
@@ -31,7 +34,7 @@ const getAuthToken = () => {
 
 const App = () =>
   <Provider store={store}>
-    <IntlProvider locale="en" messages={en}>
+    <IntlProvider locale="en" messages={locales['en']}>
       <NativeRouter>
         <View style={{ flex: 1 }}>
           <StatusBar
@@ -41,6 +44,7 @@ const App = () =>
           />
 
           <PrivateRoute exact path="/" component={Loading} getAuthToken={getAuthToken} />
+          <Route path="/splash" component={Splash} />
           <Route path="/login" component={Splash} />
         </View>
       </NativeRouter>
