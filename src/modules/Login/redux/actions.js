@@ -37,6 +37,7 @@ export const pressAccess = ({ email, password }) =>
         }
 
         if (authToken) {
+          dispatch(authError({ message, error: 0 }))
           return dispatch(authSuccess({ authToken }))
         }
 

@@ -10,6 +10,8 @@ const mapStateToProps = ({
     inputs,
     calling,
     authToken,
+    message,
+    error,
   },
 },
 {
@@ -19,6 +21,8 @@ const mapStateToProps = ({
   inputs,
   calling,
   authToken,
+  message,
+  error,
 })
 
 const mapDispatchToProps = dispatch => ({

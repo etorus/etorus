@@ -41,7 +41,7 @@ export default StyleSheet.create({
   forgetPassword: {
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
-    fontWeight: '400',
+    fontWeight: '500',
     fontSize: 14,
     marginBottom: 36,
   },
@@ -60,6 +60,6 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontSize: 14,
     fontFamily: 'Branding',
-    fontWeight: '500',
+    fontWeight: '400',
   },
 })

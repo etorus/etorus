@@ -28,7 +28,7 @@ export default (
 
   switch (type) {
     case CHANGE_INPUT:
-      return { ...state, inputs: { ...inputs, [name]: value } }
+      return { ...state, inputs: { ...state.inputs, [name]: value } }
 
     case AUTH_CALLING:
       return { ...state, calling: true }
