@@ -28,6 +28,7 @@ const Form = ({ intl }) =>
     />
 
     <TextInput
+      autoCapitalize="none"
       secureTextEntry
       style={style.input}
       placeholder={intl.formatMessage({ id: 'login.form.placeholder_password' })}

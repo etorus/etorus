@@ -20,11 +20,9 @@ export const authRequest = ({ path, options }) => {
 }
 
 export const unauthRequest = ({ path, options }) => fetch(`${URI}${path}`, {
-  {
-    ...options,
-    headers: {
-      ...options.headers,
-      'Content-Type': 'application/json',
-    },
-  }
+  ...options,
+  headers: {
+    ...options.headers,
+    'Content-Type': 'application/json',
+  },
 })
