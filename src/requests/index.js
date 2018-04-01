@@ -1,7 +1,2 @@
-import auth from './auth'
-import * as base from './base'
-
-export {
-  ...base,
-  auth,
-}
+export { default as auth } from './auth'
+export { authRequest, unauthRequest, getAuthToken } from './base'

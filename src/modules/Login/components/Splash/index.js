@@ -1,18 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-native'
 
 import {
   View,
   Text,
   Image,
   StyleSheet,
-  TouchableHighlight,
 } from 'react-native'
 
 import style from './style'
 import background from '../../../../assets/images/background_login.png'
 import logo from '../../../../assets/images/complete_logo_white.png'
 
-const Splash = () =>
+import AlreadyRegisterButton from './AlreadyRegisterButton'
+import CreateAccountButton from './CreateAccountButton'
+
+const Splash = ({ intl }) =>
   <View style={style.container}>
     <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
 
@@ -21,21 +24,25 @@ const Splash = () =>
     </View>
 
     <Text style={style.text}>
-      {`Espaços de 30 minutos de \nmeditação coletiva`}
+      { intl.formatMessage({ id: 'login.splash.initial_message' }) }
     </Text>
 
     <View style={style.buttons}>
-      <TouchableHighlight style={style.primary}>
-        <Text style={style.textPrimary}>COMEÇAR AGORA</Text>
-      </TouchableHighlight>
+      <Link
+        to='/signup'
+        intl={intl}
+        component={CreateAccountButton}
+      />
 
       <Text style={style.textBetween}>
-        ou
+        { intl.formatMessage({ id: 'login.splash.or' }) }
       </Text>
 
-      <TouchableHighlight style={style.secondary}>
-        <Text style={style.textSecondary}>JÁ TENHO UMA CONTA</Text>
-      </TouchableHighlight>
+      <Link
+        to='/login'
+        intl={intl}
+        component={AlreadyRegisterButton}
+      />
     </View>
   </View>
 

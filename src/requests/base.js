@@ -9,6 +9,7 @@ export const authRequest = ({ path, options }) => {
     authToken => fetch(`${URI}${path}`,
       {
         ...options,
+        body: JSON.stringify(options.body),
         headers: {
           ...options.headers,
           'Content-Type': 'application/json',
@@ -20,11 +21,10 @@ export const authRequest = ({ path, options }) => {
 }
 
 export const unauthRequest = ({ path, options }) => fetch(`${URI}${path}`, {
-  {
-    ...options,
-    headers: {
-      ...options.headers,
-      'Content-Type': 'application/json',
-    },
-  }
+  ...options,
+  body: JSON.stringify(options.body),
+  headers: {
+    ...options.headers,
+    'Content-Type': 'application/json',
+  },
 })

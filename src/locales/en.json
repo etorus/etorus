@@ -1,0 +1,10 @@
+{
+  "login.splash.initial_message": "Sessions of 30 minutes of \ncollective meditation",
+  "login.splash.start_now": "Start now",
+  "login.splash.or": "or",
+  "login.splash.already_have_account": "Already have an account",
+  "login.form.placeholder_email": "Username or e-mail...",
+  "login.form.placeholder_password": "Password...",
+  "login.form.forget_my_password": "Forgot my password",
+  "login.form.access": "Access"
+}
