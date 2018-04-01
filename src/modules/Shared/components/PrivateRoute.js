@@ -28,7 +28,7 @@ class PrivateRoute extends PureComponent {
     if (this.state.authToken && this.state.authTokenCalled) {
       return <Component {...this.props} />
     } else if (!this.state.authToken && this.state.authTokenCalled) {
-      return <Redirect to={{ pathname: '/login' }} />
+      return <Redirect to={{ pathname: '/splash' }} />
     }
 
     return path === '/' ? <Loading /> : null

@@ -22,13 +22,14 @@ import store from './store'
 import * as locales from './locales';
 
 import Splash from './modules/Login/containers/Splash'
+import Form from './modules/Login/containers/Form'
 import Loading from './modules/Shared/components/Loading'
 import PrivateRoute from './modules/Shared/components/PrivateRoute'
 
 // Fake authentication
 const getAuthToken = () => {
   return new Promise(resolve => {
-    setTimeout(() => resolve(''), 2000)
+    setTimeout(() => resolve(''), 200)
   });
 }
 
@@ -45,7 +46,7 @@ const App = () =>
 
           <PrivateRoute exact path="/" component={Loading} getAuthToken={getAuthToken} />
           <Route path="/splash" component={Splash} />
-          <Route path="/login" component={Splash} />
+          <Route path="/login" component={Form} />
         </View>
       </NativeRouter>
     </IntlProvider>
