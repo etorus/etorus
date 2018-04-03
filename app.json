@@ -1,4 +1,6 @@
 {
   "name": "etorus",
-  "displayName": "etorus"
+  "displayName": "etorus",
+  "appVersion": "1.0",
+  "buildNumber": 1
 }
