@@ -1,0 +1,54 @@
+fastlane_version "2.89.0"
+default_platform :ios
+
+file = File.read('../app.json')
+appConfig = JSON.parse(file)
+
+platform :ios do
+  desc "Submit a new Beta Build to Apple TestFlight"
+  lane :beta do
+    match(type: "appstore", readonly: true)
+
+    increment_build_number(
+      xcodeproj: "./ios/etorus.xcodeproj",
+      build_number: appConfig["buildNumber"]
+    )
+
+    increment_version_number(
+      xcodeproj: "./ios/etorus.xcodeproj",
+      version_number: appConfig["appVersion"]
+    )
+
+    gym(
+      clean: true,
+      export_method: 'app-store',
+      project: "./ios/etorus.xcodeproj",
+      scheme: "etorus",
+      output_directory: "./build-tools/deploy/data"
+    )
+
+    testflight(
+      skip_submission: true
+    )
+  end
+end
+
+platform :android do
+  desc "Submit a new Beta Build to Google Store"
+  lane :beta do
+    gradle(
+      project_dir: "./android",
+      task: "assemble",
+      build_type: "Release",
+      properties: {
+        'versionCode' => appConfig["buildNumber"],
+        'versionName' => appConfig["appVersion"]
+      }
+    )
+
+    supply(
+      track: 'internal',
+      apk: './android/app/build/outputs/apk/app-release.apk'
+    )
+  end
+end
