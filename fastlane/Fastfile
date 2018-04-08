@@ -39,12 +39,16 @@ platform :android do
     gradle(
       project_dir: "./android",
       task: "assemble",
-      flavor: "defaultConfig",
       build_type: "Release",
       properties: {
         'versionCode' => appConfig["buildNumber"],
         'versionName' => appConfig["appVersion"]
       }
+    )
+
+    supply(
+      track: 'internal',
+      apk: './android/app/build/outputs/apk/app-release.apk'
     )
   end
 end
