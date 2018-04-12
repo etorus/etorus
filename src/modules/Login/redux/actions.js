@@ -6,7 +6,7 @@ import {
   AUTH_ERROR,
 } from './constants'
 
-import { auth } from '../../../requests'
+import { auth, facebook, loginFacebookSDK } from '../../../requests'
 
 export const changeInput = ({ name, value }) =>
   ({ type: CHANGE_INPUT, name, value })
@@ -49,6 +49,38 @@ export const pressAccess = ({ email, password }) =>
         )
       })
       .catch(
-        error => dispatch(authError({ message: error, error: 3 }))
+        ({ error: message }) => dispatch(authError({ message, error: 3 }))
       )
+  }
+
+export const pressFacebook = () =>
+  dispatch => {
+    dispatch(authCalling())
+
+    const error = payload => dispatch(authError(payload))
+    const success = data =>
+      facebook({ access_code: data.accessToken })
+        .then(response => response.json())
+        .then(({ message, auth_token: authToken }) => {
+          dispatch(authReceive())
+
+          if (message) {
+            return error({ message, error: 1 })
+          }
+
+          if (authToken) {
+            error({ message, error: 0 })
+            return dispatch(authSuccess({ authToken }))
+          }
+
+          return error({
+            message: `Message: ${message} - authToken: ${authToken}`,
+            error: 2,
+          })
+        })
+        .catch(
+          ({ error: message }) => error({ message, error: 3 })
+        )
+
+    loginFacebookSDK(success, error)
   }
