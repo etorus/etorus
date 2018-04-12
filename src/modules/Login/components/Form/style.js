@@ -9,6 +9,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: '#000',
     flexDirection: 'column',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
 
@@ -19,11 +20,14 @@ export default StyleSheet.create({
   },
 
   brand: {
-    marginTop: 68,
-    marginBottom: 40,
+    marginTop: 60,
     width: 170,
     height: 44,
     resizeMode: Image.resizeMode.contain,
+  },
+
+  inputs: {
+    alignItems: 'center',
   },
 
   input: {
@@ -43,7 +47,6 @@ export default StyleSheet.create({
     fontFamily: 'Branding',
     fontWeight: '400',
     fontSize: 14,
-    marginBottom: 36,
   },
 
   accessButton: {
@@ -61,5 +64,24 @@ export default StyleSheet.create({
     fontSize: 14,
     fontFamily: 'Branding',
     fontWeight: '400',
+  },
+
+  social: {
+    paddingTop: 100,
+    alignItems: 'center',
+  },
+
+  socialText: {
+    color: 'rgba(255, 255, 255, 1)',
+    fontSize: 13,
+    fontFamily: 'Branding',
+    fontWeight: '400',
+    marginBottom: 10,
+  },
+
+  buttons: {
+    flexWrap: 'wrap',
+    alignItems: 'stretch',
+    flexDirection: 'row',
   },
 })

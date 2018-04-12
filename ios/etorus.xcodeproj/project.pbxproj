@@ -42,8 +42,13 @@
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		D5070212161F4A0F9AEBFA82 /* Branding Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 39891D5DF2D24B32AFB269AC /* Branding Medium.otf */; };
-		D698E8C20E14461DA33CD31A /* Branding Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DF8147F896484D3098652BFA /* Branding Light.otf */; };
-		F9F9D1089E2342899F0F1920 /* Branding Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 84DC4A16BB2C45708408F8FD /* Branding Bold.otf */; };
+		5AB7480E206E422C8878DD79 /* Branding Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 14D74928C3CF47D9B0872C4D /* Branding Semibold.otf */; };
+		2C9029B35A224E329C17F9D3 /* Branding Semilight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 3ABD497B3E58462C87179336 /* Branding Semilight.otf */; };
+		6944D3936F584FCBBF42CDF7 /* Branding Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55388AA276284FD096CFCFE3 /* Branding Thin.otf */; };
+		AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 524E27B0FB2840C0B35DC73C /* libRCTFBSDK.a */; };
+		DC13859BA12742668C2D794A /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8EE085E7434026892E4954 /* FBSDKCoreKit.framework */; };
+		D2EEA23F9D774765BADD2A26 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BAA00931054853AEEEE8EA /* FBSDKShareKit.framework */; };
+		70DC82517BCC4C89AAB72866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB83E22B2D345EF84F5E45A /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,8 +359,18 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		84DC4A16BB2C45708408F8FD /* Branding Bold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Branding Bold.otf"; path = "../assets/fonts/Branding Bold.otf"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		D50987AED968447286EEAFB4 /* Branding Black.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Branding Black.otf"; path = "../assets/fonts/Branding Black.otf"; sourceTree = "<group>"; };
-		DF8147F896484D3098652BFA /* Branding Light.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Branding Light.otf"; path = "../assets/fonts/Branding Light.otf"; sourceTree = "<group>"; };
+		D50987AED968447286EEAFB4 /* Branding Black.otf */ = {isa = PBXFileReference; name = "Branding Black.otf"; path = "../assets/fonts/Branding Black.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		84DC4A16BB2C45708408F8FD /* Branding Bold.otf */ = {isa = PBXFileReference; name = "Branding Bold.otf"; path = "../assets/fonts/Branding Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		DF8147F896484D3098652BFA /* Branding Light.otf */ = {isa = PBXFileReference; name = "Branding Light.otf"; path = "../assets/fonts/Branding Light.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		39891D5DF2D24B32AFB269AC /* Branding Medium.otf */ = {isa = PBXFileReference; name = "Branding Medium.otf"; path = "../assets/fonts/Branding Medium.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		14D74928C3CF47D9B0872C4D /* Branding Semibold.otf */ = {isa = PBXFileReference; name = "Branding Semibold.otf"; path = "../assets/fonts/Branding Semibold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3ABD497B3E58462C87179336 /* Branding Semilight.otf */ = {isa = PBXFileReference; name = "Branding Semilight.otf"; path = "../assets/fonts/Branding Semilight.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		55388AA276284FD096CFCFE3 /* Branding Thin.otf */ = {isa = PBXFileReference; name = "Branding Thin.otf"; path = "../assets/fonts/Branding Thin.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		6C782F7052244BA381CFC7C9 /* RCTFBSDK.xcodeproj */ = {isa = PBXFileReference; name = "RCTFBSDK.xcodeproj"; path = "../node_modules/react-native-fbsdk/ios/RCTFBSDK.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		524E27B0FB2840C0B35DC73C /* libRCTFBSDK.a */ = {isa = PBXFileReference; name = "libRCTFBSDK.a"; path = "libRCTFBSDK.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1B8EE085E7434026892E4954 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; name = "FBSDKCoreKit.framework"; path = "./ios/Frameworks/FBSDKCoreKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		44BAA00931054853AEEEE8EA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; name = "FBSDKShareKit.framework"; path = "./ios/Frameworks/FBSDKShareKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		0CB83E22B2D345EF84F5E45A /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; name = "FBSDKLoginKit.framework"; path = "./ios/Frameworks/FBSDKLoginKit.framework"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,6 +399,10 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */,
+				DC13859BA12742668C2D794A /* FBSDKCoreKit.framework in Frameworks */,
+				D2EEA23F9D774765BADD2A26 /* FBSDKShareKit.framework in Frameworks */,
+				70DC82517BCC4C89AAB72866 /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +565,9 @@
 			isa = PBXGroup;
 			children = (
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				1B8EE085E7434026892E4954 /* FBSDKCoreKit.framework */,
+				44BAA00931054853AEEEE8EA /* FBSDKShareKit.framework */,
+				0CB83E22B2D345EF84F5E45A /* FBSDKLoginKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -583,6 +605,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				6C782F7052244BA381CFC7C9 /* RCTFBSDK.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -630,6 +653,29 @@
 			);
 			name = Products;
 			sourceTree = "<group>";
+		};
+		193B38C00F024EACA7322FA6 /* Resources */ = {
+			isa = "PBXGroup";
+			children = (
+				D50987AED968447286EEAFB4 /* Branding Black.otf */,
+				84DC4A16BB2C45708408F8FD /* Branding Bold.otf */,
+				DF8147F896484D3098652BFA /* Branding Light.otf */,
+				39891D5DF2D24B32AFB269AC /* Branding Medium.otf */,
+				14D74928C3CF47D9B0872C4D /* Branding Semibold.otf */,
+				3ABD497B3E58462C87179336 /* Branding Semilight.otf */,
+				55388AA276284FD096CFCFE3 /* Branding Thin.otf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+			path = "";
+		};
+		9BC5F1ED16C64016BAB778EB /* Frameworks */ = {
+			isa = "PBXGroup";
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+			path = ./ios/Frameworks;
 		};
 /* End PBXGroup section */
 
@@ -1219,6 +1265,15 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etorus.app/etorus";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Debug;
 		};
@@ -1236,6 +1291,15 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etorus.app/etorus";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Release;
 		};
@@ -1258,6 +1322,11 @@
 				PROVISIONING_PROFILE = "fe93b699-46bf-48df-a4bc-24f017e2a4bf";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.etorus.etorus";
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Debug;
 		};
@@ -1279,6 +1348,11 @@
 				PROVISIONING_PROFILE = "fe93b699-46bf-48df-a4bc-24f017e2a4bf";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.etorus.etorus";
 				VERSIONING_SYSTEM = "apple-generic";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Release;
 		};
@@ -1305,6 +1379,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Debug;
 		};
@@ -1331,6 +1414,15 @@
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../node_modules/react-native-fbsdk/ios/RCTFBSDK/**",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Release;
 		};
@@ -1352,6 +1444,11 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etorus-tvOS.app/etorus-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Debug;
 		};
@@ -1373,6 +1470,11 @@
 				SDKROOT = appletvos;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/etorus-tvOS.app/etorus-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+				);
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Release;
 		};
@@ -1414,6 +1516,7 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Debug;
 		};
@@ -1449,6 +1552,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 			};
 			name = Release;
 		};

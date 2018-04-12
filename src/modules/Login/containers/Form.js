@@ -1,7 +1,7 @@
 import { injectIntl } from 'react-intl'
 import { connect  } from 'react-redux'
 
-import { changeInput, pressAccess } from '../redux/actions'
+import { changeInput, pressAccess, pressFacebook } from '../redux/actions'
 
 import Form from '../components/Form'
 
@@ -31,6 +31,9 @@ const mapDispatchToProps = dispatch => ({
   },
   pressAccess({ email, password }) {
     dispatch(pressAccess({ email, password }))
+  },
+  pressFacebook() {
+    dispatch(pressFacebook())
   },
 })
 
