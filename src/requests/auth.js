@@ -24,11 +24,11 @@ export const loginFacebookSDK = (successAction, errorAction) =>
   LoginManager.logInWithReadPermissions(['public_profile']).then(
     result => {
       if (result.error) {
-        error({ error: 6, message: result.error })
+        return errorAction({ error: 6, message: result.error })
       }
 
       if (result.isCancelled) {
-        error({ error: 7, message: 'User cancel login' })
+        return errorAction({ error: 7, message: 'User cancel login' })
       }
 
       return AccessToken.getCurrentAccessToken().then(
@@ -38,7 +38,7 @@ export const loginFacebookSDK = (successAction, errorAction) =>
         error => errorAction({ error: 8, message: `catch AccessToken ${error}` })
       )
     },
-    error => {
+    (error) => {
       errorAction({ error: 9, message: `callback error LoginManager ${error}`})
       LoginManager.logOut()
       loginFacebookSDK(successAction, errorAction)
