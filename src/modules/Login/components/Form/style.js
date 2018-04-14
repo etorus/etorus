@@ -67,12 +67,13 @@ export default StyleSheet.create({
 
   social: {
     paddingTop: 100,
+    paddingBottom: 50,
     alignItems: 'center',
   },
 
   socialText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 13,
+    fontSize: 14,
     fontFamily: 'Branding',
     fontWeight: '400',
     marginBottom: 10,

@@ -8,7 +8,7 @@ import {
   AUTH_ERROR,
 } from './constants'
 
-import { auth, facebook, loginFacebookSDK } from '../../../requests'
+import { auth, facebook, loginFacebookSDK } from 'requests'
 
 export const changeInput = ({ name, value }) =>
   ({ type: CHANGE_INPUT, name, value })

@@ -9,9 +9,9 @@ import {
   TouchableHighlight,
 } from 'react-native'
 
-import logo from '../../../../assets/images/logo_horizontal_white.png'
-import menu from '../../../../assets/images/menu.png'
-import notification from '../../../../assets/images/notification.png'
+import logo from 'images/logo_horizontal_white.png'
+import menu from 'images/menu.png'
+import notification from 'images/notification.png'
 
 import style from './style'
 
