@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-native'
+import LinearGradient from 'react-native-linear-gradient'
 
 import {
   View,
@@ -14,7 +15,6 @@ import FacebookLogin from '../FacebookLogin'
 import GoogleLogin from '../GoogleLogin'
 
 import style from './style'
-import background from '../../../../assets/images/background_gradient.png'
 import logo from '../../../../assets/images/logo_horizontal_white.png'
 
 const Form = ({
@@ -31,7 +31,12 @@ const Form = ({
   pressFacebook,
 }) =>
   <View style={style.container}>
-    <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
+    <LinearGradient
+      style={[ StyleSheet.absoluteFill, style.background ]}
+      colors={['#b834bc', '#fdaa04']}
+      start={{ x: 0.5, y: 0.1 }} end={{ x: 0.8, y: 1.0 }}
+    />
+
     <Image source={logo} style={style.brand} />
 
     <View style={style.inputs}>

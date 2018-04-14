@@ -11,26 +11,25 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(240, 240, 240, 1)',
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
-
-  wrapper: {
-    height: 90,
-    width: Dimensions.get('screen').width,
   },
 
   background: {
     width: Dimensions.get('screen').width,
     height: 90,
-    resizeMode: Image.resizeMode.contain,
+  },
+
+  wrapper: {
+    height: 60,
+    padding: 15,
+    width: Dimensions.get('screen').width,
+    flexDirection: 'row',
   },
 
   brandContainer: {
-    flex: 1,
+    height: 30,
   },
 
   brand: {
-    marginTop: 90,
     height: 30,
     width: 113,
     resizeMode: Image.resizeMode.contain,

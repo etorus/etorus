@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import LinearGradient from 'react-native-linear-gradient'
+
 import {
   View,
   Text,
@@ -6,8 +8,7 @@ import {
   StyleSheet,
 } from 'react-native'
 
-import background from '../../../../assets/images/background_header.png'
-import logo from '../../../../assets/images/complete_logo_white.png'
+import logo from '../../../../assets/images/logo_horizontal_white.png'
 
 import style from './style'
 
@@ -15,7 +16,11 @@ class Header extends PureComponent {
   render() {
     return (
       <View style={style.header}>
-        <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
+        <LinearGradient
+          style={[ StyleSheet.absoluteFill, style.background ]}
+          colors={['#e47084', '#f79d24']}
+          start={{ x: 0.1, y: 0.5 }} end={{ x: 1, y: 0.5 }}
+        />
 
         <View style={style.wrapper}>
           <View style={style.brandContainer}>

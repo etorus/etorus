@@ -16,7 +16,6 @@ export default StyleSheet.create({
   background: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height,
-    resizeMode: Image.resizeMode.contain,
   },
 
   brand: {
