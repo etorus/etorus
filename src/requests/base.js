@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native'
+
 const URI = 'https://etorus-staging.herokuapp.com/'
 
 export const getAuthToken = async function () {
@@ -13,7 +15,7 @@ export const authRequest = ({ path, options }) => {
         headers: {
           ...options.headers,
           'Content-Type': 'application/json',
-          'Authorization': authToken,
+          'Authorization': `Bearer ${authToken}`,
         },
       }
     )

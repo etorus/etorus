@@ -18,17 +18,14 @@ import {
   Route,
 } from 'react-router-native'
 
+import { getAuthToken } from './requests/base'
+
 import store from './store'
 import * as locales from './locales';
 
+import Home from './modules/Home/components'
 import { Login, Splash } from './modules/Login'
 import { PrivateRoute, Loading }  from './modules/Shared'
-
-const getAuthToken = () => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(''), 200)
-  });
-}
 
 const App = () =>
   <Provider store={store}>
@@ -41,7 +38,7 @@ const App = () =>
             animated
           />
 
-          <PrivateRoute exact path="/" component={Loading} getAuthToken={getAuthToken} />
+          <PrivateRoute exact path="/" component={Home} getAuthToken={getAuthToken} />
           <Route path="/splash" component={Splash} />
           <Route path="/login" component={Login} />
         </View>

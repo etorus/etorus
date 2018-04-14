@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native'
+
 import {
   CHANGE_INPUT,
   AUTH_CALLING,
@@ -29,7 +31,7 @@ export const pressAccess = ({ email, password }) =>
 
     auth({ email, password })
       .then(response => response.json())
-      .then(({ message, auth_token: authToken }) => {
+      .then(async ({ message, auth_token: authToken }) => {
         dispatch(authReceive())
 
         if (message) {
@@ -38,6 +40,8 @@ export const pressAccess = ({ email, password }) =>
 
         if (authToken) {
           dispatch(authError({ message, error: 0 }))
+          await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
+
           return dispatch(authSuccess({ authToken }))
         }
 
@@ -49,7 +53,7 @@ export const pressAccess = ({ email, password }) =>
         )
       })
       .catch(
-        ({ error: message }) => dispatch(authError({ message, error: 3 }))
+        message => dispatch(authError({ message, error: 3 }))
       )
   }
 
@@ -61,7 +65,7 @@ export const pressFacebook = () =>
     const success = data =>
       facebook({ access_code: data.accessToken })
         .then(response => response.json())
-        .then(({ message, auth_token: authToken }) => {
+        .then(async ({ message, auth_token: authToken }) => {
           dispatch(authReceive())
 
           if (message) {
@@ -70,6 +74,8 @@ export const pressFacebook = () =>
 
           if (authToken) {
             error({ message, error: 0 })
+            await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
+
             return dispatch(authSuccess({ authToken }))
           }
 
@@ -79,7 +85,7 @@ export const pressFacebook = () =>
           })
         })
         .catch(
-          ({ error: message }) => error({ message, error: 3 })
+          message => error({ message, error: 3 })
         )
 
     loginFacebookSDK(success, error)
