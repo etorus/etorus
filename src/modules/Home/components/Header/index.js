@@ -6,9 +6,12 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableHighlight,
 } from 'react-native'
 
 import logo from '../../../../assets/images/logo_horizontal_white.png'
+import menu from '../../../../assets/images/menu.png'
+import notification from '../../../../assets/images/notification.png'
 
 import style from './style'
 
@@ -23,14 +26,16 @@ class Header extends PureComponent {
         />
 
         <View style={style.wrapper}>
-          <View style={style.brandContainer}>
-            <Image source={logo} style={style.brand} />
-          </View>
+          <Image source={logo} style={style.brand} />
 
-          <View style={style.notification}>
-          </View>
+          <View style={style.menuWrapper}>
+            <TouchableHighlight style={style.notification}>
+              <Image source={notification} style={style.notificationIcon} />
+            </TouchableHighlight>
 
-          <View style={style.menu}>
+            <TouchableHighlight style={style.menu}>
+              <Image source={menu} style={style.menuIcon} />
+            </TouchableHighlight>
           </View>
         </View>
       </View>
