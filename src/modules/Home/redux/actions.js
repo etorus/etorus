@@ -1,53 +1,41 @@
-import {
-  MEDITATIONS_CALLING,
-  MEDITATIONS_RECEIVE,
-  MEDITATIONS_SUCCESS,
-  MEDITATIONS_ERROR,
-  OPEN_NOTIFICATIONS,
-  CLOSE_NOTIFICATIONS
-  FILTER_STARTED,
-  FILTER_NEXT,
-  OPEN_MENU,
-  CLOSE_MENU,
-} from './constants'
-
+import * as constants from './constants'
 import { meditationsIndex } from 'requests'
 
 export const meditationCalling = () =>
-  ({ type: MEDITATION_CALLING })
+  ({ type: constants.MEDITATION_CALLING })
 
 export const meditationReceive = () =>
-  ({ type: MEDITATION_RECEIVE })
+  ({ type: constants.MEDITATION_RECEIVE })
 
 export const meditationSuccess = ({ meditations }) =>
-  ({ type: MEDITATION_SUCCESS, meditations })
+  ({ type: constants.MEDITATION_SUCCESS, meditations })
 
 export const meditationError = ({ error, message }) =>
-  ({ type: MEDITATION_ERROR, error, message })
+  ({ type: constants.MEDITATION_ERROR, error, message })
 
 export const openNotifications = () =>
-  ({ type: OPEN_NOTIFICATIONS })
+  ({ type: constants.OPEN_NOTIFICATIONS })
 
 export const closeNotifications = () =>
-  ({ type: CLOSE_NOTIFICATIONS })
+  ({ type: constants.CLOSE_NOTIFICATIONS })
 
 export const openMenu = () =>
-  ({ type: OPEN_MENU })
+  ({ type: constants.OPEN_MENU })
 
 export const closeMenu = () =>
-  ({ type: CLOSE_MENU })
+  ({ type: constants.CLOSE_MENU })
 
 export const filterStarted = () =>
-  ({ type: FILTER_STARTED })
+  ({ type: constants.FILTER_STARTED })
 
 export const filterNext = () =>
-  ({ type: FILTER_NEXT })
+  ({ type: constants.FILTER_NEXT })
 
 export const fetch = () =>
   dispatch => {
     dispatch(meditationCalling())
 
-    meditationsIndex()
+    return meditationsIndex()
       .then(response => response.json())
       .then(
         ({ message, data: meditations }) => {

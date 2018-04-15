@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a Loading correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "flexDirection": "column",
+      "justifyContent": "space-between",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "column",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/assets/images/complete_logo.png",
+        }
+      }
+      style={
+        Object {
+          "height": 145,
+          "resizeMode": "contain",
+          "width": 245,
+        }
+      }
+    />
+  </View>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Object {
+        "fontFamily": "Branding",
+        "fontSize": 10,
+        "fontWeight": "400",
+        "paddingBottom": 20,
+      }
+    }
+  >
+    Version 1.0.0
+  </Text>
+</View>
+`;

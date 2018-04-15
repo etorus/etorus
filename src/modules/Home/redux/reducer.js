@@ -1,15 +1,4 @@
-import {
-  MEDITATIONS_CALLING,
-  MEDITATIONS_RECEIVE,
-  MEDITATIONS_SUCCESS,
-  MEDITATIONS_ERROR,
-  OPEN_NOTIFICATIONS,
-  CLOSE_NOTIFICATIONS,
-  FILTER_STARTED,
-  FILTER_NEXT,
-  OPEN_MENU,
-  CLOSE_MENU,
-} from './constants'
+import * as constants from './constants'
 
 const initial = {
   meditations: [],
@@ -33,34 +22,34 @@ export default (
 
   switch (type) {
 
-    case MEDITATION_CALLING:
+    case constants.MEDITATION_CALLING:
       return { ...state, calling: true }
 
-    case MEDITATION_RECEIVE:
+    case constants.MEDITATION_RECEIVE:
       return { ...state, calling: false }
 
-    case MEDITATION_SUCCESS:
+    case constants.MEDITATION_SUCCESS:
       return { ...state, meditations }
 
-    case MEDITATION_ERROR:
+    case constants.MEDITATION_ERROR:
       return { ...state, message, error }
 
-    case OPEN_NOTIFICATIONS:
+    case constants.OPEN_NOTIFICATIONS:
       return { ...state, notification: true }
 
-    case CLOSE_NOTIFICATIONS:
+    case constants.CLOSE_NOTIFICATIONS:
       return { ...state, notification: false }
 
-    case OPEN_MENU:
+    case constants.OPEN_MENU:
       return { ...state, menu: true }
 
-    case CLOSE_MENU:
+    case constants.CLOSE_MENU:
       return { ...state, menu: false }
 
-    case FILTER_STARTED:
+    case constants.FILTER_STARTED:
       return { ...state, filter: FILTER_STARTED }
 
-    case FILTER_NEXT:
+    case constants.FILTER_NEXT:
       return { ...state, filter: FILTER_NEXT }
 
     default:
