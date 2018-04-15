@@ -7,7 +7,7 @@ const initial = {
   error: 0,
   notification: false,
   menu: false,
-  filter: FILTER_STARTED,
+  filter: constants.FILTER_STARTED,
 }
 
 export default (
@@ -47,10 +47,10 @@ export default (
       return { ...state, menu: false }
 
     case constants.FILTER_STARTED:
-      return { ...state, filter: FILTER_STARTED }
+      return { ...state, filter: constants.FILTER_STARTED }
 
     case constants.FILTER_NEXT:
-      return { ...state, filter: FILTER_NEXT }
+      return { ...state, filter: constants.FILTER_NEXT }
 
     default:
       return state

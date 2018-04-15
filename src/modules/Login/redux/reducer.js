@@ -1,10 +1,4 @@
-import {
-  CHANGE_INPUT,
-  AUTH_CALLING,
-  AUTH_RECEIVE,
-  AUTH_SUCCESS,
-  AUTH_ERROR,
-} from './constants'
+import * as constants from './constants'
 
 const initial = {
   inputs: {},
@@ -27,19 +21,19 @@ export default (
 ) => {
 
   switch (type) {
-    case CHANGE_INPUT:
+    case constants.CHANGE_INPUT:
       return { ...state, inputs: { ...state.inputs, [name]: value } }
 
-    case AUTH_CALLING:
+    case constants.AUTH_CALLING:
       return { ...state, calling: true }
 
-    case AUTH_RECEIVE:
+    case constants.AUTH_RECEIVE:
       return { ...state, calling: false }
 
-    case AUTH_SUCCESS:
+    case constants.AUTH_SUCCESS:
       return { ...state, authToken }
 
-    case AUTH_ERROR:
+    case constants.AUTH_ERROR:
       return { ...state, message, error }
 
     default:

@@ -1,35 +1,28 @@
 import { AsyncStorage } from 'react-native'
-
-import {
-  CHANGE_INPUT,
-  AUTH_CALLING,
-  AUTH_RECEIVE,
-  AUTH_SUCCESS,
-  AUTH_ERROR,
-} from './constants'
+import * as constants from './constants'
 
 import { auth, facebook, loginFacebookSDK } from 'requests'
 
 export const changeInput = ({ name, value }) =>
-  ({ type: CHANGE_INPUT, name, value })
+  ({ type: constants.CHANGE_INPUT, name, value })
 
 export const authCalling = () =>
-  ({ type: AUTH_CALLING })
+  ({ type: constants.AUTH_CALLING })
 
 export const authReceive = () =>
-  ({ type: AUTH_RECEIVE })
+  ({ type: constants.AUTH_RECEIVE })
 
 export const authSuccess = ({ authToken }) =>
-  ({ type: AUTH_SUCCESS, authToken })
+  ({ type: constants.AUTH_SUCCESS, authToken })
 
 export const authError = ({ error, message }) =>
-  ({ type: AUTH_ERROR, error, message })
+  ({ type: constants.AUTH_ERROR, error, message })
 
 export const pressAccess = ({ email, password }) =>
   dispatch => {
     dispatch(authCalling())
 
-    auth({ email, password })
+    return auth({ email, password })
       .then(response => response.json())
       .then(async ({ message, auth_token: authToken }) => {
         dispatch(authReceive())
@@ -39,7 +32,7 @@ export const pressAccess = ({ email, password }) =>
         }
 
         if (authToken) {
-          dispatch(authError({ message, error: 0 }))
+          dispatch(authError({ message: '', error: 0 }))
           await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
 
           return dispatch(authSuccess({ authToken }))
@@ -73,7 +66,7 @@ export const pressFacebook = () =>
           }
 
           if (authToken) {
-            error({ message, error: 0 })
+            error({ message: '', error: 0 })
             await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
 
             return dispatch(authSuccess({ authToken }))
@@ -88,5 +81,5 @@ export const pressFacebook = () =>
           message => error({ message, error: 3 })
         )
 
-    loginFacebookSDK(success, error)
+    return loginFacebookSDK(success, error)
   }
