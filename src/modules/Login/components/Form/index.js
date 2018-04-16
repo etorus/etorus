@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { Link } from 'react-router-native'
 import LinearGradient from 'react-native-linear-gradient'
 
 import {
@@ -20,7 +19,6 @@ import logo from 'images/logo_horizontal_white.png'
 class Form extends PureComponent {
   render() {
     const {
-      intl,
       inputs: {
         password,
         email,
@@ -28,6 +26,8 @@ class Form extends PureComponent {
       authToken,
       error,
       message,
+      intl,
+      navigation,
       changeInput,
       pressAccess,
       pressFacebook,
@@ -62,16 +62,16 @@ class Form extends PureComponent {
             underlineColorAndroid="transparent"
           />
 
-          <Link to="/password-recovery">
+          <TouchableHighlight>
             <Text style={style.forgetPassword}>
               {intl.formatMessage({ id: 'login.form.forget_my_password' })}
             </Text>
-          </Link>
+          </TouchableHighlight>
         </View>
 
         <TouchableHighlight
           style={style.accessButton}
-          onPress={() => pressAccess({ email, password })}>
+          onPress={() => pressAccess({ email, password, navigation })}>
           <Text style={style.accessText}>
             { intl.formatMessage({ id: 'login.form.access' }).toUpperCase() }
           </Text>

@@ -31,25 +31,33 @@ export const filterStarted = () =>
 export const filterNext = () =>
   ({ type: constants.FILTER_NEXT })
 
-export const fetch = () =>
+export const fetch = ({ navigation }) =>
   dispatch => {
     dispatch(meditationCalling())
 
-    return meditationsIndex()
-      .then(response => response.json())
+    return meditationsIndex({ navigation })
       .then(
-        ({ message, data: meditations }) => {
+        ({ message, data: meditations, included }) => {
           dispatch(meditationReceive())
+
+          const meditationsUsers = meditations.map(meditation => (
+            {
+              ...meditation,
+              user: included.find(
+                user => user.id === meditation.relationships.user.data.id
+              ),
+            }
+          ))
 
           if (message) {
             return dispatch(meditationError({ error: 1, message }))
           }
 
           dispatch(meditationError({ error: 0, message: '' }))
-          return dispatch(meditationSuccess({ meditations }))
+          return dispatch(meditationSuccess({ meditations: meditationsUsers }))
         },
         error => dispatch(meditationError({ error: 2, message: error }))
       ).catch(
-        error => dispatch(meditationError({ error: 3, message: error }))
+        message => meditationError({ message, error: 3 })
       )
   }

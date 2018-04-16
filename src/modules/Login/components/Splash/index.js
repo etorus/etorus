@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { Link } from 'react-router-native'
 
 import {
   View,
@@ -32,21 +31,13 @@ class Splash extends PureComponent {
         </Text>
 
         <View style={style.buttons}>
-          <Link
-            to='/signup'
-            intl={intl}
-            component={CreateAccountButton}
-          />
+          <CreateAccountButton intl={intl} />
 
           <Text style={style.textBetween}>
             { intl.formatMessage({ id: 'login.splash.or' }) }
           </Text>
 
-          <Link
-            to='/login'
-            intl={intl}
-            component={AlreadyRegisterButton}
-          />
+          <AlreadyRegisterButton intl={intl} />
         </View>
       </View>
     )

@@ -18,13 +18,13 @@ export const authSuccess = ({ authToken }) =>
 export const authError = ({ error, message }) =>
   ({ type: constants.AUTH_ERROR, error, message })
 
-export const pressAccess = ({ email, password }) =>
+export const pressAccess = ({ email, password, navigation }) =>
   dispatch => {
     dispatch(authCalling())
 
     return auth({ email, password })
       .then(response => response.json())
-      .then(async ({ message, auth_token: authToken }) => {
+      .then(({ message, auth_token: authToken }) => {
         dispatch(authReceive())
 
         if (message) {
@@ -33,9 +33,11 @@ export const pressAccess = ({ email, password }) =>
 
         if (authToken) {
           dispatch(authError({ message: '', error: 0 }))
-          await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
 
-          return dispatch(authSuccess({ authToken }))
+          return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => {
+            dispatch(authSuccess({ authToken }))
+            return navigation.navigate('App')
+          })
         }
 
         return dispatch(
@@ -67,7 +69,7 @@ export const pressFacebook = () =>
 
           if (authToken) {
             error({ message: '', error: 0 })
-            await AsyncStorage.setItem('@EtorusStorage:AuthToken', authToken)
+            await AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken)
 
             return dispatch(authSuccess({ authToken }))
           }

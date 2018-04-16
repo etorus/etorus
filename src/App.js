@@ -1,7 +1,7 @@
 import 'intl'
-import pt from 'react-intl/locale-data/pt';
-import { addLocaleData } from 'react-intl';
-addLocaleData([...pt]);
+import pt from 'react-intl/locale-data/pt'
+import { addLocaleData } from 'react-intl'
+addLocaleData([...pt])
 
 import React from 'react'
 import { Provider } from 'react-redux'
@@ -14,35 +14,60 @@ import {
 } from 'react-native'
 
 import {
-  NativeRouter,
-  Route,
-} from 'react-router-native'
+  StackNavigator,
+  SwitchNavigator,
+} from 'react-navigation'
 
 import { getAuthToken } from './requests/base'
 
 import store from './store'
-import * as locales from './locales';
+import * as locales from './locales'
 
-import Home from './modules/Home/components'
+import Home from './modules/Home'
 import { Login, Splash } from './modules/Login'
-import { PrivateRoute, Loading }  from './modules/Shared'
+import { Loading }  from './modules/Shared'
+
+const AppStack = StackNavigator(
+  {
+    Home,
+  },
+  {
+    headerMode: 'none',
+  }
+)
+
+const AuthStack = StackNavigator(
+  {
+    Login,
+    Splash,
+  },
+  {
+    headerMode: 'none',
+  }
+)
+
+const Navigation = SwitchNavigator(
+  {
+    AuthLoading: Loading,
+    App: AppStack,
+    Auth: AuthStack,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  }
+)
 
 const App = () =>
   <Provider store={store}>
-    <IntlProvider locale="en" messages={locales['en']}>
-      <NativeRouter>
-        <View style={{ flex: 1 }}>
-          <StatusBar
-            translucent
-            barStyle="light-content"
-            animated
-          />
-
-          <PrivateRoute exact path="/" component={Home} getAuthToken={getAuthToken} />
-          <Route path="/splash" component={Splash} />
-          <Route path="/login" component={Login} />
-        </View>
-      </NativeRouter>
+    <IntlProvider locale="en" messages={locales['pt']}>
+      <View style={{ flex: 1 }}>
+        <StatusBar
+          barStyle="light-content"
+          animated
+          backgroundColor="#c64d96"
+        />
+        <Navigation />
+      </View>
     </IntlProvider>
   </Provider>
 

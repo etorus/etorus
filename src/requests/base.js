@@ -4,11 +4,11 @@ import { AsyncStorage } from 'react-native'
 const URI = 'https://etorus-staging.herokuapp.com'
 
 export const getAuthToken = async () => {
-  const authToken = AsyncStorage.getItem('@EtorusStorage:AuthToken')
+  const authToken = AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
   return await authToken
 }
 
-export const authRequest = ({ path, options }) => {
+export const authRequest = ({ path, options, navigation }) => {
   return getAuthToken().then(
     authToken => fetch(`${URI}${path}`,
       {
@@ -20,7 +20,15 @@ export const authRequest = ({ path, options }) => {
           'Authorization': `Bearer ${authToken}`,
         },
       }
-    )
+    ).then(response => {
+      if (response.ok) {
+        return response.json()
+      }
+
+      return AsyncStorage.clear(() => {
+        return navigation.navigate('Auth')
+      })
+    })
   )
 }
 

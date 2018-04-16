@@ -3,12 +3,23 @@ import {
   View,
   Text,
   Image,
+  AsyncStorage,
 } from 'react-native'
 
 import style from './style'
 import completeLogo from 'images/complete_logo.png'
 
 class Loading extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.fetchAuthToken()
+  }
+
+  fetchAuthToken = async () => {
+    const authToken = await AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
+    this.props.navigation.navigate(authToken ? 'App' : 'Auth')
+  }
+
   render() {
     return (
       <View style={style.container}>
