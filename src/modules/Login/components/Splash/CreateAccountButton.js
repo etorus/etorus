@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import {
   Text,
   TouchableHighlight,
@@ -6,11 +6,18 @@ import {
 
 import style from './style'
 
-const CreateAccountButton = ({ intl, onPress }) =>
-  <TouchableHighlight style={style.primary} onPress={onPress}>
-    <Text style={style.textPrimary}>
-      { intl.formatMessage({ id: 'login.splash.start_now' }).toUpperCase() }
-    </Text>
-  </TouchableHighlight>
+class CreateAccountButton extends PureComponent {
+  render() {
+    const { intl, onPress } = this.props
+
+    return (
+      <TouchableHighlight style={style.primary} onPress={onPress}>
+        <Text style={style.textPrimary}>
+          { intl.formatMessage({ id: 'login.splash.start_now' }).toUpperCase() }
+        </Text>
+      </TouchableHighlight>
+    )
+  }
+}
 
 export default CreateAccountButton

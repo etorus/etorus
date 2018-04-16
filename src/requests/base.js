@@ -1,11 +1,15 @@
-const URI = 'https://etorus-staging.herokuapp.com/'
+import { AsyncStorage } from 'react-native'
 
-export const getAuthToken = async function () {
-  return await AsyncStorage.getItem('@EtorusStorage:AuthToken')
+// TODO: Change to an env variable
+const URI = 'https://etorus-staging.herokuapp.com'
+
+export const getAuthToken = async () => {
+  const authToken = AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
+  return await authToken
 }
 
-export const authRequest = ({ path, options }) => {
-  return getAuthToken.then(
+export const authRequest = ({ path, options, navigation }) => {
+  return getAuthToken().then(
     authToken => fetch(`${URI}${path}`,
       {
         ...options,
@@ -13,10 +17,18 @@ export const authRequest = ({ path, options }) => {
         headers: {
           ...options.headers,
           'Content-Type': 'application/json',
-          'Authorization': authToken,
+          'Authorization': `Bearer ${authToken}`,
         },
       }
-    )
+    ).then(response => {
+      if (response.ok) {
+        return response.json()
+      }
+
+      return AsyncStorage.clear(() => {
+        return navigation.navigate('Auth')
+      })
+    })
   )
 }
 

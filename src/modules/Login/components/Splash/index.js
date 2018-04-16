@@ -1,5 +1,4 @@
-import React from 'react'
-import { Link } from 'react-router-native'
+import React, { PureComponent } from 'react'
 
 import {
   View,
@@ -9,41 +8,40 @@ import {
 } from 'react-native'
 
 import style from './style'
-import background from '../../../../assets/images/background_login.png'
-import logo from '../../../../assets/images/complete_logo_white.png'
+import background from 'images/background_login.png'
+import logo from 'images/complete_logo_white.png'
 
 import AlreadyRegisterButton from './AlreadyRegisterButton'
 import CreateAccountButton from './CreateAccountButton'
 
-const Splash = ({ intl }) =>
-  <View style={style.container}>
-    <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
+class Splash extends PureComponent {
+  render() {
+    const { intl } = this.props
 
-    <View stye={style.imageContainer}>
-      <Image source={logo} style={style.brand} />
-    </View>
+    return (
+      <View style={style.container}>
+        <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
 
-    <Text style={style.text}>
-      { intl.formatMessage({ id: 'login.splash.initial_message' }) }
-    </Text>
+        <View stye={style.imageContainer}>
+          <Image source={logo} style={style.brand} />
+        </View>
 
-    <View style={style.buttons}>
-      <Link
-        to='/signup'
-        intl={intl}
-        component={CreateAccountButton}
-      />
+        <Text style={style.text}>
+          { intl.formatMessage({ id: 'login.splash.initial_message' }) }
+        </Text>
 
-      <Text style={style.textBetween}>
-        { intl.formatMessage({ id: 'login.splash.or' }) }
-      </Text>
+        <View style={style.buttons}>
+          <CreateAccountButton intl={intl} />
 
-      <Link
-        to='/login'
-        intl={intl}
-        component={AlreadyRegisterButton}
-      />
-    </View>
-  </View>
+          <Text style={style.textBetween}>
+            { intl.formatMessage({ id: 'login.splash.or' }) }
+          </Text>
+
+          <AlreadyRegisterButton intl={intl} />
+        </View>
+      </View>
+    )
+  }
+}
 
 export default Splash

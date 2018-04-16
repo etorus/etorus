@@ -1,5 +1,6 @@
 import { injectIntl } from 'react-intl'
-import { connect  } from 'react-redux'
+import { connect } from 'react-redux'
+import { compose } from 'redux'
 
 import { changeInput, pressAccess, pressFacebook } from '../redux/actions'
 
@@ -16,32 +17,35 @@ const mapStateToProps = ({
 },
 {
   intl,
+  navigation,
 }) => ({
-  intl,
   inputs,
   calling,
   authToken,
   message,
   error,
+  intl,
+  navigation,
 })
 
 const mapDispatchToProps = dispatch => ({
   changeInput({ name, value }) {
     dispatch(changeInput({ name, value }))
   },
-  pressAccess({ email, password }) {
-    dispatch(pressAccess({ email, password }))
+  pressAccess({ email, password, navigation }) {
+    dispatch(pressAccess({ email, password, navigation }))
   },
   pressFacebook() {
     dispatch(pressFacebook())
   },
 })
 
-const InjectedIntlForm = injectIntl(Form)
-
-const FormContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(InjectedIntlForm)
+const FormContainer = compose(
+  injectIntl,
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )
+)(Form)
 
 export default FormContainer

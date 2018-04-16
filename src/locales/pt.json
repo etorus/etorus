@@ -6,5 +6,8 @@
   "login.form.placeholder_email": "Usuário ou e-mail...",
   "login.form.placeholder_password": "Senha...",
   "login.form.forget_my_password": "Esqueci minha senha",
-  "login.form.access": "Acessar"
+  "login.form.access": "Acessar",
+  "login.form.social_access": "Entrar pelas redes sociais com um toque",
+  "login.form.facebook": "Facebook",
+  "login.form.google": "Google"
 }

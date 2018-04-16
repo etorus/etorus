@@ -16,7 +16,6 @@ export default StyleSheet.create({
   background: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height,
-    resizeMode: Image.resizeMode.contain,
   },
 
   brand: {
@@ -68,12 +67,13 @@ export default StyleSheet.create({
 
   social: {
     paddingTop: 100,
+    paddingBottom: 50,
     alignItems: 'center',
   },
 
   socialText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 13,
+    fontSize: 14,
     fontFamily: 'Branding',
     fontWeight: '400',
     marginBottom: 10,
