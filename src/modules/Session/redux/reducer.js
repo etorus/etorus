@@ -1,7 +1,7 @@
 import * as constants from './constants'
 
 const initial = {
-  session: {},
+  meditation: {},
   calling: false,
   message: '',
   error: 0,
@@ -11,7 +11,7 @@ export default (
   state = initial,
   {
     type,
-    session,
+    meditation,
     message,
     error,
   }
@@ -24,7 +24,7 @@ export default (
       return { ...state, calling: false }
 
     case constants.SESSION_SUCCESS:
-      return { ...state, session }
+      return { ...state, meditation }
 
     case constants.SESSION_ERROR:
       return { ...state, message, error }

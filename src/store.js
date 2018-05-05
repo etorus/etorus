@@ -8,11 +8,13 @@ import {
 
 import { reducer as login } from './modules/Login'
 import { reducer as home } from './modules/Home'
+import { reducer as session } from './modules/Session'
 
 const store = createStore(
   combineReducers({
     login,
     home,
+    session,
   }),
   applyMiddleware(thunk),
 )

@@ -5,8 +5,6 @@ import {
   ActivityIndicator,
 } from 'react-native'
 
-import Sound from 'react-native-sound'
-
 import Extra from './Extra'
 import Header from './Header'
 import Info from './Info'
