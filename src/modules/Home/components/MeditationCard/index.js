@@ -8,6 +8,8 @@ import {
   StyleSheet,
 } from 'react-native'
 
+import { ProgressBar } from 'modules/Shared'
+
 import style from './style'
 
 import background from 'images/lotus_image.png'
@@ -62,15 +64,7 @@ class MeditationCard extends PureComponent {
 
           </View>
 
-          <View style={style.progressBar}>
-            <LinearGradient
-              style={style.progressBarGradient}
-              colors={['#f09526', '#c64d96']}
-              start={{ x: 0.1, y: 0.5 }} end={{ x: 1, y: 0.5 }}
-            >
-              <Text style={style.progressBarText}>30min</Text>
-            </LinearGradient>
-          </View>
+          <ProgressBar style={style} label="30min" />
         </View>
       </View>
     )

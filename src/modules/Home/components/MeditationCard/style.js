@@ -99,7 +99,6 @@ export default StyleSheet.create({
     width: Dimensions.get('screen').width - 130,
     height: 14,
     borderRadius: 7,
-    backgroundColor: 'rgba(220, 220, 220, 1)'
   },
 
   progressBarGradient: {
@@ -107,15 +106,9 @@ export default StyleSheet.create({
     width: (Dimensions.get('screen').width - 130) * 0.50,
     height: 14,
     borderRadius: 7,
-    justifyContent: 'center',
-    flexDirection:'column',
-    alignItems: 'center',
   },
 
   progressBarText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontFamily: 'Branding',
-    fontWeight: '700',
-    fontSize: 9,
-  }
+  },
 })
