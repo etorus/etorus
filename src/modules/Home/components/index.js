@@ -35,7 +35,11 @@ class Home extends PureComponent {
             calling
               ? <ActivityIndicator size="small" color="#c64d96" />
               : meditations.map(item => (
-                <TouchableHighlight onPress={this.go(item.id)} key={item.id}>
+                <TouchableHighlight
+                  onPress={this.go(item.id)}
+                  key={item.id}
+                  style={style.item}
+                >
                   <MeditationCard meditation={item} />
                 </TouchableHighlight>
               ))

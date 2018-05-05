@@ -7,7 +7,7 @@ export default StyleSheet.create({
 
   progressBarGradient: {
     justifyContent: 'center',
-    flexDirection:'column',
+    flexDirection: 'column',
     alignItems: 'center',
   },
 

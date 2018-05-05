@@ -4,13 +4,11 @@ export default StyleSheet.create({
   cardShadow: {
     height: 114,
     width: Dimensions.get('screen').width - 22,
-    marginLeft: 11,
     borderRadius: 4,
     shadowOpacity: 0.3,
     shadowRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 1)',
     shadowOffset: { height: 0, width: 0 },
-    marginBottom: 11,
   },
 
   card: {

@@ -5,4 +5,10 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(240, 240, 240, 1)',
   },
+
+  item: {
+    marginLeft: 11,
+    marginBottom: 11,
+    marginRight: 11,
+  },
 })
