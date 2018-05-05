@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 import * as constants from './constants'
 
-import { auth, facebook, loginFacebookSDK } from 'requests'
+import { auth, facebook, loginFacebookSDK } from 'requests/auth'
 
 export const changeInput = ({ name, value }) =>
   ({ type: constants.CHANGE_INPUT, name, value })

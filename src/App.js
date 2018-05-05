@@ -24,12 +24,14 @@ import store from './store'
 import * as locales from './locales'
 
 import Home from './modules/Home'
+import Session from './modules/Session'
 import { Login, Splash } from './modules/Login'
 import { Loading }  from './modules/Shared'
 
 const AppStack = StackNavigator(
   {
     Home,
+    Session,
   },
   {
     headerMode: 'none',

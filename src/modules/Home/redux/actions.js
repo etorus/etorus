@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import { meditationsIndex } from 'requests'
+import { index } from 'requests/meditation'
 
 export const meditationCalling = () =>
   ({ type: constants.MEDITATION_CALLING })
@@ -35,7 +35,7 @@ export const fetch = ({ navigation }) =>
   dispatch => {
     dispatch(meditationCalling())
 
-    return meditationsIndex({ navigation })
+    return index({ navigation })
       .then(
         ({ message, data: meditations, included }) => {
           dispatch(meditationReceive())

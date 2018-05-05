@@ -1,5 +1,9 @@
 import React, { PureComponent } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import {
+  View,
+  ActivityIndicator,
+  TouchableHighlight,
+} from 'react-native'
 
 import style from './style'
 
@@ -12,10 +16,14 @@ class Home extends PureComponent {
     this.props.fetch({ navigation: this.props.navigation })
   }
 
+  go = id =>
+    () => this.props.navigation.navigate('Session', { sessionId: id })
+
   render() {
     const {
       meditations,
       calling,
+      navigation,
     } = this.props
 
     return (
@@ -26,7 +34,11 @@ class Home extends PureComponent {
           {
             calling
               ? <ActivityIndicator size="small" color="#c64d96" />
-              : meditations.map(item => <MeditationCard meditation={item} key={item.id}/>)
+              : meditations.map(item => (
+                <TouchableHighlight onPress={this.go(item.id)} key={item.id}>
+                  <MeditationCard meditation={item} />
+                </TouchableHighlight>
+              ))
           }
         </View>
       </View>
