@@ -1,7 +1,12 @@
 import * as constants from './constants'
 
 const initial = {
-  meditation: {},
+  meditation: {
+    attributes: {},
+    user: {
+      attributes: {},
+    }
+  },
   calling: false,
   message: '',
   error: 0,

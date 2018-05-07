@@ -17,6 +17,18 @@ class Session extends PureComponent {
     const {
       currentTime,
       progressPercent,
+      meditation: {
+        attributes: {
+          title,
+          audio,
+        },
+
+        user: {
+          attributes: {
+            name: owner,
+          },
+        },
+      }
     } = this.props
 
     return (
@@ -25,9 +37,9 @@ class Session extends PureComponent {
 
         <View style={style.wrapper}>
           <Info
-            owner="Vinícius Palma"
-            title="Meditação coletiva de Santos"
-            audio="Meditation for life"
+            owner={owner}
+            title={title}
+            audio={audio}
           />
 
           <ProgressArea label={currentTime} progressPercent={progressPercent} />

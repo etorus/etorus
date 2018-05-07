@@ -2,7 +2,8 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   progressBar: {
-    backgroundColor: 'rgba(220, 220, 220, 1)'
+    backgroundColor: 'rgba(220, 220, 220, 1)',
+    overflow: 'hidden',
   },
 
   progressBarGradient: {
