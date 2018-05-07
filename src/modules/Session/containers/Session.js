@@ -14,6 +14,7 @@ class Container extends PureComponent {
   state = {
     audio: null,
     duration: 0,
+    currentTime: 0,
   }
 
   componentDidMount() {
@@ -22,7 +23,11 @@ class Container extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (!this.state.calling && !this.state.audio) {
+    if (
+      !this.state.calling &&
+      !this.state.audio &&
+      !this.timer
+    ) {
       const audio = new Sound(
         'es.mp3',
         Sound.MAIN_BUNDLE,
@@ -30,9 +35,17 @@ class Container extends PureComponent {
           if (error) { return console.log(error) }
 
           this.setState({ audio, duration })
+
+          this.timer = setInterval(() => this.tick(), 1000)
         }
       )
     }
+  }
+
+  tick() {
+    this.state.audio.getCurrentTime(
+      (seconds) => this.setState({ currentTime: seconds / 60 })
+    )
   }
 
   componentWillUnmount() {
@@ -50,13 +63,24 @@ class Container extends PureComponent {
     const {
       audio,
       duration,
+      currentTime,
     } = this.state
 
     if (audio && audio.isLoaded()) {
       audio.play()
     }
 
-    return <Session {...this.props} />
+    const minutes = currentTime.toString().split('.')[0]
+    const normalizedMinutes = minutes === "0" ? minutes : `${minutes}min`
+
+    const progressPercent = ((currentTime / 100) * duration) / 100
+
+    return (
+      <Session {...this.props}
+        currentTime={normalizedMinutes}
+        progressPercent={progressPercent}
+      />
+    )
   }
 }
 

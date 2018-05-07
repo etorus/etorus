@@ -14,6 +14,11 @@ import style from './style'
 
 class Session extends PureComponent {
   render() {
+    const {
+      currentTime,
+      progressPercent,
+    } = this.props
+
     return (
       <View style={style.session}>
         <Header />
@@ -25,7 +30,7 @@ class Session extends PureComponent {
             audio="Meditation for life"
           />
 
-          <ProgressArea label="25min" />
+          <ProgressArea label={currentTime} progressPercent={progressPercent} />
 
           <Extra />
         </View>
