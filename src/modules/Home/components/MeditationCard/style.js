@@ -4,13 +4,11 @@ export default StyleSheet.create({
   cardShadow: {
     height: 114,
     width: Dimensions.get('screen').width - 22,
-    marginLeft: 11,
     borderRadius: 4,
     shadowOpacity: 0.3,
     shadowRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 1)',
     shadowOffset: { height: 0, width: 0 },
-    marginBottom: 11,
   },
 
   card: {
@@ -99,7 +97,6 @@ export default StyleSheet.create({
     width: Dimensions.get('screen').width - 130,
     height: 14,
     borderRadius: 7,
-    backgroundColor: 'rgba(220, 220, 220, 1)'
   },
 
   progressBarGradient: {
@@ -107,15 +104,9 @@ export default StyleSheet.create({
     width: (Dimensions.get('screen').width - 130) * 0.50,
     height: 14,
     borderRadius: 7,
-    justifyContent: 'center',
-    flexDirection:'column',
-    alignItems: 'center',
   },
 
   progressBarText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontFamily: 'Branding',
-    fontWeight: '700',
-    fontSize: 9,
-  }
+  },
 })

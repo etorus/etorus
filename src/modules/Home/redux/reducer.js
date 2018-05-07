@@ -19,9 +19,7 @@ export default (
     error,
   }
 ) => {
-
   switch (type) {
-
     case constants.MEDITATION_CALLING:
       return { ...state, calling: true }
 
@@ -55,5 +53,4 @@ export default (
     default:
       return state
   }
-
 }
