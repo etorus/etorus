@@ -1,3 +1,6 @@
+import moment from 'moment'
+import 'moment/locale/pt'
+
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -5,6 +8,16 @@ import { compose } from 'redux'
 import  * as actions from '../redux/actions'
 
 import Home from '../components'
+
+moment.locale('pt-BR')
+
+const filterMeditationsStarted = meditations => {
+  const fiveMinutesAgo = moment().subtract(5, 'minutes')
+
+  return meditations.filter(
+    ({ attributes: { start } }) => moment(start).isAfter(fiveMinutesAgo)
+  )
+}
 
 const mapStateToProps = ({
   home: {
@@ -18,7 +31,7 @@ const mapStateToProps = ({
   intl,
   navigation,
 }) => ({
-  meditations,
+  meditations: filterMeditationsStarted(meditations),
   calling,
   message,
   error,

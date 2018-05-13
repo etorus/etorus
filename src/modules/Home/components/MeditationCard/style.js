@@ -9,6 +9,9 @@ export default StyleSheet.create({
     shadowRadius: 5,
     shadowColor: 'rgba(0, 0, 0, 1)',
     shadowOffset: { height: 0, width: 0 },
+    marginLeft: 11,
+    marginBottom: 11,
+    marginRight: 11,
   },
 
   card: {

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import {
   View,
   ActivityIndicator,
-  TouchableHighlight,
+  FlatList,
 } from 'react-native'
 
 import style from './style'
@@ -26,6 +26,10 @@ class Home extends PureComponent {
       navigation,
     } = this.props
 
+    const data = meditations.map(
+      meditation => ({ ...meditation, key: meditation.id })
+    )
+
     return (
       <View style={style.home}>
         <Header />
@@ -34,15 +38,13 @@ class Home extends PureComponent {
           {
             calling
               ? <ActivityIndicator size="small" color="#c64d96" />
-              : meditations.map(item => (
-                <TouchableHighlight
-                  onPress={this.go(item.id)}
-                  key={item.id}
-                  style={style.item}
-                >
-                  <MeditationCard meditation={item} />
-                </TouchableHighlight>
-              ))
+              : <FlatList
+                data={data}
+                renderItem={
+                  ({ item }) =>
+                    <MeditationCard meditation={item} go={this.go} />
+                }
+              />
           }
         </View>
       </View>

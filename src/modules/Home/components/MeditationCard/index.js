@@ -6,6 +6,7 @@ import {
   Text,
   Image,
   StyleSheet,
+  TouchableOpacity,
 } from 'react-native'
 
 import { ProgressBar } from 'modules/Shared'
@@ -18,7 +19,9 @@ import avatar from 'images/avatar.jpg'
 class MeditationCard extends PureComponent {
   render() {
     const {
+      go: onPress,
       meditation: {
+        id,
         attributes: {
           title,
         },
@@ -32,41 +35,43 @@ class MeditationCard extends PureComponent {
     } = this.props
 
     return(
-      <View style={style.cardShadow}>
-        <View style={style.card}>
-          <Image source={background} style={style.background} />
+      <TouchableOpacity onPress={onPress(id)}>
+        <View style={style.cardShadow}>
+          <View style={style.card}>
+            <Image source={background} style={style.background} />
 
-          <Text style={style.owner}>
-            Sessão do { name }
-          </Text>
-          <Text style={style.title}>
-            { title }
-          </Text>
+            <Text style={style.owner}>
+              Sessão do { name }
+            </Text>
+            <Text style={style.title}>
+              { title }
+            </Text>
 
-          <View style={style.participants}>
-            <Text style={style.participantsText}>Participando</Text>
+            <View style={style.participants}>
+              <Text style={style.participantsText}>Participando</Text>
 
-            <Image source={avatar} style={style.participant} />
-            <Image source={avatar} style={style.participant} />
-            <Image source={avatar} style={style.participant} />
-            <Image source={avatar} style={style.participant} />
-            <LinearGradient
-              style={style.more}
-              colors={['#f09526', '#c64d96']}
-              start={{ x: 0.1, y: 0.5 }} end={{ x: 1, y: 0.5 }}
-            >
-              <View style={style.moreWrapper}>
-                <Text style={style.moreText}>
-                  +25
-                </Text>
-              </View>
-            </LinearGradient>
+              <Image source={avatar} style={style.participant} />
+              <Image source={avatar} style={style.participant} />
+              <Image source={avatar} style={style.participant} />
+              <Image source={avatar} style={style.participant} />
+              <LinearGradient
+                style={style.more}
+                colors={['#f09526', '#c64d96']}
+                start={{ x: 0.1, y: 0.5 }} end={{ x: 1, y: 0.5 }}
+              >
+                <View style={style.moreWrapper}>
+                  <Text style={style.moreText}>
+                    +25
+                  </Text>
+                </View>
+              </LinearGradient>
 
+            </View>
+
+            <ProgressBar style={style} label="30min" />
           </View>
-
-          <ProgressBar style={style} label="30min" />
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 }

@@ -71,9 +71,9 @@ class Container extends PureComponent {
     }
 
     const minutes = currentTime.toString().split('.')[0]
-    const normalizedMinutes = minutes === "0" ? minutes : `${minutes}min`
+    const normalizedMinutes = `${minutes}min`
 
-    const progressPercent = ((currentTime / 100) * duration) / 100
+    const progressPercent = currentTime * 100 / duration
 
     return (
       <Session {...this.props}
