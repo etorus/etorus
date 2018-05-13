@@ -51,6 +51,7 @@ class Container extends PureComponent {
   componentWillUnmount() {
     if (this.state.audio) {
       this.state.audio.stop()
+      clearInterval(this.timer)
     }
   }
 

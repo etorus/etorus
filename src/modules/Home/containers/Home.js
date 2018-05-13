@@ -1,3 +1,5 @@
+import React, { PureComponent } from 'react'
+
 import moment from 'moment'
 import 'moment/locale/pt'
 
@@ -17,6 +19,28 @@ const filterMeditationsStarted = meditations => {
   return meditations.filter(
     ({ attributes: { start } }) => moment(start).isAfter(fiveMinutesAgo)
   )
+}
+
+class Container extends PureComponent {
+  state = {
+    updates: 0,
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.tick(), 1000 * 60)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  tick() {
+    this.setState({ updates: this.state.updates + 1 })
+  }
+
+  render() {
+    return <Home {...this.props} />
+  }
 }
 
 const mapStateToProps = ({
@@ -67,6 +91,6 @@ const HomeContainer = compose(
     mapStateToProps,
     mapDispatchToProps,
   ),
-)(Home)
+)(Container)
 
 export default HomeContainer
