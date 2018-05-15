@@ -62,39 +62,6 @@ export default StyleSheet.create({
     marginRight: 8,
   },
 
-  participant: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    marginHorizontal: 2,
-    resizeMode: Image.resizeMode.contain,
-  },
-
-  more: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    marginLeft: 2,
-  },
-
-  moreWrapper: {
-    margin: 1.5,
-    height: 17,
-    width: 17,
-    borderRadius: 7.5,
-    justifyContent: 'center',
-    flexDirection:'column',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-  },
-
-  moreText: {
-    color: '#f09526',
-    fontFamily: 'Branding',
-    fontWeight: '400',
-    fontSize: 6,
-  },
-
   progressBar: {
     marginTop: 10,
     width: Dimensions.get('screen').width - 130,

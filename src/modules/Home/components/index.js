@@ -24,9 +24,10 @@ class Home extends PureComponent {
       meditations,
       calling,
       navigation,
+      filteredMeditation,
     } = this.props
 
-    const data = meditations.map(
+    const data = filteredMeditation.map(
       meditation => ({ ...meditation, key: meditation.id })
     )
 

@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 
+import moment from 'moment'
 import Sound from 'react-native-sound'
 
 import { injectIntl } from 'react-intl'
@@ -10,11 +11,14 @@ import  * as actions from '../redux/actions'
 
 import Session from '../components'
 
+const DIR = Sound.MAIN_BUNDLE
+
 class Container extends PureComponent {
   state = {
     audio: null,
     duration: 0,
     currentTime: 0,
+    playing: false,
   }
 
   componentDidMount() {
@@ -23,22 +27,33 @@ class Container extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      !this.state.calling &&
-      !this.state.audio &&
-      !this.timer
-    ) {
-      const audio = new Sound(
-        'es.mp3',
-        Sound.MAIN_BUNDLE,
-        (error, { duration }) => {
-          if (error) { return console.log(error) }
+    const {
+      meditation,
+      calling,
+    } = this.props
 
-          this.setState({ audio, duration })
+    const {
+      audio,
+      duration,
+      currentTime,
+      playing,
+    } = this.state
 
-          this.timer = setInterval(() => this.tick(), 1000)
-        }
-      )
+    const start = moment(meditation.attributes.start)
+    const secondsAfterStart = parseFloat(moment().diff(start, 'seconds'))
+
+    if (!calling && !audio) {
+      const sound = new Sound('es.mp3', DIR, (_, { duration }) => {
+        this.setState({ audio: sound, duration })
+        this.timer = setInterval(() => this.tick(), 1000)
+      })
+    }
+
+    if (audio && !playing && audio.isLoaded() && secondsAfterStart >= 0) {
+      this.setState({ playing: true })
+
+      audio.setCurrentTime(secondsAfterStart)
+      audio.play()
     }
   }
 
@@ -57,23 +72,12 @@ class Container extends PureComponent {
 
   render() {
     const {
-      meditation,
-      calling,
-    } = this.props
-
-    const {
-      audio,
       duration,
       currentTime,
     } = this.state
 
-    if (audio && audio.isLoaded()) {
-      audio.play()
-    }
-
     const minutes = currentTime.toString().split('.')[0]
     const normalizedMinutes = `${minutes}min`
-
     const progressPercent = currentTime * 100 / duration
 
     return (

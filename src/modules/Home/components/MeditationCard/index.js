@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import LinearGradient from 'react-native-linear-gradient'
 
 import {
   View,
@@ -9,12 +8,11 @@ import {
   TouchableOpacity,
 } from 'react-native'
 
-import { ProgressBar } from 'modules/Shared'
+import { ProgressBar, Participants } from 'modules/Shared'
 
 import style from './style'
 
 import background from 'images/lotus_image.png'
-import avatar from 'images/avatar.jpg'
 
 class MeditationCard extends PureComponent {
   render() {
@@ -34,6 +32,13 @@ class MeditationCard extends PureComponent {
       }
     } = this.props
 
+    const participants = [
+      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
+      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
+      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
+      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
+    ]
+
     return(
       <TouchableOpacity onPress={onPress(id)}>
         <View style={style.cardShadow}>
@@ -49,23 +54,12 @@ class MeditationCard extends PureComponent {
 
             <View style={style.participants}>
               <Text style={style.participantsText}>Participando</Text>
-
-              <Image source={avatar} style={style.participant} />
-              <Image source={avatar} style={style.participant} />
-              <Image source={avatar} style={style.participant} />
-              <Image source={avatar} style={style.participant} />
-              <LinearGradient
-                style={style.more}
-                colors={['#f09526', '#c64d96']}
-                start={{ x: 0.1, y: 0.5 }} end={{ x: 1, y: 0.5 }}
-              >
-                <View style={style.moreWrapper}>
-                  <Text style={style.moreText}>
-                    +25
-                  </Text>
-                </View>
-              </LinearGradient>
-
+              <Participants
+                showMore
+                participants={participants}
+                quantity={'+5'}
+                style={style}
+              />
             </View>
 
             <ProgressBar style={style} label="30min" />

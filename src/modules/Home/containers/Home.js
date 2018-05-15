@@ -13,14 +13,6 @@ import Home from '../components'
 
 moment.locale('pt-BR')
 
-const filterMeditationsStarted = meditations => {
-  const fiveMinutesAgo = moment().subtract(5, 'minutes')
-
-  return meditations.filter(
-    ({ attributes: { start } }) => moment(start).isAfter(fiveMinutesAgo)
-  )
-}
-
 class Container extends PureComponent {
   state = {
     updates: 0,
@@ -39,8 +31,20 @@ class Container extends PureComponent {
   }
 
   render() {
-    return <Home {...this.props} />
+    return <Home
+      {...this.props}
+      updates={this.state.updates}
+      filteredMeditation={filterMeditationsStarted(this.props.meditations)}
+    />
   }
+}
+
+const filterMeditationsStarted = meditations => {
+  const fiveMinutesAgo = moment().subtract(5, 'minutes')
+
+  return meditations.filter(
+    ({ attributes: { start } }) => moment(start).isAfter(fiveMinutesAgo)
+  )
 }
 
 const mapStateToProps = ({
@@ -55,7 +59,7 @@ const mapStateToProps = ({
   intl,
   navigation,
 }) => ({
-  meditations: filterMeditationsStarted(meditations),
+  meditations,
   calling,
   message,
   error,
