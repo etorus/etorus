@@ -6,6 +6,7 @@ import {
   ImageBackground,
   Image,
   StyleSheet,
+  TouchableHighlight,
 } from 'react-native'
 
 import style from './style'

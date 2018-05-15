@@ -63,6 +63,8 @@ class Container extends PureComponent {
     )
   }
 
+  back = () => this.props.navigation.goBack()
+
   componentWillUnmount() {
     if (this.state.audio) {
       this.state.audio.stop()
@@ -84,6 +86,7 @@ class Container extends PureComponent {
       <Session {...this.props}
         currentTime={normalizedMinutes}
         progressPercent={progressPercent}
+        back={this.back}
       />
     )
   }
