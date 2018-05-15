@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 
+import moment from 'moment'
 import Sound from 'react-native-sound'
 
 import { injectIntl } from 'react-intl'
@@ -10,11 +11,14 @@ import  * as actions from '../redux/actions'
 
 import Session from '../components'
 
+const DIR = Sound.MAIN_BUNDLE
+
 class Container extends PureComponent {
   state = {
     audio: null,
     duration: 0,
     currentTime: 0,
+    playing: false,
   }
 
   componentDidMount() {
@@ -23,38 +27,6 @@ class Container extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      !this.state.calling &&
-      !this.state.audio &&
-      !this.timer
-    ) {
-      const audio = new Sound(
-        'es.mp3',
-        Sound.MAIN_BUNDLE,
-        (error, { duration }) => {
-          if (error) { return console.log(error) }
-
-          this.setState({ audio, duration })
-
-          this.timer = setInterval(() => this.tick(), 1000)
-        }
-      )
-    }
-  }
-
-  tick() {
-    this.state.audio.getCurrentTime(
-      (seconds) => this.setState({ currentTime: seconds / 60 })
-    )
-  }
-
-  componentWillUnmount() {
-    if (this.state.audio) {
-      this.state.audio.stop()
-    }
-  }
-
-  render() {
     const {
       meditation,
       calling,
@@ -64,21 +36,57 @@ class Container extends PureComponent {
       audio,
       duration,
       currentTime,
+      playing,
     } = this.state
 
-    if (audio && audio.isLoaded()) {
-      audio.play()
+    const start = moment(meditation.attributes.start)
+    const secondsAfterStart = parseFloat(moment().diff(start, 'seconds'))
+
+    if (!calling && !audio) {
+      const sound = new Sound('es.mp3', DIR, (_, { duration }) => {
+        this.setState({ audio: sound, duration })
+        this.timer = setInterval(() => this.tick(), 1000)
+      })
     }
 
-    const minutes = currentTime.toString().split('.')[0]
-    const normalizedMinutes = minutes === "0" ? minutes : `${minutes}min`
+    if (audio && !playing && audio.isLoaded() && secondsAfterStart >= 0) {
+      this.setState({ playing: true })
 
-    const progressPercent = ((currentTime / 100) * duration) / 100
+      audio.setCurrentTime(secondsAfterStart)
+      audio.play()
+    }
+  }
+
+  tick() {
+    this.state.audio.getCurrentTime(
+      (seconds) => this.setState({ currentTime: seconds / 60 })
+    )
+  }
+
+  back = () => this.props.navigation.goBack()
+
+  componentWillUnmount() {
+    if (this.state.audio) {
+      this.state.audio.stop()
+      clearInterval(this.timer)
+    }
+  }
+
+  render() {
+    const {
+      duration,
+      currentTime,
+    } = this.state
+
+    const minutes = currentTime.toString().split('.')[0]
+    const normalizedMinutes = `${minutes}min`
+    const progressPercent = currentTime * 100 / duration
 
     return (
       <Session {...this.props}
         currentTime={normalizedMinutes}
         progressPercent={progressPercent}
+        back={this.back}
       />
     )
   }

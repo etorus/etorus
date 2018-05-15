@@ -11,7 +11,7 @@ import { ProgressBar } from 'modules/Shared'
 const createStyle = percent =>
   StyleSheet.create({
     progressArea: {
-      marginTop: 85,
+      marginTop: 285,
       alignItems: 'center',
     },
 

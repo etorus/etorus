@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Image } from 'react-native'
 
 export default StyleSheet.create({
   session: {
@@ -9,7 +9,20 @@ export default StyleSheet.create({
   wrapper: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'space-between',
     alignItems: 'center',
+  },
+
+  arrowBack: {
+    top: 45,
+    left: 20,
+    width: 13.5,
+    height: 24,
+    zIndex: 1,
+  },
+
+  arrowBackImage: {
+    width: 13.5,
+    height: 24,
+    resizeMode: Image.resizeMode.contain,
   },
 })
