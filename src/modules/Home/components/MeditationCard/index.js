@@ -32,6 +32,22 @@ const progressBarStyle = percent => StyleSheet.create({
 })
 
 class MeditationCard extends PureComponent {
+  state = {
+    updates: 0
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.tick(), 1000)
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer)
+  }
+
+  tick() {
+    this.setState({ updates: this.state.updates + 1 })
+  }
+
   render() {
     const {
       go: onPress,

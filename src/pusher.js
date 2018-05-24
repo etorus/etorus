@@ -1,6 +1,7 @@
 import Pusher from 'pusher-js/react-native'
 
-const pusher = new Pusher('8fe0e77a83286d9b5e14', {
+// TODO: Change to an env variable
+const pusher = new Pusher('87451c66797c353f3fc2', {
   cluster: 'us2',
   encrypted: true
 })
