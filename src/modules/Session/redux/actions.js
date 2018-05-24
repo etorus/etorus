@@ -1,5 +1,5 @@
 import * as constants from './constants'
-import { show } from 'requests/meditation'
+import { show, leave, enter } from 'requests/meditation'
 
 export const sessionCalling = () =>
   ({ type: constants.SESSION_CALLING })
@@ -36,3 +36,11 @@ export const fetch = ({ navigation, id }) =>
         message => sessionError({ message, error: 3 })
       )
   }
+
+export const leaveLobby = ({ id, navigation }) =>
+  dispatch =>
+    leave({ id, navigation })
+
+export const enterLobby = ({ id, navigation }) =>
+  dispatch =>
+    enter({ id, navigation })

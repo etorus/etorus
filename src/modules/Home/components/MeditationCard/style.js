@@ -62,20 +62,6 @@ export default StyleSheet.create({
     marginRight: 8,
   },
 
-  progressBar: {
-    marginTop: 10,
-    width: Dimensions.get('screen').width - 130,
-    height: 14,
-    borderRadius: 7,
-  },
-
-  progressBarGradient: {
-    // TODO: Get the time of the session and use to set the width
-    width: (Dimensions.get('screen').width - 130) * 0.50,
-    height: 14,
-    borderRadius: 7,
-  },
-
   progressBarText: {
     color: 'rgba(255, 255, 255, 1)',
   },

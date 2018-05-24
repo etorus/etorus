@@ -22,6 +22,7 @@ class Session extends PureComponent {
       currentTime,
       progressPercent,
       back,
+      lobby,
       meditation: {
         attributes: {
           title,
@@ -37,9 +38,9 @@ class Session extends PureComponent {
       }
     } = this.props
 
-    const participants = [
-      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
-    ]
+    const participants = lobby.map(
+      () => ({ avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' })
+    )
 
     return (
       <View style={style.session}>

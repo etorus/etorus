@@ -15,3 +15,19 @@ export const show = ({ id, navigation }) => authRequest({
   },
   navigation,
 })
+
+export const leave = ({ id, navigation }) => authRequest({
+  path: `/meditations/${id}/leave`,
+  options: {
+    method: 'GET',
+  },
+  navigation,
+})
+
+export const enter = ({ id, navigation }) => authRequest({
+  path: `/meditations/${id}/enter`,
+  options: {
+    method: 'GET',
+  },
+  navigation,
+})

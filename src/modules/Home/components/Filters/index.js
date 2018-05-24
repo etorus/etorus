@@ -23,7 +23,7 @@ class Filters extends PureComponent {
           >
             <View style={style.filterWrapper}>
               <Text style={style.filterText}>
-                JÁ COMEÇARAM
+                PRÓXIMAS SESSÕES
               </Text>
             </View>
           </LinearGradient>
@@ -37,7 +37,7 @@ class Filters extends PureComponent {
           >
             <View style={[ style.filterWrapper, style.filterWrapperUnselected ]}>
               <Text style={[ style.filterText, style.filterTextUnselected ]}>
-                PRÓXIMAS SESSÕES
+                MINHAS SESSÕES
               </Text>
             </View>
           </LinearGradient>

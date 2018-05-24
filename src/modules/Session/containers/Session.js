@@ -9,6 +9,8 @@ import { compose } from 'redux'
 
 import  * as actions from '../redux/actions'
 
+import pusher from 'app/pusher'
+
 import Session from '../components'
 
 const DIR = Sound.MAIN_BUNDLE
@@ -19,11 +21,22 @@ class Container extends PureComponent {
     duration: 0,
     currentTime: 0,
     playing: false,
+    lobby: null,
   }
 
   componentDidMount() {
+    const { navigation, enterLobby } = this.props
+
     Sound.setCategory('Playback')
-    this.props.fetch({ navigation: this.props.navigation })
+    this.props.fetch({ navigation })
+
+    this.sessionChannel = pusher.subscribe(this.getChannelName())
+    this.sessionChannel.bind(
+      'session:bell',
+      ({ lobby }) => this.lobbyChange(lobby)
+    )
+
+    enterLobby({ navigation })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -63,30 +76,40 @@ class Container extends PureComponent {
     )
   }
 
-  back = () => this.props.navigation.goBack()
-
   componentWillUnmount() {
     if (this.state.audio) {
       this.state.audio.stop()
       clearInterval(this.timer)
     }
+
+    this.sessionChannel.unsubscribe(this.getChannelName())
+    this.props.leaveLobby({ navigation: this.props.navigation })
   }
+
+  lobbyChange = lobby => this.setState({ lobby })
+
+  back = () => this.props.navigation.goBack()
+
+  getChannelName = () =>
+    `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
 
   render() {
     const {
       duration,
       currentTime,
+      lobby,
     } = this.state
 
     const minutes = currentTime.toString().split('.')[0]
     const normalizedMinutes = `${minutes}min`
-    const progressPercent = currentTime * 100 / duration
+    const progressPercent = currentTime ? (currentTime * 100 / duration) : 0
 
     return (
       <Session {...this.props}
         currentTime={normalizedMinutes}
         progressPercent={progressPercent}
         back={this.back}
+        lobby={lobby === null ? this.props.meditation.attributes.lobby : lobby}
       />
     )
   }
@@ -115,6 +138,18 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   fetch({ navigation }) {
     dispatch(actions.fetch({
+      navigation,
+      id: navigation.state.params.sessionId
+    }))
+  },
+  enterLobby({ navigation }) {
+    dispatch(actions.enterLobby({
+      navigation,
+      id: navigation.state.params.sessionId
+    }))
+  },
+  leaveLobby({ navigation }) {
+    dispatch(actions.leaveLobby({
       navigation,
       id: navigation.state.params.sessionId
     }))

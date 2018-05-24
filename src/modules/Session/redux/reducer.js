@@ -2,7 +2,9 @@ import * as constants from './constants'
 
 const initial = {
   meditation: {
-    attributes: {},
+    attributes: {
+      lobby: [],
+    },
     user: {
       attributes: {},
     }

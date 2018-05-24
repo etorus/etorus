@@ -27,7 +27,7 @@ class Extra extends PureComponent {
         </Text>
 
         <Text style={style.description}>
-          Sala iniciada em { moment(start).calendar() }
+          Horário da sessão { moment(start).calendar() }
         </Text>
 
         <Text style={style.extraTitle}>
