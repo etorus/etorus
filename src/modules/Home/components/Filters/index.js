@@ -13,6 +13,8 @@ import style from './style'
 
 class Filters extends PureComponent {
   render() {
+    const formatMessage = this.props.intl.formatMessage
+
     return (
       <View style={style.filters}>
         <TouchableHighlight style={style.filter}>
@@ -23,7 +25,7 @@ class Filters extends PureComponent {
           >
             <View style={style.filterWrapper}>
               <Text style={style.filterText}>
-                PRÓXIMAS SESSÕES
+                { formatMessage({ id: 'home.filter.next_sessions' }).toUpperCase() }
               </Text>
             </View>
           </LinearGradient>
@@ -37,7 +39,7 @@ class Filters extends PureComponent {
           >
             <View style={[ style.filterWrapper, style.filterWrapperUnselected ]}>
               <Text style={[ style.filterText, style.filterTextUnselected ]}>
-                MINHAS SESSÕES
+                { formatMessage({ id: 'home.filter.my_sessions' }).toUpperCase() }
               </Text>
             </View>
           </LinearGradient>

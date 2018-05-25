@@ -19,7 +19,7 @@ class Container extends PureComponent {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.tick(), 1000 * 60)
+    this.timer = setInterval(() => this.tick(), 1000)
   }
 
   componentWillUnmount() {
@@ -40,7 +40,7 @@ class Container extends PureComponent {
 }
 
 const filterMeditationsStarted = meditations => {
-  const fiveMinutesAgo = moment().subtract(5, 'minutes')
+  const fiveMinutesAgo = moment().subtract(4, 'minutes')
 
   return meditations.filter(
     ({ attributes: { start } }) => moment(start).isAfter(fiveMinutesAgo)

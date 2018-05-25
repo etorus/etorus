@@ -50,6 +50,7 @@ class ProgressArea extends PureComponent {
     const {
       label,
       progressPercent,
+      formatMessage,
     } = this.props
 
     const style = createStyle(progressPercent)
@@ -57,7 +58,7 @@ class ProgressArea extends PureComponent {
     return (
       <View style={style.progressArea}>
         <Text style={style.sessionTimeLabel}>
-          TEMPO DA SESSÃO
+          { formatMessage({ id: 'session.progress_bar.session_time' }).toUpperCase() }
         </Text>
 
         <ProgressBar style={style} label={label} />

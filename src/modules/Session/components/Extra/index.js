@@ -18,20 +18,23 @@ class Extra extends PureComponent {
     const {
       start,
       participants,
+      formatMessage,
     } = this.props
 
     return (
       <View style={style.extra}>
         <Text style={style.extraTitle}>
-          Descrição
+          { formatMessage({ id: 'session.extra.description' }) }
         </Text>
 
         <Text style={style.description}>
-          Horário da sessão { moment(start).calendar() }
+          { formatMessage({ id: 'session.extra.session_time' }) }
+          { ' ' }
+          { moment(start).calendar() }
         </Text>
 
         <Text style={style.extraTitle}>
-          Participando
+          { formatMessage({ id: 'session.extra.participating' }) }
         </Text>
 
         <Participants participants={participants} style={style} />

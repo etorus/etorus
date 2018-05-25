@@ -15,12 +15,13 @@ class Info extends PureComponent {
       owner,
       title,
       audio,
+      formatMessage,
     } = this.props
 
     return (
       <View style={style.info}>
         <Text style={style.owner}>
-          Sessão de { owner }
+          { formatMessage({ id: 'session.info.session_of' }) } { owner }
         </Text>
 
         <Text style={style.title}>

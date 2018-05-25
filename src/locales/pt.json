@@ -9,5 +9,14 @@
   "login.form.access": "Acessar",
   "login.form.social_access": "Entrar pelas redes sociais com um toque",
   "login.form.facebook": "Facebook",
-  "login.form.google": "Google"
+  "login.form.google": "Google",
+  "home.filter.next_sessions": "Próximas sessões",
+  "home.filter.my_sessions": "Minhas sessões",
+  "home.meditation_card.session_of": "Sessão do",
+  "home.meditation_card.participating": "Participando",
+  "session.extra.description": "Descrição",
+  "session.extra.session_time": "Horário da sessão",
+  "session.extra.participating": "Participando",
+  "session.info.session_of": "Sessão do",
+  "session.progress_bar.session_time": "Tempo da sessão"
 }

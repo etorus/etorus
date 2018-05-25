@@ -25,6 +25,7 @@ class Home extends PureComponent {
       calling,
       navigation,
       filteredMeditation,
+      intl,
     } = this.props
 
     const data = filteredMeditation.map(
@@ -34,7 +35,7 @@ class Home extends PureComponent {
     return (
       <View style={style.home}>
         <Header />
-        <Filters />
+        <Filters intl={intl} />
         <View>
           {
             calling
@@ -43,7 +44,7 @@ class Home extends PureComponent {
                 data={data}
                 renderItem={
                   ({ item }) =>
-                    <MeditationCard meditation={item} go={this.go} />
+                    <MeditationCard meditation={item} go={this.go} intl={intl} />
                 }
               />
           }

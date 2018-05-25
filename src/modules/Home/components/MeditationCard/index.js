@@ -51,6 +51,9 @@ class MeditationCard extends PureComponent {
   render() {
     const {
       go: onPress,
+      intl: {
+        formatMessage,
+      },
       meditation: {
         id,
         attributes: {
@@ -72,7 +75,7 @@ class MeditationCard extends PureComponent {
 
     const difference = moment().diff(moment(start), 'seconds')
     const percent = difference > 0 ? difference / 300 : 0
-    const label = `${(difference / 60 - 5).toString().split('.')[0]}min`
+    const label = `${(difference / 60).toString().split('.')[0]}min`
 
     return(
       <TouchableOpacity onPress={onPress(id)}>
@@ -81,14 +84,16 @@ class MeditationCard extends PureComponent {
             <Image source={background} style={style.background} />
 
             <Text style={style.owner}>
-              Sessão do { name }
+              { formatMessage({ id: 'home.meditation_card.session_of' }) } { name }
             </Text>
             <Text style={style.title}>
               { title }
             </Text>
 
             <View style={style.participants}>
-              <Text style={style.participantsText}>Participando</Text>
+              <Text style={style.participantsText}>
+                { formatMessage({ id: 'home.meditation_card.participating' }) }
+              </Text>
               <Participants
                 participants={participants}
                 style={style}

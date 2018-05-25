@@ -23,6 +23,9 @@ class Session extends PureComponent {
       progressPercent,
       back,
       lobby,
+      intl: {
+        formatMessage,
+      },
       meditation: {
         attributes: {
           title,
@@ -51,12 +54,21 @@ class Session extends PureComponent {
             owner={owner}
             title={title}
             audio={audio}
+            formatMessage={formatMessage}
           />
 
           <View>
-            <ProgressArea label={currentTime} progressPercent={progressPercent} />
+            <ProgressArea
+              label={currentTime}
+              progressPercent={progressPercent}
+              formatMessage={formatMessage}
+            />
 
-            <Extra start={start} participants={participants} />
+            <Extra
+              start={start}
+              participants={participants}
+              formatMessage={formatMessage}
+            />
           </View>
         </View>
 
