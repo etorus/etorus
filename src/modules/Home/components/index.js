@@ -26,7 +26,11 @@ class Home extends PureComponent {
       navigation,
       filteredMeditation,
       intl,
+      pressLogout,
     } = this.props
+
+    const onPressLogout = () =>
+      () => pressLogout({ navigation })
 
     const data = filteredMeditation.map(
       meditation => ({ ...meditation, key: meditation.id })
@@ -34,7 +38,7 @@ class Home extends PureComponent {
 
     return (
       <View style={style.home}>
-        <Header />
+        <Header onPressLogout={onPressLogout()} />
         <Filters intl={intl} />
         <View>
           {

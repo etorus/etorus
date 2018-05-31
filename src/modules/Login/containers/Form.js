@@ -2,7 +2,11 @@ import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
 
-import { changeInput, pressAccess, pressFacebook } from '../redux/actions'
+import {
+  changeInput,
+  pressAccess,
+  pressFacebook,
+} from '../redux/actions'
 
 import Form from '../components/Form'
 

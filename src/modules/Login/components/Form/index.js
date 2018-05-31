@@ -6,7 +6,7 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
   TextInput,
 } from 'react-native'
 
@@ -62,20 +62,20 @@ class Form extends PureComponent {
             underlineColorAndroid="transparent"
           />
 
-          <TouchableHighlight>
+          <TouchableOpacity>
             <Text style={style.forgetPassword}>
               {intl.formatMessage({ id: 'login.form.forget_my_password' })}
             </Text>
-          </TouchableHighlight>
+          </TouchableOpacity>
         </View>
 
-        <TouchableHighlight
+        <TouchableOpacity
           style={style.accessButton}
           onPress={() => pressAccess({ email, password, navigation })}>
           <Text style={style.accessText}>
             { intl.formatMessage({ id: 'login.form.access' }).toUpperCase() }
           </Text>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
         <View style={style.social}>
           <Text style={style.socialText}>

@@ -87,6 +87,10 @@ const mapDispatchToProps = dispatch => ({
   fetch({ navigation }) {
     dispatch(actions.fetch({ navigation }))
   },
+
+  pressLogout({ navigation }) {
+    actions.pressLogout({ navigation })
+  }
 })
 
 const HomeContainer = compose(

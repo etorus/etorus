@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import {
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native'
 
 import style from './style'
@@ -11,11 +11,11 @@ class CreateAccountButton extends PureComponent {
     const { intl, onPress } = this.props
 
     return (
-      <TouchableHighlight style={style.primary} onPress={onPress}>
+      <TouchableOpacity style={style.primary} onPress={onPress}>
         <Text style={style.textPrimary}>
           { intl.formatMessage({ id: 'login.splash.start_now' }).toUpperCase() }
         </Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 }

@@ -16,7 +16,11 @@ import CreateAccountButton from './CreateAccountButton'
 
 class Splash extends PureComponent {
   render() {
-    const { intl } = this.props
+    const {
+      intl,
+      goSignup,
+      goLogin,
+    } = this.props
 
     return (
       <View style={style.container}>
@@ -31,13 +35,13 @@ class Splash extends PureComponent {
         </Text>
 
         <View style={style.buttons}>
-          <CreateAccountButton intl={intl} />
+          <CreateAccountButton intl={intl} onPress={goSignup} />
 
           <Text style={style.textBetween}>
             { intl.formatMessage({ id: 'login.splash.or' }) }
           </Text>
 
-          <AlreadyRegisterButton intl={intl} />
+          <AlreadyRegisterButton intl={intl} onPress={goLogin} />
         </View>
       </View>
     )

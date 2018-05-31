@@ -18,13 +18,12 @@ import {
   SwitchNavigator,
 } from 'react-navigation'
 
-import { getAuthToken } from './requests/base'
-
 import store from './store'
 import * as locales from './locales'
 
 import Home from './modules/Home'
 import Session from './modules/Session'
+import Signup from './modules/Signup'
 import { Login, Splash } from './modules/Login'
 import { Loading }  from './modules/Shared'
 
@@ -40,8 +39,9 @@ const AppStack = StackNavigator(
 
 const AuthStack = StackNavigator(
   {
-    Login,
     Splash,
+    Login,
+    Signup,
   },
   {
     headerMode: 'none',
