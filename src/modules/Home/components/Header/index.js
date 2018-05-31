@@ -6,7 +6,7 @@ import {
   Text,
   Image,
   StyleSheet,
-  TouchableHighlight,
+  TouchableOpacity,
 } from 'react-native'
 
 import logo from 'images/logo_horizontal_white.png'
@@ -17,6 +17,8 @@ import style from './style'
 
 class Header extends PureComponent {
   render() {
+    const { onPressLogout } = this.props
+
     return (
       <View style={style.header}>
         <LinearGradient
@@ -29,13 +31,13 @@ class Header extends PureComponent {
           <Image source={logo} style={style.brand} />
 
           <View style={style.menuWrapper}>
-            <TouchableHighlight style={style.notification}>
+            <TouchableOpacity style={style.notification}>
               <Image source={notification} style={style.notificationIcon} />
-            </TouchableHighlight>
+            </TouchableOpacity>
 
-            <TouchableHighlight style={style.menu}>
+            <TouchableOpacity style={style.menu} onPress={onPressLogout}>
               <Image source={menu} style={style.menuIcon} />
-            </TouchableHighlight>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

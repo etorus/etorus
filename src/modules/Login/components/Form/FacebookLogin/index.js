@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import {
   Text,
-  TouchableHighlight,
+  TouchableOpacity,
   Image,
   View,
 } from 'react-native'
@@ -14,14 +14,14 @@ class FacebookLogin extends PureComponent {
     const { intl, loginFacebook } = this.props
 
     return(
-      <TouchableHighlight style={style.button} onPress={loginFacebook}>
+      <TouchableOpacity style={style.button} onPress={loginFacebook}>
         <View style={style.wrapper}>
           <Image source={facebook} style={style.facebook} />
           <Text style={style.text}>
             { intl.formatMessage({ id: 'login.form.facebook' }).toUpperCase() }
           </Text>
         </View>
-      </TouchableHighlight>
+      </TouchableOpacity>
     )
   }
 }

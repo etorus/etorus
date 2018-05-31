@@ -4,19 +4,24 @@ import {
   AccessToken,
 } from 'react-native-fbsdk'
 
-export const auth = ({ email, password }) => unauthRequest({
+export const auth = body => unauthRequest({
   path: '/auth/login',
   options: {
-    body: {
-      email,
-      password,
-    },
+    body,
     method: 'POST'
   },
 })
 
 export const facebook = body => unauthRequest({
   path: '/auth/facebook',
+  options: {
+    body,
+    method: 'POST'
+  }
+})
+
+export const signup = body => unauthRequest({
+  path: '/signup',
   options: {
     body,
     method: 'POST'

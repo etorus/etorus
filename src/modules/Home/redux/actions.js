@@ -1,3 +1,5 @@
+import { AsyncStorage } from 'react-native'
+
 import * as constants from './constants'
 import { index } from 'requests/meditation'
 
@@ -30,6 +32,9 @@ export const filterStarted = () =>
 
 export const filterNext = () =>
   ({ type: constants.FILTER_NEXT })
+
+export const pressLogout = ({ navigation }) =>
+  AsyncStorage.clear(() => navigation.navigate('Auth'))
 
 export const fetch = ({ navigation }) =>
   dispatch => {
