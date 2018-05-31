@@ -24,12 +24,8 @@ export const pressSignup = ({ fields, navigation }) =>
 
     return signup(fields)
       .then(response => response.json())
-      .then(({ message, auth_token: authToken }) => {
+      .then(({ message, user, auth_token: authToken }) => {
         dispatch(signupReceive())
-
-        if (message) {
-          return dispatch(signupError({ message, error: 1 }))
-        }
 
         if (authToken) {
           dispatch(signupError({ message: '', error: 0 }))
