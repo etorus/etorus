@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions, Image } from 'react-native'
 
 export default StyleSheet.create({
   cardShadow: {
-    height: 114,
+    height: 130,
     width: Dimensions.get('screen').width - 22,
     borderRadius: 4,
     shadowOpacity: 0.3,
@@ -16,7 +16,7 @@ export default StyleSheet.create({
 
   card: {
     overflow: 'hidden',
-    height: 114,
+    height: 130,
     width: Dimensions.get('screen').width - 22,
     borderRadius: 4,
     backgroundColor: 'rgba(255, 255, 255, 1)',
@@ -25,8 +25,8 @@ export default StyleSheet.create({
 
   background: {
     position: 'absolute',
-    top: 0,
-    left: -15,
+    bottom: 0,
+    left: 0,
     height: 114,
     width: 112.5,
     resizeMode: Image.resizeMode.contain,
@@ -36,7 +36,7 @@ export default StyleSheet.create({
     color: 'rgba(120, 120, 120, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 9,
+    fontSize: 14,
     marginTop: 12,
   },
 
@@ -44,8 +44,7 @@ export default StyleSheet.create({
     color: '#f09526',
     fontFamily: 'Branding',
     fontWeight: '700',
-    fontSize: 15,
-    marginTop: 5,
+    fontSize: 16,
   },
 
   participants: {
@@ -55,10 +54,10 @@ export default StyleSheet.create({
   },
 
   participantsText: {
-    color: '#c64d96',
+    color: '#f09526',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 10,
+    fontSize: 14,
     marginRight: 8,
   },
 

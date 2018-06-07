@@ -20,8 +20,8 @@ export default StyleSheet.create({
 
   brand: {
     marginTop: 60,
-    width: 170,
-    height: 44,
+    width: 200,
+    height: 51,
     resizeMode: Image.resizeMode.contain,
   },
 
@@ -32,12 +32,12 @@ export default StyleSheet.create({
   input: {
     backgroundColor: 'rgba(255, 255, 255, 1)',
     width: 310,
-    height: 46,
+    height: 50,
     borderRadius: 23,
     marginBottom: 15,
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 16,
+    fontSize: 18,
     paddingHorizontal: 40,
   },
 
@@ -45,12 +45,20 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 14,
+    fontSize: 16,
+  },
+
+  withoutAccount: {
+    color: 'rgba(255, 255, 255, 1)',
+    fontFamily: 'Branding',
+    fontWeight: '400',
+    fontSize: 16,
+    margin: 0,
   },
 
   accessButton: {
     backgroundColor: 'rgba(255, 255, 255, .0)',
-    paddingVertical: 13,
+    paddingVertical: 15,
     width: 310,
     alignItems: 'center',
     borderRadius: 30,
@@ -60,7 +68,7 @@ export default StyleSheet.create({
 
   accessText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Branding',
     fontWeight: '400',
   },
@@ -73,7 +81,7 @@ export default StyleSheet.create({
 
   socialText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Branding',
     fontWeight: '400',
     marginBottom: 10,

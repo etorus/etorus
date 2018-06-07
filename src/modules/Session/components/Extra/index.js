@@ -37,7 +37,7 @@ class Extra extends PureComponent {
           { formatMessage({ id: 'session.extra.participating' }) }
         </Text>
 
-        <Participants participants={participants} style={style} />
+        <Participants participants={participants} style={style} showMore quantity="+50"/>
       </View>
     )
   }

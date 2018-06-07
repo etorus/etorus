@@ -21,8 +21,14 @@ class Container extends PureComponent {
     return () => pressSignup({ fields, navigation })
   }
 
+  goToLogin = () =>
+    () => this.props.navigation.navigate('Login')
+
   render() {
-    return <Signup {...this.props} onPressSignup={this.onPressSignup()} />
+    return <Signup {...this.props}
+      onPressSignup={this.onPressSignup()}
+      goToLogin={this.goToLogin()}
+    />
   }
 }
 

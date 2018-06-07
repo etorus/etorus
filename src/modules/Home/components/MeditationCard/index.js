@@ -23,8 +23,8 @@ const progressBarStyle = percent => StyleSheet.create({
     borderRadius: 7,
   },
 
-    progressBar: {
-    marginTop: 10,
+  progressBar: {
+    marginTop: 5,
     width: Dimensions.get('screen').width - 130,
     height: 14,
     borderRadius: 7,

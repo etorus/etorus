@@ -8,17 +8,17 @@ export default StyleSheet.create({
   },
 
   more: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
-    marginLeft: 2,
+    height: 28,
+    width: 28,
+    borderRadius: 14,
+    marginLeft: 4,
   },
 
   moreWrapper: {
     margin: 1.5,
-    height: 17,
-    width: 17,
-    borderRadius: 7.5,
+    height: 25,
+    width: 25,
+    borderRadius: 12.5,
     justifyContent: 'center',
     flexDirection:'column',
     alignItems: 'center',
@@ -29,13 +29,13 @@ export default StyleSheet.create({
     color: '#f09526',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 8,
+    fontSize: 12,
   },
 
   participant: {
-    height: 20,
-    width: 20,
-    borderRadius: 10,
+    height: 24,
+    width: 24,
+    borderRadius: 12,
     marginHorizontal: 2,
     marginVertical: 2,
     resizeMode: Image.resizeMode.contain,

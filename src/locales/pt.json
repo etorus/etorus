@@ -6,6 +6,7 @@
   "login.form.placeholder_email": "Usuário ou e-mail...",
   "login.form.placeholder_password": "Senha...",
   "login.form.forget_my_password": "Esqueci minha senha",
+  "login.form.without_account": "Não possui uma conta ainda?",
   "login.form.access": "Acessar",
   "login.form.social_access": "Entrar pelas redes sociais com um toque",
   "login.form.facebook": "Facebook",
@@ -18,5 +19,7 @@
   "session.extra.session_time": "Horário da sessão",
   "session.extra.participating": "Participando",
   "session.info.session_of": "Sessão do",
-  "session.progress_bar.session_time": "Tempo da sessão"
+  "session.progress_bar.session_time": "Tempo da sessão",
+  "signup.form.signup": "Cadastrar",
+  "signup.form.already_have_account": "Já possui uma conta?"
 }

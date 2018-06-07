@@ -19,7 +19,7 @@ const createStyle = percent =>
       color: 'rgba(62, 62, 62, 1)',
       fontFamily: 'Branding',
       fontWeight: '400',
-      fontSize: 8,
+      fontSize: 12,
       marginBottom: 8,
     },
 

@@ -32,18 +32,18 @@ export default StyleSheet.create({
   input: {
     backgroundColor: 'rgba(255, 255, 255, 1)',
     width: 310,
-    height: 46,
+    height: 50,
     borderRadius: 23,
     marginBottom: 15,
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 16,
+    fontSize: 18,
     paddingHorizontal: 40,
   },
 
   signupButton: {
     backgroundColor: 'rgba(255, 255, 255, .0)',
-    paddingVertical: 13,
+    paddingVertical: 15,
     width: 310,
     alignItems: 'center',
     borderRadius: 30,
@@ -53,8 +53,16 @@ export default StyleSheet.create({
 
   signupText: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Branding',
     fontWeight: '400',
+  },
+
+  alreadyAccount: {
+    color: 'rgba(255, 255, 255, 1)',
+    fontFamily: 'Branding',
+    fontWeight: '400',
+    fontSize: 16,
+    marginTop: 10,
   },
 })
