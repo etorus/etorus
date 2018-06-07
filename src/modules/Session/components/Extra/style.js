@@ -10,7 +10,7 @@ export default StyleSheet.create({
     color: '#e98938',
     fontFamily: 'Branding',
     fontWeight: '600',
-    fontSize: 14,
+    fontSize: 20,
     marginVertical: 10,
   },
 
@@ -18,15 +18,15 @@ export default StyleSheet.create({
     color: 'rgba(62, 62, 62, 1)',
     fontFamily: 'Branding',
     fontWeight: '600',
-    fontSize: 10,
+    fontSize: 16,
     marginLeft: 10,
   },
 
   participant: {
-    height: 24,
-    width: 24,
-    borderRadius: 12,
-    marginHorizontal: 3,
-    marginVertical: 3,
+    height: 28,
+    width: 28,
+    borderRadius: 14,
+    marginHorizontal: 3.7,
+    marginVertical: 3.7,
   },
 })

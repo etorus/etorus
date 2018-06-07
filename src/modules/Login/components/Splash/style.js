@@ -31,7 +31,7 @@ export default StyleSheet.create({
   },
 
   text: {
-    fontSize: 15,
+    fontSize: 16,
     color: '#FFFFFF',
     fontFamily: 'Branding',
     fontWeight: '400',
@@ -52,7 +52,7 @@ export default StyleSheet.create({
   },
 
   textPrimary: {
-    fontSize: 13,
+    fontSize: 16,
     fontFamily: 'Branding',
     fontWeight: '400',
     color: 'rgba(7, 7, 7, 1)',
@@ -76,7 +76,7 @@ export default StyleSheet.create({
 
   textSecondary: {
     color: 'rgba(255, 255, 255, 1)',
-    fontSize: 13,
+    fontSize: 16,
     fontFamily: 'Branding',
     fontWeight: '400',
   },

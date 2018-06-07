@@ -13,14 +13,14 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 13,
+    fontSize: 16,
   },
 
   title: {
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 19,
+    fontSize: 20,
     marginTop: 5,
   },
 
@@ -35,13 +35,13 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 11,
+    fontSize: 16,
     marginLeft: 5,
   },
 
   audioIcon: {
-    height: 14,
-    width: 14,
+    height: 20,
+    width: 20,
     resizeMode: Image.resizeMode.contain,
   },
 })

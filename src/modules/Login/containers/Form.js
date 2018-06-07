@@ -1,3 +1,4 @@
+import React, { PureComponent } from 'react'
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -9,6 +10,15 @@ import {
 } from '../redux/actions'
 
 import Form from '../components/Form'
+
+class Container extends PureComponent {
+  goToSignup = () =>
+    () => this.props.navigation.navigate('Signup')
+
+  render() {
+    return <Form {...this.props} goToSignup={this.goToSignup()}/>
+  }
+}
 
 const mapStateToProps = ({
   login: {
@@ -50,6 +60,6 @@ const FormContainer = compose(
     mapStateToProps,
     mapDispatchToProps,
   )
-)(Form)
+)(Container)
 
 export default FormContainer

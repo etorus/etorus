@@ -18,6 +18,7 @@ class Signup extends PureComponent {
       changeInput,
       intl,
       onPressSignup,
+      goToLogin,
     } = this.props
 
     return (
@@ -76,7 +77,13 @@ class Signup extends PureComponent {
 
           <TouchableOpacity style={style.signupButton} onPress={onPressSignup}>
             <Text style={style.signupText}>
-              CADASTRAR
+              { intl.formatMessage({ id: 'signup.form.signup' }).toUpperCase() }
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity onPress={goToLogin}>
+            <Text style={style.alreadyAccount}>
+              { intl.formatMessage({ id: 'signup.form.already_have_account' }) }
             </Text>
           </TouchableOpacity>
         </View>

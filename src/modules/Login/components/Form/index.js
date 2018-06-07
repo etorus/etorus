@@ -31,6 +31,7 @@ class Form extends PureComponent {
       changeInput,
       pressAccess,
       pressFacebook,
+      goToSignup,
     } = this.props
 
     return (
@@ -74,6 +75,12 @@ class Form extends PureComponent {
           onPress={() => pressAccess({ email, password, navigation })}>
           <Text style={style.accessText}>
             { intl.formatMessage({ id: 'login.form.access' }).toUpperCase() }
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={goToSignup}>
+          <Text style={style.withoutAccount}>
+            {intl.formatMessage({ id: 'login.form.without_account' })}
           </Text>
         </TouchableOpacity>
 

@@ -12,14 +12,14 @@ export default StyleSheet.create({
   },
 
   filter: {
-    width: 150,
+    width: 170,
     height: 30,
     borderRadius: 15,
     marginHorizontal: 5,
   },
 
   filterWrapper: {
-    width: 150,
+    width: 170,
     height: 30,
     justifyContent: 'center',
     flexDirection:'column',
@@ -27,7 +27,7 @@ export default StyleSheet.create({
   },
 
   filterBackground: {
-    width: 150,
+    width: 170,
     height: 30,
     borderRadius: 15,
   },
@@ -36,12 +36,12 @@ export default StyleSheet.create({
     color: 'rgba(240, 240, 240, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 13,
+    fontSize: 16,
   },
 
   filterWrapperUnselected: {
     backgroundColor: 'rgba(240, 240, 240, 1)',
-    width: 146,
+    width: 166,
     height: 26,
     margin: 2,
     borderRadius: 13,
