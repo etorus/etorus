@@ -79,16 +79,19 @@ class Container extends PureComponent {
   componentWillUnmount() {
     if (this.state.audio) {
       this.state.audio.stop()
-      clearInterval(this.timer)
     }
 
+    clearInterval(this.timer)
     this.sessionChannel.unsubscribe(this.getChannelName())
     this.props.leaveLobby({ navigation: this.props.navigation })
   }
 
   lobbyChange = lobby => this.setState({ lobby })
 
-  back = () => this.props.navigation.goBack()
+  back = () => {
+    console.log('baking',this.props.navigation.goBack())
+    this.props.navigation.navigate('Home')
+  }
 
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`

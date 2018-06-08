@@ -33,9 +33,6 @@ export const filterStarted = () =>
 export const filterNext = () =>
   ({ type: constants.FILTER_NEXT })
 
-export const pressLogout = ({ navigation }) =>
-  AsyncStorage.clear(() => navigation.navigate('Auth'))
-
 export const fetch = ({ navigation }) =>
   dispatch => {
     dispatch(meditationCalling())
