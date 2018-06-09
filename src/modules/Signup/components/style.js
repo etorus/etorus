@@ -18,14 +18,14 @@ export default StyleSheet.create({
   },
 
   brand: {
-    marginTop: 60,
+    marginTop: 40,
     width: 170,
     height: 44,
     resizeMode: Image.resizeMode.contain,
   },
 
   inputs: {
-    marginTop: 55,
+    marginTop: 10,
     alignItems: 'center',
   },
 

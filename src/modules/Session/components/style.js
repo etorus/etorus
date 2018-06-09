@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
 
   arrowBack: {
-    top: 45,
+    top: 62,
     left: 20,
     width: 13.5,
     height: 24,

@@ -12,6 +12,8 @@ import {
 import style from './style'
 import logo from 'images/logo_horizontal_white.png'
 
+import { Uploader } from 'modules/Shared'
+
 class Signup extends PureComponent {
   render() {
     const {
@@ -32,6 +34,8 @@ class Signup extends PureComponent {
         <Image source={logo} style={style.brand} />
 
         <View style={style.inputs}>
+          <Uploader {...this.props} />
+
           <TextInput
             onChangeText={value => changeInput({ name: 'name', value })}
             style={style.input}

@@ -9,7 +9,6 @@ import { IntlProvider } from 'react-intl'
 
 import { View, AppRegistry, StatusBar } from 'react-native'
 
-import PushNotification from 'react-native-push-notification'
 import notificationConfiguration from './notification'
 
 import store from './store'
@@ -20,11 +19,6 @@ import Navigation from './Navigation'
 class App extends PureComponent {
   componentDidMount() {
     notificationConfiguration()
-
-    PushNotification.localNotificationSchedule({
-      message: "My Notification Message",
-      date: new Date(Date.now() + (60 * 1000)),
-    })
   }
 
   render() {
