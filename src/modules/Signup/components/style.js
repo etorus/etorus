@@ -29,18 +29,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    width: 310,
-    height: 50,
-    borderRadius: 23,
-    marginBottom: 15,
-    fontFamily: 'Branding',
-    fontWeight: '400',
-    fontSize: 18,
-    paddingHorizontal: 40,
-  },
-
   signupButton: {
     backgroundColor: 'rgba(255, 255, 255, .0)',
     paddingVertical: 15,

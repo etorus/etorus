@@ -20,6 +20,11 @@
   "session.extra.participating": "Participating",
   "session.info.session_of": "Session of",
   "session.progress_bar.session_time": "Session time",
+  "signup.form.name": "Name",
+  "signup.form.email": "E-mail",
+  "signup.form.phone": "Phone",
+  "signup.form.password": "Password",
+  "signup.form.password_confirmation": "Password confirmation",
   "signup.form.signup": "Signup",
   "signup.form.already_have_account": "Already have an account?"
 }

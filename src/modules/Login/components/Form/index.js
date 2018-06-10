@@ -12,8 +12,10 @@ import {
 
 import FacebookLogin from './FacebookLogin'
 import GoogleLogin from './GoogleLogin'
+import { Input } from 'modules/Shared'
 
 import style from './style'
+import fields from './fields'
 import logo from 'images/logo_horizontal_white.png'
 
 class Form extends PureComponent {
@@ -45,23 +47,12 @@ class Form extends PureComponent {
         <Image source={logo} style={style.brand} />
 
         <View style={style.inputs}>
-          <TextInput
-            onChangeText={value => changeInput({ name: 'email', value })}
-            autoCapitalize="none"
-            keyboardType="email-address"
-            style={style.input}
-            placeholder={intl.formatMessage({ id: 'login.form.placeholder_email' })}
-            underlineColorAndroid="transparent"
-          />
 
-          <TextInput
-            onChangeText={value => changeInput({ name: 'password', value })}
-            autoCapitalize="none"
-            secureTextEntry
-            style={style.input}
-            placeholder={intl.formatMessage({ id: 'login.form.placeholder_password' })}
-            underlineColorAndroid="transparent"
-          />
+          {
+            fields(intl).map(
+              field => <Input {...field} onChangeText={changeInput} />
+            )
+          }
 
           <TouchableOpacity>
             <Text style={style.forgetPassword}>

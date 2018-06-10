@@ -9,10 +9,12 @@ import {
   Text,
 } from 'react-native'
 
-import style from './style'
-import logo from 'images/logo_horizontal_white.png'
+import { Uploader, Input } from 'modules/Shared'
 
-import { Uploader } from 'modules/Shared'
+import style from './style'
+import fields from './fields'
+
+import logo from 'images/logo_horizontal_white.png'
 
 class Signup extends PureComponent {
   render() {
@@ -38,48 +40,11 @@ class Signup extends PureComponent {
             onUpload={ value => changeInput({ name: 'avatar', value }) }
           />
 
-          <TextInput
-            onChangeText={value => changeInput({ name: 'name', value })}
-            style={style.input}
-            placeholder="Nome"
-            underlineColorAndroid="transparent"
-          />
-
-          <TextInput
-            onChangeText={value => changeInput({ name: 'email', value })}
-            autoCapitalize="none"
-            keyboardType="email-address"
-            style={style.input}
-            placeholder="E-mail"
-            underlineColorAndroid="transparent"
-          />
-
-          <TextInput
-            onChangeText={value => changeInput({ name: 'phone', value })}
-            autoCapitalize="none"
-            keyboardType="phone-pad"
-            style={style.input}
-            placeholder="Telefone"
-            underlineColorAndroid="transparent"
-          />
-
-          <TextInput
-            onChangeText={value => changeInput({ name: 'password', value })}
-            autoCapitalize="none"
-            secureTextEntry
-            style={style.input}
-            placeholder="Senha"
-            underlineColorAndroid="transparent"
-          />
-
-          <TextInput
-            onChangeText={value => changeInput({ name: 'password_confirmation', value })}
-            autoCapitalize="none"
-            secureTextEntry
-            style={style.input}
-            placeholder="Confirmar senha"
-            underlineColorAndroid="transparent"
-          />
+          {
+            fields(intl).map(
+              field => <Input {...field} onChangeText={changeInput} />
+            )
+          }
 
           <TouchableOpacity style={style.signupButton} onPress={onPressSignup}>
             <Text style={style.signupText}>
