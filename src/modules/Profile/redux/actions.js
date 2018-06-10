@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native'
 import * as constants from './constants'
 
-import { profileSuccess } from 'modules/Sidebar'
+import { fetchProfile } from 'modules/Sidebar'
 
 import { update } from 'requests/user'
 
@@ -25,7 +25,6 @@ export const pressSave = ({ fields, navigation, id }) =>
     dispatch(updateCalling())
 
     return update({ body: fields, navigation, id })
-      .then(response => response.json())
       .then(({ message, data: user }) => {
         dispatch(updateReceive())
 
@@ -35,7 +34,7 @@ export const pressSave = ({ fields, navigation, id }) =>
 
         dispatch(updateError({ message: '', error: 0 }))
         dispatch(updateSuccess({ user }))
-        return dispatch(profileSuccess({ profile: user }))
+        return dispatch(fetchProfile({ navigation }))
       })
       .catch(
         message => dispatch(updateError({ message, error: 3 }))

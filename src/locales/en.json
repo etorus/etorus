@@ -26,5 +26,7 @@
   "signup.form.password": "Password",
   "signup.form.password_confirmation": "Password confirmation",
   "signup.form.signup": "Signup",
-  "signup.form.already_have_account": "Already have an account?"
+  "signup.form.already_have_account": "Already have an account?",
+  "profile.form.save": "Save",
+  "profile.form.back": "Back"
 }

@@ -34,7 +34,7 @@ export default StyleSheet.create({
     color: 'rgba(62, 62, 62, 1)',
     fontFamily: 'Branding',
     fontWeight: '900',
-    fontSize: 18,
+    fontSize: 20,
     marginLeft: 10,
   },
 
@@ -42,7 +42,23 @@ export default StyleSheet.create({
     color: 'rgba(62, 62, 62, 1)',
     fontFamily: 'Branding',
     fontWeight: '400',
-    fontSize: 16,
+    fontSize: 18,
     marginLeft: 10,
-  }
+  },
+
+  button: {
+    paddingVertical: 10,
+  },
+
+  buttonText: {
+    color: 'rgba(62, 62, 62, 1)',
+    fontFamily: 'Branding',
+    fontWeight: '700',
+    fontSize: 22,
+    marginLeft: 10,
+  },
+
+  alert: {
+    color: 'red',
+  },
 })

@@ -26,5 +26,7 @@
   "signup.form.password": "Senha",
   "signup.form.password_confirmation": "Confirmar senha",
   "signup.form.signup": "Cadastrar",
-  "signup.form.already_have_account": "Já possui uma conta?"
+  "signup.form.already_have_account": "Já possui uma conta?",
+  "profile.form.save": "Salvar",
+  "profile.form.back": "Voltar"
 }

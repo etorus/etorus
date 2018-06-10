@@ -14,8 +14,11 @@ class Container extends PureComponent {
     })
   }
 
+  goToProfile = () =>
+    () => this.props.navigation.navigate('Profile')
+
   render() {
-    return <Sidebar {...this.props} />
+    return <Sidebar {...this.props} goToProfile={this.goToProfile()} />
   }
 }
 

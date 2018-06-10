@@ -22,9 +22,6 @@ export const fetchProfile = ({ navigation }) =>
         ({ message, data: profile }) => {
           dispatch(profileReceive())
 
-          console.log(profile)
-          console.log(message)
-
           if (message) {
             return dispatch(profileError({ error: 1, message }))
           }

@@ -23,6 +23,7 @@ class Sidebar extends PureComponent {
           email
         },
       },
+      goToProfile,
     } = this.props
 
     return (
@@ -50,7 +51,7 @@ class Sidebar extends PureComponent {
           </View>
 
           <View style={style.buttons}>
-            <TouchableOpacity style={style.button}>
+            <TouchableOpacity style={style.button} onPress={goToProfile}>
               <Text style={style.buttonText}>Editar perfil</Text>
             </TouchableOpacity>
 

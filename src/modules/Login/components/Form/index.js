@@ -50,7 +50,7 @@ class Form extends PureComponent {
 
           {
             fields(intl).map(
-              field => <Input {...field} onChangeText={changeInput} />
+              field => <Input key={field.name} {...field} onChangeText={changeInput} />
             )
           }
 

@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { TextInput } from 'react-native'
 
 import style from './style'
 
