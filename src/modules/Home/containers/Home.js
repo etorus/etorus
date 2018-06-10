@@ -84,8 +84,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.closeMenu())
   },
 
-  fetch({ navigation }) {
-    dispatch(actions.fetch({ navigation }))
+  fetchMeditations({ navigation }) {
+    dispatch(actions.fetchMeditations({ navigation }))
   },
 
   pressMenu({ navigation }) {

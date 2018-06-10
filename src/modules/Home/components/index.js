@@ -13,7 +13,7 @@ import MeditationCard from './MeditationCard'
 
 class Home extends PureComponent {
   componentDidMount() {
-    this.props.fetch({ navigation: this.props.navigation })
+    this.props.fetchMeditations({ navigation: this.props.navigation })
   }
 
   go = id =>

@@ -33,7 +33,7 @@ export const filterStarted = () =>
 export const filterNext = () =>
   ({ type: constants.FILTER_NEXT })
 
-export const fetch = ({ navigation }) =>
+export const fetchMeditations = ({ navigation }) =>
   dispatch => {
     dispatch(meditationCalling())
 

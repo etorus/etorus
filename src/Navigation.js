@@ -1,33 +1,18 @@
 import React from 'react'
-import { Text, ScrollView, StyleSheet } from 'react-native'
+import { Dimensions } from 'react-native'
 
 import {
   createStackNavigator,
   createSwitchNavigator,
   createDrawerNavigator,
-  SafeAreaView,
 } from 'react-navigation'
-
-const CustomDrawerContentComponent = (props) => (
-  <ScrollView>
-    <SafeAreaView style={styles.container} forceInset={{ top: 'always', horizontal: 'never' }}>
-      <Text>TESTANDO</Text>
-    </SafeAreaView>
-  </ScrollView>
-)
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-})
-
 
 import Home from './modules/Home'
 import Session from './modules/Session'
 import Signup from './modules/Signup'
 import { Login, Splash } from './modules/Login'
 import { Loading }  from './modules/Shared'
+import Sidebar  from './modules/Sidebar'
 
 const AppStack = createDrawerNavigator({
   Home: {
@@ -38,8 +23,8 @@ const AppStack = createDrawerNavigator({
   },
 },
 {
-  drawerWidth: 300,
-  contentComponent: CustomDrawerContentComponent
+  drawerWidth: Dimensions.get('screen').width - 50,
+  contentComponent: Sidebar,
 })
 
 const AuthStack = createStackNavigator({

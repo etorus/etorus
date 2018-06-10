@@ -28,7 +28,7 @@ class Container extends PureComponent {
     const { navigation, enterLobby } = this.props
 
     Sound.setCategory('Playback')
-    this.props.fetch({ navigation })
+    this.props.fetchMeditation({ navigation })
 
     this.sessionChannel = pusher.subscribe(this.getChannelName())
     this.sessionChannel.bind(
@@ -139,8 +139,8 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetch({ navigation }) {
-    dispatch(actions.fetch({
+  fetchMeditation({ navigation }) {
+    dispatch(actions.fetchMeditation({
       navigation,
       id: navigation.state.params.sessionId
     }))
