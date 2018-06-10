@@ -1,0 +1,5 @@
+export const SELECT_IMAGE   = 'Shared/Uploader/SELECT_IMAGE'
+export const UPLOAD_CALLING = 'Shared/Uploader/UPLOAD_CALLING'
+export const UPLOAD_RECEIVE = 'Shared/Uploader/UPLOAD_RECEIVE'
+export const UPLOAD_SUCCESS = 'Shared/Uploader/UPLOAD_SUCCESS'
+export const UPLOAD_ERROR   = 'Shared/Uploader/UPLOAD_ERROR'

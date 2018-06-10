@@ -34,7 +34,9 @@ class Signup extends PureComponent {
         <Image source={logo} style={style.brand} />
 
         <View style={style.inputs}>
-          <Uploader {...this.props} />
+          <Uploader {...this.props}
+            onUpload={ value => changeInput({ name: 'avatar', value }) }
+          />
 
           <TextInput
             onChangeText={value => changeInput({ name: 'name', value })}

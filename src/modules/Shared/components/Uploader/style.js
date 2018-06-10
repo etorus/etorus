@@ -26,5 +26,5 @@ export default StyleSheet.create({
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',
     fontSize: 14,
-  }
+  },
 })

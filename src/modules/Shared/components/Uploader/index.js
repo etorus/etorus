@@ -3,6 +3,7 @@ import {
   View,
   Image,
   Text,
+  TouchableOpacity,
 } from 'react-native'
 
 import style from './style'
@@ -10,14 +11,25 @@ import placeholder from 'images/logo.png'
 
 class Uploader extends PureComponent {
   render() {
+    const {
+      image,
+      openPicker,
+    } = this.props
+
     return (
       <View style={style.uploader}>
-        <View style={style.wrapperImagem}>
-          <Image source={placeholder} style={style.image} />
-        </View>
+        <TouchableOpacity onPress={openPicker}>
+          <View style={style.wrapperImagem}>
+            {
+              image
+                ? <Image source={{ uri: image }} style={style.image} />
+                : <Image source={placeholder} style={style.image} />
+            }
+          </View>
+        </TouchableOpacity>
 
         <Text style={style.text}>
-          Altere sua Imagem
+          Clique na imagem para alterá-la
         </Text>
       </View>
     )
