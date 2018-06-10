@@ -11,6 +11,7 @@ class Input extends PureComponent {
       autoCapitalize,
       keyboardType,
       secureTextEntry,
+      defaultValue,
     } = this.props
 
     return <TextInput
@@ -21,6 +22,7 @@ class Input extends PureComponent {
       autoCapitalize={autoCapitalize}
       keyboardType={keyboardType}
       secureTextEntry={secureTextEntry}
+      defaultValue={defaultValue}
     />
   }
 }
@@ -29,6 +31,7 @@ Input.defaultProps = {
   autoCapitalize: 'none',
   keyboardType: 'default',
   secureTextEntry: false,
+  defaultValue: '',
 }
 
 export default Input

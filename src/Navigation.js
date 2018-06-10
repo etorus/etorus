@@ -13,6 +13,7 @@ import Signup from './modules/Signup'
 import { Login, Splash } from './modules/Login'
 import { Loading }  from './modules/Shared'
 import Sidebar  from './modules/Sidebar'
+import Profile  from './modules/Profile'
 
 const AppStack = createDrawerNavigator({
   Home: {
@@ -20,6 +21,9 @@ const AppStack = createDrawerNavigator({
   },
   Session: {
     screen: Session,
+  },
+  Profile: {
+    screen: Profile,
   },
 },
 {

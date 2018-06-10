@@ -7,3 +7,12 @@ export const profile = ({ navigation }) => authRequest({
   },
   navigation,
 })
+
+export const update = ({ body, id, navigation }) => authRequest({
+  path: `/users/${id}`,
+  options: {
+    method: 'PUT',
+    body,
+  },
+  navigation,
+})
