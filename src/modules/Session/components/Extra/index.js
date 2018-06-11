@@ -5,6 +5,7 @@ import 'moment/locale/pt'
 import {
   View,
   Text,
+  ScrollView,
 } from 'react-native'
 
 import { Participants } from 'modules/Shared'
@@ -37,7 +38,8 @@ class Extra extends PureComponent {
           { formatMessage({ id: 'session.extra.participating' }) }
         </Text>
 
-        <Participants participants={participants} style={style} showMore quantity="+50"/>
+        <Participants participants={participants} style={style} />
+
       </View>
     )
   }

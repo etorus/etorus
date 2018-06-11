@@ -41,9 +41,7 @@ class Session extends PureComponent {
       }
     } = this.props
 
-    const participants = lobby.map(
-      () => ({ avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' })
-    )
+    console.log(lobby)
 
     return (
       <View style={style.session}>
@@ -66,7 +64,7 @@ class Session extends PureComponent {
 
             <Extra
               start={start}
-              participants={participants}
+              participants={lobby}
               formatMessage={formatMessage}
             />
           </View>

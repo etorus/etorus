@@ -13,6 +13,7 @@ class Input extends PureComponent {
       keyboardType,
       secureTextEntry,
       defaultValue,
+      editable,
     } = this.props
 
     return <TextInput
@@ -24,6 +25,7 @@ class Input extends PureComponent {
       keyboardType={keyboardType}
       secureTextEntry={secureTextEntry}
       defaultValue={defaultValue}
+      editable={editable}
     />
   }
 }
@@ -33,6 +35,7 @@ Input.defaultProps = {
   keyboardType: 'default',
   secureTextEntry: false,
   defaultValue: '',
+  editable: true,
 }
 
 export default Input

@@ -8,6 +8,7 @@ export default intl => ([
     name: 'email',
     placeholder: intl.formatMessage({ id: 'signup.form.email' }),
     keyboardType: 'email-address',
+    editable: false,
   },
   {
     name: 'phone',

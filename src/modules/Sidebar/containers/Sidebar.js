@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import { AsyncStorage } from 'react-native'
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -14,11 +15,19 @@ class Container extends PureComponent {
     })
   }
 
+  logout = () =>
+    AsyncStorage.clear(() =>
+      this.props.navigation.navigate('Auth')
+    )
+
   goToProfile = () =>
     () => this.props.navigation.navigate('Profile')
 
   render() {
-    return <Sidebar {...this.props} goToProfile={this.goToProfile()} />
+    return <Sidebar {...this.props}
+      goToProfile={this.goToProfile()}
+      logout={this.logout}
+    />
   }
 }
 

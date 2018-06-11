@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react'
-import { AsyncStorage } from 'react-native'
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -26,11 +25,6 @@ class Container extends PureComponent {
 
     return () => pressSave({ fields, navigation })
   }
-
-  logout = () =>
-    AsyncStorage.clear(() =>
-      this.props.navigation.navigate('Auth')
-    )
 
   goBack = () =>
     () => this.props.navigation.navigate('Home')
