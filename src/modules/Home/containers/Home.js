@@ -84,12 +84,12 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.closeMenu())
   },
 
-  fetch({ navigation }) {
-    dispatch(actions.fetch({ navigation }))
+  fetchMeditations({ navigation }) {
+    dispatch(actions.fetchMeditations({ navigation }))
   },
 
-  pressLogout({ navigation }) {
-    actions.pressLogout({ navigation })
+  pressMenu({ navigation }) {
+    navigation.toggleDrawer()
   }
 })
 

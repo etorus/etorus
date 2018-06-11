@@ -17,7 +17,7 @@ import style from './style'
 
 class Header extends PureComponent {
   render() {
-    const { onPressLogout } = this.props
+    const { onPressMenu } = this.props
 
     return (
       <View style={style.header}>
@@ -35,7 +35,7 @@ class Header extends PureComponent {
               <Image source={notification} style={style.notificationIcon} />
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.menu} onPress={onPressLogout}>
+            <TouchableOpacity style={style.menu} onPress={onPressMenu}>
               <Image source={menu} style={style.menuIcon} />
             </TouchableOpacity>
           </View>

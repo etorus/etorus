@@ -12,14 +12,18 @@
     "pusher-js": "^4.2.2",
     "react": "^16.3.0-alpha.1",
     "react-intl": "^2.4.0",
-    "react-native": "0.54.2",
+    "react-native": "0.55.4",
+    "react-native-aws3": "^0.0.8",
     "react-native-fbsdk": "0.7.0",
+    "react-native-image-crop-picker": "^0.20.3",
     "react-native-linear-gradient": "^2.4.0",
+    "react-native-push-notification": "^3.0.2",
     "react-native-sound": "^0.10.9",
-    "react-navigation": "^1.5.11",
+    "react-navigation": "^2.2.4",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2",
-    "redux-thunk": "^2.2.0"
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0",
+    "uuid": "^3.2.1"
   },
   "devDependencies": {
     "babel-jest": "23.0.0-alpha.0",

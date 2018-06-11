@@ -1,76 +1,51 @@
+import { YellowBox } from 'react-native'
+
+// Waiting new version of React Native to remove this ignores.
+// This warnings are from React Native API
+YellowBox.ignoreWarnings([
+  'Warning: isMounted(...) is deprecated',
+  'Module RCTImageLoader requires',
+])
+
 import 'intl'
 import pt from 'react-intl/locale-data/pt'
 import { addLocaleData } from 'react-intl'
 addLocaleData([...pt])
 
-import React from 'react'
+import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 
-import {
-  View,
-  AppRegistry,
-  StatusBar,
-} from 'react-native'
+import { View, AppRegistry, StatusBar } from 'react-native'
 
-import {
-  StackNavigator,
-  SwitchNavigator,
-} from 'react-navigation'
+import notificationConfiguration from './notification'
 
 import store from './store'
 import * as locales from './locales'
 
-import Home from './modules/Home'
-import Session from './modules/Session'
-import Signup from './modules/Signup'
-import { Login, Splash } from './modules/Login'
-import { Loading }  from './modules/Shared'
+import Navigation from './Navigation'
 
-const AppStack = StackNavigator(
-  {
-    Home,
-    Session,
-  },
-  {
-    headerMode: 'none',
+class App extends PureComponent {
+  componentDidMount() {
+    notificationConfiguration()
   }
-)
 
-const AuthStack = StackNavigator(
-  {
-    Splash,
-    Login,
-    Signup,
-  },
-  {
-    headerMode: 'none',
+  render() {
+    return (
+      <Provider store={store}>
+        <IntlProvider locale="en" messages={locales['pt']}>
+          <View style={{ flex: 1 }}>
+            <StatusBar
+              barStyle="light-content"
+              animated
+              backgroundColor="#c64d96"
+            />
+            <Navigation />
+          </View>
+        </IntlProvider>
+      </Provider>
+    )
   }
-)
-
-const Navigation = SwitchNavigator(
-  {
-    AuthLoading: Loading,
-    App: AppStack,
-    Auth: AuthStack,
-  },
-  {
-    initialRouteName: 'AuthLoading',
-  }
-)
-
-const App = () =>
-  <Provider store={store}>
-    <IntlProvider locale="en" messages={locales['pt']}>
-      <View style={{ flex: 1 }}>
-        <StatusBar
-          barStyle="light-content"
-          animated
-          backgroundColor="#c64d96"
-        />
-        <Navigation />
-      </View>
-    </IntlProvider>
-  </Provider>
+}
 
 export default App

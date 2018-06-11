@@ -28,7 +28,7 @@ class Container extends PureComponent {
     const { navigation, enterLobby } = this.props
 
     Sound.setCategory('Playback')
-    this.props.fetch({ navigation })
+    this.props.fetchMeditation({ navigation })
 
     this.sessionChannel = pusher.subscribe(this.getChannelName())
     this.sessionChannel.bind(
@@ -79,16 +79,19 @@ class Container extends PureComponent {
   componentWillUnmount() {
     if (this.state.audio) {
       this.state.audio.stop()
-      clearInterval(this.timer)
     }
 
+    clearInterval(this.timer)
     this.sessionChannel.unsubscribe(this.getChannelName())
     this.props.leaveLobby({ navigation: this.props.navigation })
   }
 
   lobbyChange = lobby => this.setState({ lobby })
 
-  back = () => this.props.navigation.goBack()
+  back = () => {
+    console.log('baking',this.props.navigation.goBack())
+    this.props.navigation.navigate('Home')
+  }
 
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
@@ -136,8 +139,8 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetch({ navigation }) {
-    dispatch(actions.fetch({
+  fetchMeditation({ navigation }) {
+    dispatch(actions.fetchMeditation({
       navigation,
       id: navigation.state.params.sessionId
     }))

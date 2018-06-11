@@ -18,27 +18,15 @@ export default StyleSheet.create({
   },
 
   brand: {
-    marginTop: 60,
+    marginTop: 40,
     width: 170,
     height: 44,
     resizeMode: Image.resizeMode.contain,
   },
 
   inputs: {
-    marginTop: 55,
+    marginTop: 10,
     alignItems: 'center',
-  },
-
-  input: {
-    backgroundColor: 'rgba(255, 255, 255, 1)',
-    width: 310,
-    height: 50,
-    borderRadius: 23,
-    marginBottom: 15,
-    fontFamily: 'Branding',
-    fontWeight: '400',
-    fontSize: 18,
-    paddingHorizontal: 40,
   },
 
   signupButton: {

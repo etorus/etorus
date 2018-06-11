@@ -13,7 +13,7 @@ export const sessionSuccess = ({ meditation }) =>
 export const sessionError = ({ error, message }) =>
   ({ type: constants.SESSION_ERROR, error, message })
 
-export const fetch = ({ navigation, id }) =>
+export const fetchMeditation = ({ navigation, id }) =>
   dispatch => {
     dispatch(sessionCalling())
 

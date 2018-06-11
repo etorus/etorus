@@ -20,6 +20,13 @@
   "session.extra.participating": "Participando",
   "session.info.session_of": "Sessão do",
   "session.progress_bar.session_time": "Tempo da sessão",
+  "signup.form.name": "Nome",
+  "signup.form.email": "E-mail",
+  "signup.form.phone": "Telefone",
+  "signup.form.password": "Senha",
+  "signup.form.password_confirmation": "Confirmar senha",
   "signup.form.signup": "Cadastrar",
-  "signup.form.already_have_account": "Já possui uma conta?"
+  "signup.form.already_have_account": "Já possui uma conta?",
+  "profile.form.save": "Salvar",
+  "profile.form.back": "Voltar"
 }
