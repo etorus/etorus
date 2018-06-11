@@ -16,8 +16,11 @@ class Home extends PureComponent {
     this.props.fetchMeditations({ navigation: this.props.navigation })
   }
 
-  go = id =>
-    () => this.props.navigation.navigate('Session', { sessionId: id })
+  go = meditation =>
+    () => this.props.navigation.navigate('Session', {
+      sessionId: meditation.id,
+      meditation,
+    })
 
   render() {
     const {
@@ -48,7 +51,7 @@ class Home extends PureComponent {
                 data={data}
                 renderItem={
                   ({ item }) =>
-                    <MeditationCard meditation={item} go={this.go} intl={intl} />
+                    <MeditationCard meditation={item} go={this.go(item)} intl={intl} />
                 }
               />
           }

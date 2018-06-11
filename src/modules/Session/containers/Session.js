@@ -28,12 +28,11 @@ class Container extends PureComponent {
     const { navigation, enterLobby } = this.props
 
     Sound.setCategory('Playback')
-    this.props.fetchMeditation({ navigation })
 
     this.sessionChannel = pusher.subscribe(this.getChannelName())
     this.sessionChannel.bind(
       'session:bell',
-      ({ lobby }) => this.lobbyChange(lobby)
+      ({ data: { attributes: { lobby } } }) => this.lobbyChange(lobby)
     )
 
     enterLobby({ navigation })
@@ -42,7 +41,6 @@ class Container extends PureComponent {
   componentDidUpdate(prevProps, prevState) {
     const {
       meditation,
-      calling,
     } = this.props
 
     const {
@@ -55,7 +53,7 @@ class Container extends PureComponent {
     const start = moment(meditation.attributes.start)
     const secondsAfterStart = parseFloat(moment().diff(start, 'seconds'))
 
-    if (!calling && !audio) {
+    if (!audio) {
       const sound = new Sound('es.mp3', DIR, (_, { duration }) => {
         this.setState({ audio: sound, duration })
         this.timer = setInterval(() => this.tick(), 1000)
@@ -88,10 +86,8 @@ class Container extends PureComponent {
 
   lobbyChange = lobby => this.setState({ lobby })
 
-  back = () => {
-    console.log('baking',this.props.navigation.goBack())
+  back = () =>
     this.props.navigation.navigate('Home')
-  }
 
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
@@ -118,22 +114,12 @@ class Container extends PureComponent {
   }
 }
 
-const mapStateToProps = ({
-  session: {
-    meditation,
-    calling,
-    message,
-    error,
-  },
-},
+const mapStateToProps = (_,
 {
   intl,
   navigation,
 }) => ({
-  meditation,
-  calling,
-  message,
-  error,
+  meditation: navigation.state.params.meditation,
   intl,
   navigation,
 })

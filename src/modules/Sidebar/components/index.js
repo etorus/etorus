@@ -24,6 +24,7 @@ class Sidebar extends PureComponent {
         },
       },
       goToProfile,
+      logout,
     } = this.props
 
     return (
@@ -55,7 +56,7 @@ class Sidebar extends PureComponent {
               <Text style={style.buttonText}>Editar perfil</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={style.button}>
+            <TouchableOpacity style={style.button} onPress={logout}>
               <Text style={[style.buttonText, style.alert]}>Sair</Text>
             </TouchableOpacity>
           </View>

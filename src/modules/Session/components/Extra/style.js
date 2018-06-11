@@ -23,9 +23,9 @@ export default StyleSheet.create({
   },
 
   participant: {
-    height: 28,
-    width: 28,
-    borderRadius: 14,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     marginHorizontal: 3.7,
     marginVertical: 3.7,
   },

@@ -59,6 +59,7 @@ class MeditationCard extends PureComponent {
         attributes: {
           title,
           start,
+          lobby,
         },
 
         user: {
@@ -69,16 +70,12 @@ class MeditationCard extends PureComponent {
       }
     } = this.props
 
-    const participants = [
-      { avatar: 'https://avatars1.githubusercontent.com/u/3676032?s=460' },
-    ]
-
     const difference = moment().diff(moment(start), 'seconds')
     const percent = difference > 0 ? difference / 300 : 0
     const label = `${(difference / 60).toString().split('.')[0]}min`
 
     return(
-      <TouchableOpacity onPress={onPress(id)}>
+      <TouchableOpacity onPress={onPress}>
         <View style={style.cardShadow}>
           <View style={style.card}>
             <Image source={background} style={style.background} />
@@ -95,7 +92,7 @@ class MeditationCard extends PureComponent {
                 { formatMessage({ id: 'home.meditation_card.participating' }) }
               </Text>
               <Participants
-                participants={participants}
+                participants={lobby}
                 style={style}
               />
             </View>
