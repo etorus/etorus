@@ -44,12 +44,12 @@
 		6944D3936F584FCBBF42CDF7 /* Branding Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 55388AA276284FD096CFCFE3 /* Branding Thin.otf */; };
 		70DC82517BCC4C89AAB72866 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB83E22B2D345EF84F5E45A /* FBSDKLoginKit.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		A426C94020CC92C8000A09EB /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; };
-		A426C94120CC92C8000A09EB /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A426C94320CC92C8000A09EB /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; };
-		A426C94420CC92C8000A09EB /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A472CF2A20CA18810068C582 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A472CF0D20CA18510068C582 /* libRCTPushNotification.a */; };
 		A4D02119209D71270002DBEB /* es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4D02118209D71260002DBEB /* es.mp3 */; };
+		A4FB708D20CDFC7C0021E63C /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; };
+		A4FB708E20CDFC7C0021E63C /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4FB708F20CDFC7C0021E63C /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; };
+		A4FB709020CDFC7C0021E63C /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 524E27B0FB2840C0B35DC73C /* libRCTFBSDK.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		D2EEA23F9D774765BADD2A26 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44BAA00931054853AEEEE8EA /* FBSDKShareKit.framework */; };
@@ -384,14 +384,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A426C94520CC92CA000A09EB /* Embed Frameworks */ = {
+		A4FB709120CDFC7D0021E63C /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A426C94120CC92C8000A09EB /* RSKImageCropper.framework in Embed Frameworks */,
-				A426C94420CC92C8000A09EB /* QBImagePicker.framework in Embed Frameworks */,
+				A4FB708E20CDFC7C0021E63C /* RSKImageCropper.framework in Embed Frameworks */,
+				A4FB709020CDFC7C0021E63C /* QBImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +440,7 @@
 		A27F1AB58E784EC49D6C2E6C /* BVLinearGradient.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = BVLinearGradient.xcodeproj; path = "../node_modules/react-native-linear-gradient/BVLinearGradient.xcodeproj"; sourceTree = "<group>"; };
 		A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RSKImageCropper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A426C94220CC92C8000A09EB /* QBImagePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = QBImagePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A429AB7020CE0322006C078D /* etorus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = etorus.entitlements; path = etorus/etorus.entitlements; sourceTree = "<group>"; };
 		A472CEF820CA18510068C582 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		A4D02118209D71260002DBEB /* es.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = es.mp3; path = ../assets/audio/es.mp3; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
@@ -478,13 +479,13 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */,
 				DC13859BA12742668C2D794A /* FBSDKCoreKit.framework in Frameworks */,
-				A426C94320CC92C8000A09EB /* QBImagePicker.framework in Frameworks */,
+				A4FB708F20CDFC7C0021E63C /* QBImagePicker.framework in Frameworks */,
 				D2EEA23F9D774765BADD2A26 /* FBSDKShareKit.framework in Frameworks */,
 				70DC82517BCC4C89AAB72866 /* FBSDKLoginKit.framework in Frameworks */,
 				603ADC22A89E42408F8045FA /* libBVLinearGradient.a in Frameworks */,
 				1B993B1B71894FF3A8E8193A /* libRNSound.a in Frameworks */,
 				F57F7CA141CC463AB00DC536 /* libimageCropPicker.a in Frameworks */,
-				A426C94020CC92C8000A09EB /* RSKImageCropper.framework in Frameworks */,
+				A4FB708D20CDFC7C0021E63C /* RSKImageCropper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +597,7 @@
 		13B07FAE1A68108700A75B9A /* etorus */ = {
 			isa = PBXGroup;
 			children = (
+				A429AB7020CE0322006C078D /* etorus.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -827,7 +829,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A426C94520CC92CA000A09EB /* Embed Frameworks */,
+				A4FB709120CDFC7D0021E63C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -890,6 +892,11 @@
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = 7L6V9UM76Y;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1509,9 +1516,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = etorus/etorus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7L6V9UM76Y;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
@@ -1540,9 +1548,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = etorus/etorus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 7L6V9UM76Y;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 				HEADER_SEARCH_PATHS = (
