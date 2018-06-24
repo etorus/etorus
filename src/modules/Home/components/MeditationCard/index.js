@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import moment from 'moment'
+import moment from 'app/moment'
 
 import {
   View,

@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native'
 import * as constants from './constants'
-
+import validate from '../validate'
 import { auth, facebook, loginFacebookSDK } from 'requests/auth'
 
 export const changeInput = ({ name, value }) =>
@@ -18,8 +18,18 @@ export const authSuccess = ({ authToken }) =>
 export const authError = ({ error, message }) =>
   ({ type: constants.AUTH_ERROR, error, message })
 
+export const authValidation = ({ validation }) =>
+  ({ type: constants.AUTH_VALIDATION, validation })
+
 export const pressAccess = ({ email, password, navigation }) =>
   dispatch => {
+    const validation = validate({ email, password })
+
+    if (validation) {
+      return dispatch(authValidation({ validation }))
+    }
+
+    dispatch(authValidation({ validation }))
     dispatch(authCalling())
 
     return auth({ email, password })

@@ -1,12 +1,12 @@
-export default intl => ([
+export default formatMessage => ([
   {
     name: 'email',
-    placeholder: intl.formatMessage({ id: 'login.form.placeholder_email' }),
+    placeholder: formatMessage({ id: 'login.form.placeholder_email' }),
     keyboardType: 'email-address',
   },
   {
     name: 'password',
-    placeholder: intl.formatMessage({ id: 'login.form.placeholder_password' }),
+    placeholder: formatMessage({ id: 'login.form.placeholder_password' }),
     secureTextEntry: true,
   },
 ])

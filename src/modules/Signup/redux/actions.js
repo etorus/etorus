@@ -1,5 +1,6 @@
 import { AsyncStorage } from 'react-native'
 import * as constants from './constants'
+import validate from '../validate'
 
 import { signup } from 'requests/auth'
 
@@ -18,8 +19,18 @@ export const signupSuccess = ({ authToken }) =>
 export const signupError = ({ error, message }) =>
   ({ type: constants.SIGNUP_ERROR, error, message })
 
+export const signupValidation = ({ validation }) =>
+  ({ type: constants.SIGNUP_VALIDATION, validation })
+
 export const pressSignup = ({ fields, navigation }) =>
   dispatch => {
+    const validation = validate(fields)
+
+    if (validation) {
+      return dispatch(signupValidation({ validation }))
+    }
+
+    dispatch(signupValidation({ validation }))
     dispatch(signupCalling())
 
     return signup(fields)

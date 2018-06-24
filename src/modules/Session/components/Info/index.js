@@ -31,7 +31,7 @@ class Info extends PureComponent {
         <View style={style.audioArea}>
           <Image source={play} style={style.audioIcon} />
           <Text style={style.audio}>
-            { audio }
+            { audio.replace(/_/g, ' ') }
           </Text>
         </View>
       </View>

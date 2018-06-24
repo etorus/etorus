@@ -1,18 +1,14 @@
 import React, { PureComponent } from 'react'
-import moment from 'moment'
-import 'moment/locale/pt'
-
 import {
   View,
   Text,
   ScrollView,
 } from 'react-native'
 
+import moment from 'app/moment'
 import { Participants } from 'modules/Shared'
 
 import style from './style'
-
-moment.locale('pt-BR')
 
 class Extra extends PureComponent {
   render() {

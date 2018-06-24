@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { TextInput } from 'react-native'
+import { TextInput, View, Text } from 'react-native'
 
 import style from './style'
 
@@ -14,19 +14,31 @@ class Input extends PureComponent {
       secureTextEntry,
       defaultValue,
       editable,
+      error,
     } = this.props
 
-    return <TextInput
-      onChangeText={value => onChangeText({ name, value })}
-      style={style.input}
-      placeholder={placeholder}
-      underlineColorAndroid="transparent"
-      autoCapitalize={autoCapitalize}
-      keyboardType={keyboardType}
-      secureTextEntry={secureTextEntry}
-      defaultValue={defaultValue}
-      editable={editable}
-    />
+    return (
+      <View style={style.wrapper}>
+        <TextInput
+          onChangeText={value => onChangeText({ name, value })}
+          style={[ style.input, (error ? style.error : null ) ]}
+          placeholder={placeholder}
+          underlineColorAndroid="transparent"
+          autoCapitalize={autoCapitalize}
+          keyboardType={keyboardType}
+          secureTextEntry={secureTextEntry}
+          defaultValue={defaultValue}
+          editable={editable}
+        />
+        {
+          error
+            ? <Text style={style.textError}>
+                { error[0].substr(error[0].indexOf(" ") + 1) }
+              </Text>
+            : null
+        }
+      </View>
+    )
   }
 }
 
@@ -36,6 +48,7 @@ Input.defaultProps = {
   secureTextEntry: false,
   defaultValue: '',
   editable: true,
+  error: undefined,
 }
 
 export default Input

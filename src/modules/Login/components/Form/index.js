@@ -11,8 +11,7 @@ import {
 } from 'react-native'
 
 import FacebookLogin from './FacebookLogin'
-import GoogleLogin from './GoogleLogin'
-import { Input } from 'modules/Shared'
+import { Input, LoadingButton } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
@@ -25,16 +24,24 @@ class Form extends PureComponent {
         password,
         email,
       },
+      calling,
       authToken,
       error,
       message,
-      intl,
+      intl: {
+        formatMessage,
+      },
       navigation,
       changeInput,
       pressAccess,
       pressFacebook,
       goToSignup,
+      validation,
     } = this.props
+
+    const fieldsWithErrors = fields(formatMessage).map(
+      field => ({ ...field, error: validation[field.name] })
+    )
 
     return (
       <View style={style.container}>
@@ -49,40 +56,40 @@ class Form extends PureComponent {
         <View style={style.inputs}>
 
           {
-            fields(intl).map(
+            fieldsWithErrors.map(
               field => <Input key={field.name} {...field} onChangeText={changeInput} />
             )
           }
 
           <TouchableOpacity>
             <Text style={style.forgetPassword}>
-              {intl.formatMessage({ id: 'login.form.forget_my_password' })}
+              { formatMessage({ id: 'login.form.forget_my_password' }) }
             </Text>
           </TouchableOpacity>
         </View>
 
-        <TouchableOpacity
-          style={style.accessButton}
-          onPress={() => pressAccess({ email, password, navigation })}>
-          <Text style={style.accessText}>
-            { intl.formatMessage({ id: 'login.form.access' }).toUpperCase() }
-          </Text>
-        </TouchableOpacity>
+        <LoadingButton
+          onPress={() => pressAccess({ email, password, navigation })}
+          label={formatMessage({ id: 'login.form.access' }).toUpperCase()}
+          loading={calling}
+        />
 
         <TouchableOpacity onPress={goToSignup}>
           <Text style={style.withoutAccount}>
-            {intl.formatMessage({ id: 'login.form.without_account' })}
+            { formatMessage({ id: 'login.form.without_account' }) }
           </Text>
         </TouchableOpacity>
 
         <View style={style.social}>
           <Text style={style.socialText}>
-            { intl.formatMessage({ id: 'login.form.social_access' }) }
+            { formatMessage({ id: 'login.form.social_access' }) }
           </Text>
 
           <View style={style.buttons}>
-            <GoogleLogin intl={intl} />
-            <FacebookLogin loginFacebook={pressFacebook} intl={intl} />
+            <FacebookLogin
+              loginFacebook={pressFacebook}
+              formatMessage={formatMessage}
+            />
           </View>
         </View>
       </View>

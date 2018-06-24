@@ -29,23 +29,6 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
 
-  saveButton: {
-    backgroundColor: 'rgba(255, 255, 255, .0)',
-    paddingVertical: 15,
-    width: 310,
-    alignItems: 'center',
-    borderRadius: 30,
-    borderWidth: 2,
-    borderColor: 'rgba(255, 255, 255, 1)',
-  },
-
-  saveText: {
-    color: 'rgba(255, 255, 255, 1)',
-    fontSize: 16,
-    fontFamily: 'Branding',
-    fontWeight: '400',
-  },
-
   goBack: {
     color: 'rgba(255, 255, 255, 1)',
     fontFamily: 'Branding',

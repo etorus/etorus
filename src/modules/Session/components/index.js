@@ -15,6 +15,7 @@ import ProgressArea from './ProgressArea'
 
 import style from './style'
 import arrow from 'images/arrow.png'
+import notification from 'images/notification.png'
 
 class Session extends PureComponent {
   render() {
@@ -76,6 +77,10 @@ class Session extends PureComponent {
           style={[ StyleSheet.absoluteFill, style.arrowBack ]}
         >
           <Image source={arrow} style={style.arrowBackImage} />
+        </TouchableOpacity>
+
+        <TouchableOpacity style={style.notification}>
+          <Image source={notification} style={style.notificationIcon} />
         </TouchableOpacity>
       </View>
     )

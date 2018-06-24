@@ -10,6 +10,7 @@ import { compose } from 'redux'
 import  * as actions from '../redux/actions'
 
 import pusher from 'app/pusher'
+import { getNormalizedLocale } from 'app/moment'
 
 import Session from '../components'
 
@@ -40,7 +41,12 @@ class Container extends PureComponent {
 
   componentDidUpdate(prevProps, prevState) {
     const {
-      meditation,
+      meditation: {
+        attributes: {
+          start,
+          audio: meditationAudio,
+        },
+      },
     } = this.props
 
     const {
@@ -50,11 +56,15 @@ class Container extends PureComponent {
       playing,
     } = this.state
 
-    const start = moment(meditation.attributes.start)
-    const secondsAfterStart = parseFloat(moment().diff(start, 'seconds'))
+    const meditationStart = moment(start)
+    const secondsAfterStart = parseFloat(moment().diff(meditationStart, 'seconds'))
 
     if (!audio) {
-      const sound = new Sound('es.mp3', DIR, (_, { duration }) => {
+      const normalizedLocale = getNormalizedLocale()
+        ? getNormalizedLocale().i18n
+        : 'en'
+      const audioFile = `${meditationAudio}_${normalizedLocale}.mp3`
+      const sound = new Sound(audioFile, DIR, (_, { duration }) => {
         this.setState({ audio: sound, duration })
         this.timer = setInterval(() => this.tick(), 1000)
       })

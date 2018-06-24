@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 
-import moment from 'moment'
-import 'moment/locale/pt'
+import moment from 'app/moment'
 
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
@@ -10,8 +9,6 @@ import { compose } from 'redux'
 import  * as actions from '../redux/actions'
 
 import Home from '../components'
-
-moment.locale('pt-BR')
 
 class Container extends PureComponent {
   state = {

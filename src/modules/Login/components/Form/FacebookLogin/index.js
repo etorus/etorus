@@ -11,14 +11,14 @@ import facebook from 'images/facebook.png'
 
 class FacebookLogin extends PureComponent {
   render() {
-    const { intl, loginFacebook } = this.props
+    const { formatMessage, loginFacebook } = this.props
 
     return(
       <TouchableOpacity style={style.button} onPress={loginFacebook}>
         <View style={style.wrapper}>
           <Image source={facebook} style={style.facebook} />
           <Text style={style.text}>
-            { intl.formatMessage({ id: 'login.form.facebook' }).toUpperCase() }
+            { formatMessage({ id: 'login.form.facebook' }).toUpperCase() }
           </Text>
         </View>
       </TouchableOpacity>

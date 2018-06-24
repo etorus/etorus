@@ -1,18 +1,18 @@
-export default intl => ([
+export default formatMessage => ([
   {
     name: 'name',
-    placeholder: intl.formatMessage({ id: 'signup.form.name' }),
+    placeholder: formatMessage({ id: 'signup.form.name' }),
     autoCapitalize: 'sentences',
   },
   {
     name: 'email',
-    placeholder: intl.formatMessage({ id: 'signup.form.email' }),
+    placeholder: formatMessage({ id: 'signup.form.email' }),
     keyboardType: 'email-address',
     editable: false,
   },
   {
     name: 'phone',
-    placeholder: intl.formatMessage({ id: 'signup.form.phone' }),
+    placeholder: formatMessage({ id: 'signup.form.phone' }),
     keyboardType: 'phone-pad',
   },
 ])

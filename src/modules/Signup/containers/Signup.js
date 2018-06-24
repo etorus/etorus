@@ -39,6 +39,7 @@ const mapStateToProps = ({
     authToken,
     message,
     error,
+    validation,
   },
 },
 {
@@ -52,6 +53,7 @@ const mapStateToProps = ({
   error,
   intl,
   navigation,
+  validation: validation || {},
 })
 
 const mapDispatchToProps = dispatch => ({

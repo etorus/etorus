@@ -9,7 +9,7 @@ import {
   Text,
 } from 'react-native'
 
-import { Uploader, Input } from 'modules/Shared'
+import { Uploader, Input, LoadingButton } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
@@ -20,13 +20,16 @@ class Profile extends PureComponent {
   render() {
     const {
       changeInput,
-      intl,
+      intl: {
+        formatMessage,
+      },
       onPressSave,
       goBack,
       profile,
+      calling,
     } = this.props
 
-    const fieldsWithValues = fields(intl).map(
+    const fieldsWithValues = fields(formatMessage).map(
       field => ({ ...field, defaultValue: profile.attributes[field.name] })
     )
 
@@ -51,15 +54,15 @@ class Profile extends PureComponent {
             )
           }
 
-          <TouchableOpacity style={style.saveButton} onPress={onPressSave}>
-            <Text style={style.saveText}>
-              { intl.formatMessage({ id: 'profile.form.save' }).toUpperCase() }
-            </Text>
-          </TouchableOpacity>
+          <LoadingButton
+            onPress={onPressSave}
+            label={formatMessage({ id: 'profile.form.save' }).toUpperCase()}
+            loading={calling}
+          />
 
           <TouchableOpacity onPress={goBack}>
             <Text style={style.goBack}>
-              { intl.formatMessage({ id: 'profile.form.back' }) }
+              { formatMessage({ id: 'profile.form.back' }) }
             </Text>
           </TouchableOpacity>
         </View>

@@ -23,6 +23,8 @@ import notificationConfiguration from './notification'
 import store from './store'
 import * as locales from './locales'
 
+import { getNormalizedLocale } from './moment'
+
 import Navigation from './Navigation'
 
 class App extends PureComponent {
@@ -33,7 +35,12 @@ class App extends PureComponent {
   render() {
     return (
       <Provider store={store}>
-        <IntlProvider locale="en" messages={locales['pt']}>
+        <IntlProvider
+          locale="en"
+          messages={
+            locales[getNormalizedLocale() ? getNormalizedLocale().i18n : 'en']
+          }
+        >
           <View style={{ flex: 1 }}>
             <StatusBar
               barStyle="light-content"

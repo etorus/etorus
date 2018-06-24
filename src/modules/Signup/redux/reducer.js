@@ -6,6 +6,7 @@ const initial = {
   calling: false,
   message: '',
   error: 0,
+  validation: {},
 }
 
 export default (
@@ -17,6 +18,7 @@ export default (
     authToken,
     message,
     error,
+    validation,
   }
 ) => {
 
@@ -35,6 +37,9 @@ export default (
 
     case constants.SIGNUP_ERROR:
       return { ...state, message, error }
+
+    case constants.SIGNUP_VALIDATION:
+      return { ...state, validation }
 
     default:
       return state

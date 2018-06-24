@@ -9,7 +9,7 @@ import {
   Text,
 } from 'react-native'
 
-import { Uploader, Input } from 'modules/Shared'
+import { Uploader, Input, LoadingButton } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
@@ -20,10 +20,18 @@ class Signup extends PureComponent {
   render() {
     const {
       changeInput,
-      intl,
+      intl: {
+        formatMessage,
+      },
       onPressSignup,
       goToLogin,
+      calling,
+      validation,
     } = this.props
+
+    const fieldsWithErrors = fields(formatMessage).map(
+      field => ({ ...field, error: validation[field.name] })
+    )
 
     return (
       <View style={style.container}>
@@ -41,20 +49,20 @@ class Signup extends PureComponent {
           />
 
           {
-            fields(intl).map(
+            fieldsWithErrors.map(
               field => <Input key={field.name} {...field} onChangeText={changeInput} />
             )
           }
 
-          <TouchableOpacity style={style.signupButton} onPress={onPressSignup}>
-            <Text style={style.signupText}>
-              { intl.formatMessage({ id: 'signup.form.signup' }).toUpperCase() }
-            </Text>
-          </TouchableOpacity>
+          <LoadingButton
+            onPress={onPressSignup}
+            loading={calling}
+            label={formatMessage({ id: 'signup.form.signup' }).toUpperCase()}
+          />
 
           <TouchableOpacity onPress={goToLogin}>
             <Text style={style.alreadyAccount}>
-              { intl.formatMessage({ id: 'signup.form.already_have_account' }) }
+              { formatMessage({ id: 'signup.form.already_have_account' }) }
             </Text>
           </TouchableOpacity>
         </View>

@@ -13,7 +13,7 @@ export default StyleSheet.create({
   },
 
   arrowBack: {
-    top: 62,
+    top: 60,
     left: 20,
     width: 13.5,
     height: 24,
@@ -23,6 +23,21 @@ export default StyleSheet.create({
   arrowBackImage: {
     width: 13.5,
     height: 24,
+    resizeMode: Image.resizeMode.contain,
+  },
+
+  notification: {
+    position: 'absolute',
+    top: 62,
+    right: 20,
+    height: 23,
+    width: 21,
+    zIndex: 1,
+  },
+
+  notificationIcon: {
+    height: 23,
+    width: 21,
     resizeMode: Image.resizeMode.contain,
   },
 })
