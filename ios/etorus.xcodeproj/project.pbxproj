@@ -48,10 +48,10 @@
 		A4635A6020E0361400E25381 /* meditation_for_life_en.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4635A5D20E0361300E25381 /* meditation_for_life_en.mp3 */; };
 		A4635A6120E0361400E25381 /* meditation_for_life_es.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = A4635A5E20E0361300E25381 /* meditation_for_life_es.mp3 */; };
 		A472CF2A20CA18810068C582 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A472CF0D20CA18510068C582 /* libRCTPushNotification.a */; };
-		A4FB708D20CDFC7C0021E63C /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; };
-		A4FB708E20CDFC7C0021E63C /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A4FB708F20CDFC7C0021E63C /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; };
-		A4FB709020CDFC7C0021E63C /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4885BBC20E052EE00E37CC0 /* RSKImageCropper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; };
+		A4885BBD20E052EE00E37CC0 /* RSKImageCropper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C93F20CC92C8000A09EB /* RSKImageCropper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A4885BBE20E052EE00E37CC0 /* QBImagePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; };
+		A4885BBF20E052EE00E37CC0 /* QBImagePicker.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A426C94220CC92C8000A09EB /* QBImagePicker.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 524E27B0FB2840C0B35DC73C /* libRCTFBSDK.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		C42D33C306944046A7CA3A80 /* libRNDeviceInfo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA917EFCE664A2CB7F563F8 /* libRNDeviceInfo-tvOS.a */; };
@@ -402,14 +402,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A4FB709120CDFC7D0021E63C /* Embed Frameworks */ = {
+		A4885BC020E052EF00E37CC0 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A4FB708E20CDFC7C0021E63C /* RSKImageCropper.framework in Embed Frameworks */,
-				A4FB709020CDFC7C0021E63C /* QBImagePicker.framework in Embed Frameworks */,
+				A4885BBD20E052EE00E37CC0 /* RSKImageCropper.framework in Embed Frameworks */,
+				A4885BBF20E052EE00E37CC0 /* QBImagePicker.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,6 +488,7 @@
 			files = (
 				A472CF2A20CA18810068C582 /* libRCTPushNotification.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
+				A4885BBC20E052EE00E37CC0 /* RSKImageCropper.framework in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
@@ -502,14 +503,13 @@
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				AA356D1A5CA84827844939FB /* libRCTFBSDK.a in Frameworks */,
 				DC13859BA12742668C2D794A /* FBSDKCoreKit.framework in Frameworks */,
-				A4FB708F20CDFC7C0021E63C /* QBImagePicker.framework in Frameworks */,
 				D2EEA23F9D774765BADD2A26 /* FBSDKShareKit.framework in Frameworks */,
 				70DC82517BCC4C89AAB72866 /* FBSDKLoginKit.framework in Frameworks */,
 				603ADC22A89E42408F8045FA /* libBVLinearGradient.a in Frameworks */,
 				1B993B1B71894FF3A8E8193A /* libRNSound.a in Frameworks */,
 				F57F7CA141CC463AB00DC536 /* libimageCropPicker.a in Frameworks */,
-				A4FB708D20CDFC7C0021E63C /* RSKImageCropper.framework in Frameworks */,
 				D1347EC81F0840EDA1C40EFE /* libRNDeviceInfo.a in Frameworks */,
+				A4885BBE20E052EE00E37CC0 /* QBImagePicker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +868,7 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A4FB709120CDFC7D0021E63C /* Embed Frameworks */,
+				A4885BC020E052EF00E37CC0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1584,7 +1584,7 @@
 				CODE_SIGN_ENTITLEMENTS = etorus/etorus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 7L6V9UM76Y;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
@@ -1617,7 +1617,7 @@
 				CODE_SIGN_ENTITLEMENTS = etorus/etorus.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7L6V9UM76Y;
 				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)/Frameworks/";
 				HEADER_SEARCH_PATHS = (
