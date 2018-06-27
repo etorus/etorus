@@ -8,6 +8,8 @@ import {
   Image,
 } from 'react-native'
 
+import moment from 'app/moment'
+
 import Extra from './Extra'
 import Header from './Header'
 import Info from './Info'
@@ -24,6 +26,7 @@ class Session extends PureComponent {
       progressPercent,
       back,
       lobby,
+      onCreateNotification,
       intl: {
         formatMessage,
       },
@@ -42,8 +45,6 @@ class Session extends PureComponent {
       }
     } = this.props
 
-    console.log(lobby)
-
     return (
       <View style={style.session}>
         <Header />
@@ -51,7 +52,7 @@ class Session extends PureComponent {
         <View style={style.wrapper}>
           <Info
             owner={owner}
-            title={title}
+            title={moment(start).calendar()}
             audio={audio}
             formatMessage={formatMessage}
           />
@@ -64,7 +65,7 @@ class Session extends PureComponent {
             />
 
             <Extra
-              start={start}
+              start={moment(start).calendar()}
               participants={lobby}
               formatMessage={formatMessage}
             />
@@ -79,7 +80,10 @@ class Session extends PureComponent {
           <Image source={arrow} style={style.arrowBackImage} />
         </TouchableOpacity>
 
-        <TouchableOpacity style={style.notification}>
+        <TouchableOpacity
+          onPress={onCreateNotification}
+          style={style.notification}
+        >
           <Image source={notification} style={style.notificationIcon} />
         </TouchableOpacity>
       </View>

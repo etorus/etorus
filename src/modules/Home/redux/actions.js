@@ -1,7 +1,17 @@
 import { AsyncStorage } from 'react-native'
 
 import * as constants from './constants'
-import { index } from 'requests/meditation'
+import { index as meditationIndex } from 'requests/meditation'
+import { index as notificationIndex} from 'requests/notification'
+
+const includedUserData = (collection, included) => collection.map(item => (
+  {
+    ...item,
+    user: included.find(
+      user => user.id === item.relationships.user.data.id
+    ),
+  }
+))
 
 export const meditationCalling = () =>
   ({ type: constants.MEDITATION_CALLING })
@@ -14,6 +24,18 @@ export const meditationSuccess = ({ meditations }) =>
 
 export const meditationError = ({ error, message }) =>
   ({ type: constants.MEDITATION_ERROR, error, message })
+
+export const notificationCalling = () =>
+  ({ type: constants.NOTIFICATIONS_CALLING })
+
+export const notificationReceive = () =>
+  ({ type: constants.NOTIFICATIONS_RECEIVE })
+
+export const notificationSuccess = ({ notifications }) =>
+  ({ type: constants.NOTIFICATIONS_SUCCESS, notifications })
+
+export const notificationError = ({ error, message }) =>
+  ({ type: constants.NOTIFICATIONS_ERROR, error, message })
 
 export const openNotifications = () =>
   ({ type: constants.OPEN_NOTIFICATIONS })
@@ -37,19 +59,12 @@ export const fetchMeditations = ({ navigation }) =>
   dispatch => {
     dispatch(meditationCalling())
 
-    return index({ navigation })
+    return meditationIndex({ navigation })
       .then(
         ({ message, data: meditations, included }) => {
           dispatch(meditationReceive())
 
-          const meditationsUsers = meditations.map(meditation => (
-            {
-              ...meditation,
-              user: included.find(
-                user => user.id === meditation.relationships.user.data.id
-              ),
-            }
-          ))
+          const meditationsUsers = includedUserData(meditations, included)
 
           if (message) {
             return dispatch(meditationError({ error: 1, message }))
@@ -61,5 +76,29 @@ export const fetchMeditations = ({ navigation }) =>
         error => dispatch(meditationError({ error: 2, message: error }))
       ).catch(
         message => meditationError({ message, error: 3 })
+      )
+  }
+
+export const fetchMyNotifications = ({ navigation }) =>
+  dispatch => {
+    dispatch(notificationCalling())
+
+    return notificationIndex({ navigation })
+      .then(
+        ({ message, data: notifications, included }) => {
+          dispatch(notificationReceive())
+
+          const notificationsUsers = includedUserData(notifications, included)
+
+          if (message) {
+            return dispatch(notificationError({ error: 1, message }))
+          }
+
+          dispatch(notificationError({ error: 0, message: '' }))
+          return dispatch(notificationSuccess({ notifications: notificationsUsers }))
+        },
+        error => dispatch(notificationError({ error: 2, message: error }))
+      ).catch(
+        message => notificationError({ message, error: 3 })
       )
   }

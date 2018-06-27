@@ -28,5 +28,10 @@
   "signup.form.signup": "Signup",
   "signup.form.already_have_account": "Already have an account?",
   "profile.form.save": "Save",
-  "profile.form.back": "Back"
+  "profile.form.back": "Back",
+  "notifications.session.starting": "Your session is about to begin. Starts in 15 minutes",
+  "notifications.alert.title": "Create notification",
+  "notifications.alert.body": "By clicking OK, we will notify you 15 minutes before starting this session",
+  "notifications.alert.cancel": "Cancel",
+  "notifications.alert.ok": "OK"
 }

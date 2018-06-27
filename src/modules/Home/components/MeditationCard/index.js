@@ -84,7 +84,7 @@ class MeditationCard extends PureComponent {
               { formatMessage({ id: 'home.meditation_card.session_of' }) } { name }
             </Text>
             <Text style={style.title}>
-              { title }
+              { moment(start).calendar() }
             </Text>
 
             <View style={style.participants}>

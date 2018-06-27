@@ -16,6 +16,12 @@ class Container extends PureComponent {
   }
 
   componentDidMount() {
+    const {
+      fetchMeditations,
+      navigation,
+    } = this.props
+
+    fetchMeditations({ navigation })
     this.timer = setInterval(() => this.tick(), 1000)
   }
 

@@ -12,10 +12,6 @@ import Filters from './Filters'
 import MeditationCard from './MeditationCard'
 
 class Home extends PureComponent {
-  componentDidMount() {
-    this.props.fetchMeditations({ navigation: this.props.navigation })
-  }
-
   go = meditation =>
     () => this.props.navigation.navigate('Session', {
       sessionId: meditation.id,

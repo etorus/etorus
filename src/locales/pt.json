@@ -28,5 +28,10 @@
   "signup.form.signup": "Cadastrar",
   "signup.form.already_have_account": "Já possui uma conta?",
   "profile.form.save": "Salvar",
-  "profile.form.back": "Voltar"
+  "profile.form.back": "Voltar",
+  "notifications.session.starting": "Sua sessão está próximo de começar. Começa em 15 minutes",
+  "notifications.alert.title": "Criar notificação",
+  "notifications.alert.body": "Clicando em \"confirmar\", nos iremos te notificar 15 minutos antes de começar está sessão",
+  "notifications.alert.cancel": "Cancelar",
+  "notifications.alert.ok": "Confirmar"
 }

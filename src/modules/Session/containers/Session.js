@@ -102,6 +102,12 @@ class Container extends PureComponent {
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
 
+  onCreateNotification = () => this.props.createNotification({
+    navigation: this.props.navigation,
+    formatMessage: this.props.intl.formatMessage,
+    meditationStart: this.props.meditation.attributes.start
+  })
+
   render() {
     const {
       duration,
@@ -118,6 +124,7 @@ class Container extends PureComponent {
         currentTime={normalizedMinutes}
         progressPercent={progressPercent}
         back={this.back}
+        onCreateNotification={this.onCreateNotification}
         lobby={lobby === null ? this.props.meditation.attributes.lobby : lobby}
       />
     )
@@ -135,12 +142,6 @@ const mapStateToProps = (_,
 })
 
 const mapDispatchToProps = dispatch => ({
-  fetchMeditation({ navigation }) {
-    dispatch(actions.fetchMeditation({
-      navigation,
-      id: navigation.state.params.sessionId
-    }))
-  },
   enterLobby({ navigation }) {
     dispatch(actions.enterLobby({
       navigation,
@@ -151,6 +152,14 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.leaveLobby({
       navigation,
       id: navigation.state.params.sessionId
+    }))
+  },
+  createNotification({ navigation, formatMessage, meditationStart }) {
+    dispatch(actions.createNotification({
+      navigation,
+      formatMessage,
+      meditationStart,
+      meditationId: navigation.state.params.sessionId,
     }))
   },
 })

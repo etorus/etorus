@@ -1,14 +1,7 @@
 import * as constants from './constants'
 
 const initial = {
-  meditation: {
-    attributes: {
-      lobby: [],
-    },
-    user: {
-      attributes: {},
-    }
-  },
+  notification: {},
   calling: false,
   message: '',
   error: 0,
@@ -18,22 +11,22 @@ export default (
   state = initial,
   {
     type,
-    meditation,
+    notification,
     message,
     error,
   }
 ) => {
   switch (type) {
-    case constants.SESSION_CALLING:
+    case constants.NOTIFICATION_CALLING:
       return { ...state, calling: true }
 
-    case constants.SESSION_RECEIVE:
+    case constants.NOTIFICATION_RECEIVE:
       return { ...state, calling: false }
 
-    case constants.SESSION_SUCCESS:
-      return { ...state, meditation }
+    case constants.NOTIFICATION_SUCCESS:
+      return { ...state, notification }
 
-    case constants.SESSION_ERROR:
+    case constants.NOTIFICATION_ERROR:
       return { ...state, message, error }
 
     default:

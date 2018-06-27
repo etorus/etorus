@@ -1,40 +1,74 @@
+import PushNotification from 'react-native-push-notification'
+import { Alert } from 'react-native'
+import uuidv4 from 'uuid/v4'
+import moment from 'app/moment'
+
 import * as constants from './constants'
-import { show, leave, enter } from 'requests/meditation'
+import { leave, enter } from 'requests/meditation'
+import { create } from 'requests/notification'
 
-export const sessionCalling = () =>
-  ({ type: constants.SESSION_CALLING })
+const confirmNotification = (formatMessage, success, fail) =>
+  Alert.alert(
+    formatMessage({ id: 'notifications.alert.title' }),
+    formatMessage({ id: 'notifications.alert.body' }),
+    [
+      {
+        text: formatMessage({ id: 'notifications.alert.cancel' }),
+        onPress: fail,
+        style: 'cancel',
+      },
+      {
+        text: formatMessage({ id: 'notifications.alert.ok' }),
+        onPress: success,
+      },
+    ],
+  )
 
-export const sessionReceive = () =>
-  ({ type: constants.SESSION_RECEIVE })
+export const notificationCalling = () =>
+  ({ type: constants.NOTIFICATION_CALLING })
 
-export const sessionSuccess = ({ meditation }) =>
-  ({ type: constants.SESSION_SUCCESS, meditation })
+export const notificationReceive = () =>
+  ({ type: constants.NOTIFICATION_RECEIVE })
 
-export const sessionError = ({ error, message }) =>
-  ({ type: constants.SESSION_ERROR, error, message })
+export const notificationSuccess = () =>
+  ({ type: constants.NOTIFICATION_SUCCESS })
 
-export const fetchMeditation = ({ navigation, id }) =>
+export const notificationError = ({ error, message }) =>
+  ({ type: constants.NOTIFICATION_ERROR, error, message })
+
+export const createNotification = ({
+  navigation,
+  meditationId,
+  meditationStart,
+  formatMessage,
+}) =>
   dispatch => {
-    dispatch(sessionCalling())
+    dispatch(notificationCalling())
 
-    return show({ navigation, id })
-      .then(
-        ({ message, data: meditation, included }) => {
-          dispatch(sessionReceive())
+    const uuid = uuidv4()
 
-          if (message) {
-            return dispatch(sessionError({ error: 1, message }))
-          }
+    const fields = {
+      uuid,
+      meditation_id: meditationId,
+    }
 
-          meditation.user = included[0]
+    confirmNotification(
+      formatMessage,
+      () => {
+        create({ navigation, fields })
 
-          dispatch(sessionError({ error: 0, message: '' }))
-          return dispatch(sessionSuccess({ meditation }))
-        },
-        error => dispatch(sessionError({ error: 2, message: error }))
-      ).catch(
-        message => sessionError({ message, error: 3 })
-      )
+        PushNotification.localNotificationSchedule({
+          message: formatMessage({ id: 'notifications.session.starting' }),
+          date: moment(meditationStart).subtract(15, 'minutes').toDate(),
+          userInfo: {
+            id: uuid,
+          },
+        });
+      },
+      () => dispatch(notificationReceive())
+    )
+
+    return dispatch(notificationReceive())
   }
 
 export const leaveLobby = ({ id, navigation }) =>
