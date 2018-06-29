@@ -101,8 +101,8 @@ android {
         applicationId "com.etorus"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 11
-        versionName "1.0.11"
+        versionCode 12
+        versionName "1.0.12"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }
