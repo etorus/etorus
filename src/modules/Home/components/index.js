@@ -38,7 +38,7 @@ class Home extends PureComponent {
     return (
       <View style={style.home}>
         <Header onPressMenu={onPressMenu()} />
-        <Filters intl={intl} />
+
         <View>
           {
             calling

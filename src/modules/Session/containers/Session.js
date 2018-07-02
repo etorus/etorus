@@ -23,12 +23,15 @@ class Container extends PureComponent {
     currentTime: 0,
     playing: false,
     lobby: null,
+    updates: 0,
   }
 
   componentDidMount() {
     const { navigation, enterLobby } = this.props
 
     Sound.setCategory('Playback')
+
+    this.timer = setInterval(() => this.tick(), 1000)
 
     this.sessionChannel = pusher.subscribe(this.getChannelName())
     this.sessionChannel.bind(
@@ -66,7 +69,6 @@ class Container extends PureComponent {
       const audioFile = `${meditationAudio}_${normalizedLocale}.mp3`
       const sound = new Sound(audioFile, DIR, (_, { duration }) => {
         this.setState({ audio: sound, duration })
-        this.timer = setInterval(() => this.tick(), 1000)
       })
     }
 
@@ -79,8 +81,21 @@ class Container extends PureComponent {
   }
 
   tick() {
-    this.state.audio.getCurrentTime(
-      (seconds) => this.setState({ currentTime: seconds / 60 })
+    const {
+      audio,
+      updates,
+      currentTime,
+    } = this.state
+
+    if (!audio) {
+      return this.setState({ updates: updates + 1 })
+    }
+
+    audio.getCurrentTime(
+      (seconds) => this.setState({
+        currentTime: seconds / 60,
+        updates: updates + 1,
+      })
     )
   }
 

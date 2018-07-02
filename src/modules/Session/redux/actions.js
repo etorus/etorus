@@ -59,7 +59,7 @@ export const createNotification = ({
 
         PushNotification.localNotificationSchedule({
           message: formatMessage({ id: 'notifications.session.starting' }),
-          date: moment(meditationStart).subtract(15, 'minutes').toDate(),
+          date: moment(meditationStart).subtract(5, 'minutes').toDate(),
           userInfo: {
             id: uuid,
           },

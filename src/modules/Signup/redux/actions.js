@@ -22,9 +22,9 @@ export const signupError = ({ error, message }) =>
 export const signupValidation = ({ validation }) =>
   ({ type: constants.SIGNUP_VALIDATION, validation })
 
-export const pressSignup = ({ fields, navigation }) =>
+export const pressSignup = ({ fields, formatMessage, navigation }) =>
   dispatch => {
-    const validation = validate(fields)
+    const validation = validate(fields, formatMessage)
 
     if (validation) {
       return dispatch(signupValidation({ validation }))
@@ -35,26 +35,37 @@ export const pressSignup = ({ fields, navigation }) =>
 
     return signup(fields)
       .then(response => response.json())
-      .then(({ message, user, auth_token: authToken }) => {
+      .then(({
+        message,
+        user,
+        auth_token: authToken,
+      }) => {
         dispatch(signupReceive())
+        dispatch(signupError({ message: '', error: 0 }))
 
         if (authToken) {
-          dispatch(signupError({ message: '', error: 0 }))
-
           return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => {
             dispatch(signupSuccess({ authToken }))
             return navigation.navigate('App')
           })
         }
 
-        return dispatch(
-          authError({
-            message: `Message: ${message} - authToken: ${authToken}`,
-            error: 2,
-          })
-        )
+        if (message) {
+          if (message.match('Email')) {
+            return dispatch(signupError({
+              message: formatMessage({ id: 'signup.errors.email_duplicated' }),
+              error: 1
+            }))
+          }
+
+          return dispatch(signupError({
+            message: formatMessage({ id: 'signup.errors.unknown' }, { code: '2' }),
+            error: 2
+          }))
+        }
       })
-      .catch(
-        message => dispatch(signupError({ message, error: 3 }))
-      )
+      .catch(message => dispatch(signupError({
+        message: formatMessage({ id: 'signup.errors.unknown' }, { code: '3' }),
+        error: 3
+      })))
   }

@@ -1,4 +1,5 @@
 import thunk from 'redux-thunk'
+import logger from 'redux-logger'
 
 import {
   createStore,
@@ -14,6 +15,8 @@ import { reducer as sidebar } from './modules/Sidebar'
 import { reducer as profile } from './modules/Profile'
 import { reducer as shared } from './modules/Shared'
 
+const middlewares = [thunk, logger]
+
 const store = createStore(
   combineReducers({
     login,
@@ -24,7 +27,7 @@ const store = createStore(
     profile,
     shared,
   }),
-  applyMiddleware(thunk),
+  applyMiddleware(...middlewares),
 )
 
 export default store

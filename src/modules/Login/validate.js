@@ -1,20 +1,27 @@
 import { validate } from 'validate.js'
 
-const constraints = {
+const constraints = formatMessage => ({
   email: {
     presence: {
-      message: 'Email não pode estar vazio para efetuar o login',
+      message: formatMessage({ id: 'shared.errors.cannot_be_blank'}, {
+        field: formatMessage({ id: 'signup.form.email' })
+      }),
     },
     email: {
-      message: 'Email deve ser um e-mail válido',
+      message: formatMessage({ id: 'shared.errors.valid_email'}, {
+        field: formatMessage({ id: 'signup.form.name' })
+      }),
     },
   },
 
   password: {
     presence: {
-      message: 'Senha não pode estar vazia para efetuar o login',
+      message: formatMessage({ id: 'shared.errors.cannot_be_blank'}, {
+        field: formatMessage({ id: 'signup.form.password' })
+      }),
     },
   },
-}
+})
 
-export default fields => validate(fields, constraints)
+export default (fields, formatMessage) =>
+  validate(fields, constraints(formatMessage))

@@ -11,6 +11,7 @@ export default StyleSheet.create({
     backgroundColor: 'rgba(240, 240, 240, 1)',
     flexDirection: 'column',
     justifyContent: 'flex-end',
+    marginBottom: 12,
   },
 
   background: {

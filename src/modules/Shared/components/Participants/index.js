@@ -8,6 +8,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient'
 
 import baseStyle from './style'
+import placeholder from 'images/logo.png'
 
 class Participants extends PureComponent {
   moreElement = ({ quantity }) => (
@@ -38,7 +39,11 @@ class Participants extends PureComponent {
           participants.map(
             (participant, index) =>
               <Image
-                source={{ uri: participant.avatar }}
+                source={
+                  participant.avatar
+                    ? { uri: participant.avatar }
+                    : placeholder
+                }
                 style={[ baseStyle.participant, style.participant ]}
                 key={index}
               />

@@ -69,7 +69,7 @@ class Form extends PureComponent {
         </View>
 
         <LoadingButton
-          onPress={() => pressAccess({ email, password, navigation })}
+          onPress={() => pressAccess({ email, password, navigation, formatMessage })}
           label={formatMessage({ id: 'login.form.access' }).toUpperCase()}
           loading={calling}
         />

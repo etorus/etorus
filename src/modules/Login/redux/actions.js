@@ -21,9 +21,9 @@ export const authError = ({ error, message }) =>
 export const authValidation = ({ validation }) =>
   ({ type: constants.AUTH_VALIDATION, validation })
 
-export const pressAccess = ({ email, password, navigation }) =>
+export const pressAccess = ({ email, password, navigation, formatMessage }) =>
   dispatch => {
-    const validation = validate({ email, password })
+    const validation = validate({ email, password }, formatMessage)
 
     if (validation) {
       return dispatch(authValidation({ validation }))
@@ -37,10 +37,6 @@ export const pressAccess = ({ email, password, navigation }) =>
       .then(({ message, auth_token: authToken }) => {
         dispatch(authReceive())
 
-        if (message) {
-          return dispatch(authError({ message, error: 1 }))
-        }
-
         if (authToken) {
           dispatch(authError({ message: '', error: 0 }))
 
@@ -50,12 +46,21 @@ export const pressAccess = ({ email, password, navigation }) =>
           })
         }
 
-        return dispatch(
-          authError({
-            message: `Message: ${message} - authToken: ${authToken}`,
-            error: 2,
-          })
-        )
+        console.log(message)
+
+        if (message) {
+          if (message.match('Invalid credentials')) {
+            return dispatch(authError({
+              message: formatMessage({ id: 'login.errors.invalid_credentials' }),
+              error: 1
+            }))
+          }
+
+          return dispatch(authError({
+            message: formatMessage({ id: 'login.errors.unknown' }, { code: '2' }),
+            error: 2
+          }))
+        }
       })
       .catch(
         message => dispatch(authError({ message, error: 3 }))

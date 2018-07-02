@@ -14,6 +14,9 @@ class Uploader extends PureComponent {
     const {
       image,
       openPicker,
+      intl: {
+        formatMessage,
+      },
     } = this.props
 
     return (
@@ -29,7 +32,7 @@ class Uploader extends PureComponent {
         </TouchableOpacity>
 
         <Text style={style.text}>
-          Clique na imagem para alterá-la
+          { formatMessage({ id: 'shared.uploader.change_image' }) }
         </Text>
       </View>
     )
