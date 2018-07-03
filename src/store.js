@@ -15,7 +15,7 @@ import { reducer as sidebar } from './modules/Sidebar'
 import { reducer as profile } from './modules/Profile'
 import { reducer as shared } from './modules/Shared'
 
-const middlewares = [thunk, logger]
+const middlewares = [thunk]
 
 const store = createStore(
   combineReducers({

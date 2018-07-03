@@ -25,7 +25,7 @@ export const authRequest = ({ path, options, navigation }) => {
         return response.json()
       }
 
-      if (response.status == 401) {
+      if (response.status == 422) {
         return AsyncStorage.clear(() => {
           return navigation.navigate('Auth')
         })
