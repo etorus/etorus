@@ -12,12 +12,6 @@ import Filters from './Filters'
 import MeditationCard from './MeditationCard'
 
 class Home extends PureComponent {
-  go = meditation =>
-    () => this.props.navigation.navigate('Session', {
-      sessionId: meditation.id,
-      meditation,
-    })
-
   render() {
     const {
       meditations,
@@ -26,10 +20,8 @@ class Home extends PureComponent {
       filteredMeditation,
       intl,
       pressMenu,
+      go,
     } = this.props
-
-    const onPressMenu = () =>
-      () => pressMenu({ navigation })
 
     const data = filteredMeditation.map(
       meditation => ({ ...meditation, key: meditation.id })
@@ -37,7 +29,7 @@ class Home extends PureComponent {
 
     return (
       <View style={style.home}>
-        <Header onPressMenu={onPressMenu()} />
+        <Header onPressMenu={pressMenu} />
 
         <View>
           {
@@ -47,7 +39,7 @@ class Home extends PureComponent {
                 data={data}
                 renderItem={
                   ({ item }) =>
-                    <MeditationCard meditation={item} go={this.go(item)} intl={intl} />
+                    <MeditationCard meditation={item} go={go(item)} intl={intl} />
                 }
               />
           }

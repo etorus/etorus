@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import TimerMixin from 'react-timer-mixin'
+import reactMixin from 'react-mixin'
 
 import moment from 'moment'
 import Sound from 'react-native-sound'
@@ -31,7 +33,7 @@ class Container extends PureComponent {
 
     Sound.setCategory('Playback')
 
-    this.timer = setInterval(() => this.tick(), 1000)
+    this.timer = this.setInterval(() => this.tick(), 1000)
 
     this.sessionChannel = pusher.subscribe(this.getChannelName())
     this.sessionChannel.bind(
@@ -104,7 +106,7 @@ class Container extends PureComponent {
       this.state.audio.stop()
     }
 
-    clearInterval(this.timer)
+    this.clearInterval(this.timer)
     this.sessionChannel.unsubscribe(this.getChannelName())
     this.props.leaveLobby({ navigation: this.props.navigation })
   }
@@ -112,16 +114,21 @@ class Container extends PureComponent {
   lobbyChange = lobby => this.setState({ lobby })
 
   back = () =>
-    this.props.navigation.navigate('Home')
+    this.requestAnimationFrame(() =>
+      this.props.navigation.navigate('Home')
+    )
 
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
 
-  onCreateNotification = () => this.props.createNotification({
-    navigation: this.props.navigation,
-    formatMessage: this.props.intl.formatMessage,
-    meditationStart: this.props.meditation.attributes.start
-  })
+  onCreateNotification = () =>
+    this.requestAnimationFrame(() =>
+      this.props.createNotification({
+        navigation: this.props.navigation,
+        formatMessage: this.props.intl.formatMessage,
+        meditationStart: this.props.meditation.attributes.start
+      })
+    )
 
   render() {
     const {
@@ -178,6 +185,8 @@ const mapDispatchToProps = dispatch => ({
     }))
   },
 })
+
+reactMixin.onClass(Container, TimerMixin)
 
 const SessionContainer = compose(
   injectIntl,

@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react'
 import moment from 'app/moment'
 
+import TimerMixin from 'react-timer-mixin'
+import reactMixin from 'react-mixin'
+
 import {
   View,
   Text,
@@ -37,11 +40,11 @@ class MeditationCard extends PureComponent {
   }
 
   componentDidMount() {
-    this.timer = setInterval(() => this.tick(), 1000)
+    this.timer = this.setInterval(() => this.tick(), 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer)
+    this.clearInterval(this.timer)
   }
 
   tick() {
@@ -107,5 +110,7 @@ class MeditationCard extends PureComponent {
     )
   }
 }
+
+reactMixin.onClass(MeditationCard, TimerMixin)
 
 export default MeditationCard

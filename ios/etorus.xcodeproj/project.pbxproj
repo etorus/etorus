@@ -508,8 +508,8 @@
 				603ADC22A89E42408F8045FA /* libBVLinearGradient.a in Frameworks */,
 				1B993B1B71894FF3A8E8193A /* libRNSound.a in Frameworks */,
 				F57F7CA141CC463AB00DC536 /* libimageCropPicker.a in Frameworks */,
-				D1347EC81F0840EDA1C40EFE /* libRNDeviceInfo.a in Frameworks */,
 				A4C3A96F20E3EF6F00141645 /* QBImagePicker.framework in Frameworks */,
+				D1347EC81F0840EDA1C40EFE /* libRNDeviceInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1598,6 +1598,10 @@
 				);
 				INFOPLIST_FILE = etorus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1630,6 +1634,10 @@
 				);
 				INFOPLIST_FILE = etorus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",

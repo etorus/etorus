@@ -1,4 +1,6 @@
 import React, { PureComponent } from 'react'
+import TimerMixin from 'react-timer-mixin'
+import reactMixin from 'react-mixin'
 
 import moment from 'app/moment'
 
@@ -22,20 +24,36 @@ class Container extends PureComponent {
     } = this.props
 
     fetchMeditations({ navigation })
-    this.timer = setInterval(() => this.tick(), 1000)
+    this.timer = this.setInterval(() => this.tick(), 1000)
   }
 
   componentWillUnmount() {
-    clearInterval(this.timer)
+    this.clearInterval(this.timer)
   }
 
   tick() {
     this.setState({ updates: this.state.updates + 1 })
   }
 
+  go = meditation =>
+    () =>
+      this.requestAnimationFrame(() =>
+        this.props.navigation.navigate('Session', {
+          sessionId: meditation.id,
+          meditation,
+        })
+      )
+
+  pressMenu = () =>
+    this.requestAnimationFrame(() =>
+      this.props.navigation.toggleDrawer()
+    )
+
   render() {
     return <Home
       {...this.props}
+      pressMenu={this.pressMenu}
+      go={this.go}
       updates={this.state.updates}
       filteredMeditation={filterMeditationsStarted(this.props.meditations)}
     />
@@ -95,6 +113,8 @@ const mapDispatchToProps = dispatch => ({
     navigation.toggleDrawer()
   }
 })
+
+reactMixin.onClass(Container, TimerMixin)
 
 const HomeContainer = compose(
   injectIntl,
