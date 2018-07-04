@@ -31,10 +31,6 @@ class Header extends PureComponent {
           <Image source={logo} style={style.brand} />
 
           <View style={style.menuWrapper}>
-            <TouchableOpacity style={style.notification}>
-              <Image source={notification} style={style.notificationIcon} />
-            </TouchableOpacity>
-
             <TouchableOpacity style={style.menu} onPress={onPressMenu}>
               <Image source={menu} style={style.menuIcon} />
             </TouchableOpacity>

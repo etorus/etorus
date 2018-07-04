@@ -1,4 +1,7 @@
 import React, { PureComponent } from 'react'
+import TimerMixin from 'react-timer-mixin'
+import reactMixin from 'react-mixin'
+
 import { AsyncStorage } from 'react-native'
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
@@ -16,16 +19,20 @@ class Container extends PureComponent {
   }
 
   logout = () =>
-    AsyncStorage.clear(() =>
-      this.props.navigation.navigate('Auth')
+    this.requestAnimationFrame(() =>
+      AsyncStorage.clear(() =>
+        this.props.navigation.navigate('Auth')
+      )
     )
 
   goToProfile = () =>
-    () => this.props.navigation.navigate('Profile')
+    this.requestAnimationFrame(() =>
+      this.props.navigation.navigate('Profile')
+    )
 
   render() {
     return <Sidebar {...this.props}
-      goToProfile={this.goToProfile()}
+      goToProfile={this.goToProfile}
       logout={this.logout}
     />
   }
@@ -56,6 +63,8 @@ const mapDispatchToProps = dispatch => ({
     dispatch(actions.fetchProfile({ navigation }))
   }
 })
+
+reactMixin.onClass(Container, TimerMixin)
 
 const SidebarContainer = compose(
   injectIntl,

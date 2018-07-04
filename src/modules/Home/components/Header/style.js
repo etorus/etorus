@@ -36,15 +36,14 @@ export default StyleSheet.create({
 
   menuWrapper: {
     position: 'absolute',
-    right: 15,
+    right: 0,
     bottom: 15,
     flexDirection: 'row',
   },
 
   notification: {
-    height: 30,
-    width: 21,
-    marginRight: 15,
+    height: 40,
+    width: 50,
   },
 
   notificationIcon: {
@@ -55,14 +54,15 @@ export default StyleSheet.create({
   },
 
   menu: {
-    height: 30,
-    width: 24,
+    height: 40,
+    width: 50,
   },
 
   menuIcon: {
-    height: 19.5,
+    height: 20,
     width: 24,
-    marginTop: 4,
+    marginVertical: 12,
+    marginHorizontal: 10,
     resizeMode: Image.resizeMode.contain,
   },
 })
