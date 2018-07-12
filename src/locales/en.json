@@ -46,5 +46,7 @@
   "shared.errors.cannot_be_blank": "{field} can't be blank",
   "shared.errors.valid_email": "{field} must be a valid email",
   "shared.errors.length": "{field} must have at at least {length} characters",
-  "shared.errors.equality": "{field} must be equal to {toEqual}"
+  "shared.errors.equality": "{field} must be equal to {toEqual}",
+  "password.form.send": "Send",
+  "password.form.back": "Back"
 }

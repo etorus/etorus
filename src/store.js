@@ -14,6 +14,7 @@ import { reducer as signup } from './modules/Signup'
 import { reducer as sidebar } from './modules/Sidebar'
 import { reducer as profile } from './modules/Profile'
 import { reducer as shared } from './modules/Shared'
+import { reducer as password } from './modules/Password'
 
 const middlewares = [thunk]
 
@@ -26,6 +27,7 @@ const store = createStore(
     sidebar,
     profile,
     shared,
+    password,
   }),
   applyMiddleware(...middlewares),
 )

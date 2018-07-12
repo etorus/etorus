@@ -46,5 +46,7 @@
   "shared.errors.cannot_be_blank": "{field} não pode estar vazio",
   "shared.errors.valid_email": "{field} deve ser um e-mail válido",
   "shared.errors.length": "{field} deve ter pelo menos {length} caracteres",
-  "shared.errors.equality": "Sua {field} deve ser igual à {toEqual}"
+  "shared.errors.equality": "Sua {field} deve ser igual à {toEqual}",
+  "password.form.send": "Enviar",
+  "password.form.back": "Voltar"
 }
