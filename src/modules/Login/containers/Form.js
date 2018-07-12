@@ -12,6 +12,9 @@ class Container extends PureComponent {
   goToSignup = () =>
     () => this.props.navigation.navigate('Signup')
 
+  goToPassword = () =>
+    () => this.props.navigation.navigate('Password')
+
   showAlertErrors = () => {
     const {
       message,
@@ -39,7 +42,10 @@ class Container extends PureComponent {
   render() {
     this.showAlertErrors()
 
-    return <Form {...this.props} goToSignup={this.goToSignup()}/>
+    return <Form {...this.props}
+      goToSignup={this.goToSignup()}
+      goToPassword={this.goToPassword()}
+    />
   }
 }
 

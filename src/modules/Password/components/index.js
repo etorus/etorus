@@ -2,34 +2,34 @@ import React, { PureComponent } from 'react'
 import LinearGradient from 'react-native-linear-gradient'
 import {
   View,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
   Text,
+  Image,
+  StyleSheet,
+  TouchableOpacity,
 } from 'react-native'
 
-import { Uploader, Input, LoadingButton } from 'modules/Shared'
+import { Input, LoadingButton } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
 
 import logo from 'images/logo_horizontal_white.png'
 
-class Profile extends PureComponent {
+class Password extends PureComponent {
   render() {
     const {
+      goBack,
+      calling,
+      validation,
+      onPressSend,
       changeInput,
       intl: {
         formatMessage,
       },
-      onPressSave,
-      goBack,
-      profile,
-      calling,
     } = this.props
 
-    const fieldsWithValues = fields(formatMessage).map(
-      field => ({ ...field, defaultValue: profile.attributes[field.name] })
+    const fieldsWithErrors = fields(formatMessage).map(
+      field => ({ ...field, error: validation[field.name] })
     )
 
     return (
@@ -43,31 +43,27 @@ class Profile extends PureComponent {
         <Image source={logo} style={style.brand} />
 
         <View style={style.inputs}>
-          <Uploader {...this.props}
-            onUpload={ value => changeInput({ name: 'avatar', value }) }
-          />
-
           {
-            fieldsWithValues.map(
+            fieldsWithErrors.map(
               field => <Input key={field.name} {...field} onChangeText={changeInput} />
             )
           }
-
-          <LoadingButton
-            onPress={onPressSave}
-            label={formatMessage({ id: 'profile.form.save' }).toUpperCase()}
-            loading={calling}
-          />
-
-          <TouchableOpacity onPress={goBack}>
-            <Text style={style.goBack}>
-              { formatMessage({ id: 'profile.form.back' }) }
-            </Text>
-          </TouchableOpacity>
         </View>
+
+        <LoadingButton
+          onPress={onPressSend}
+          label={formatMessage({ id: 'password.form.send' }).toUpperCase()}
+          loading={calling}
+        />
+
+        <TouchableOpacity onPress={goBack}>
+          <Text style={style.goBack}>
+            { formatMessage({ id: 'password.form.back' }) }
+          </Text>
+        </TouchableOpacity>
       </View>
     )
   }
 }
 
-export default Profile
+export default Password

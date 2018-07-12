@@ -37,6 +37,7 @@ class Form extends PureComponent {
       pressFacebook,
       goToSignup,
       validation,
+      goToPassword,
     } = this.props
 
     const fieldsWithErrors = fields(formatMessage).map(
@@ -61,7 +62,7 @@ class Form extends PureComponent {
             )
           }
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={goToPassword}>
             <Text style={style.forgetPassword}>
               { formatMessage({ id: 'login.form.forget_my_password' }) }
             </Text>
