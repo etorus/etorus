@@ -45,9 +45,7 @@ export const pressAccess = ({ email, password, navigation, formatMessage }) =>
             return navigation.navigate('App')
           })
         }
-
-        console.log(message)
-
+        
         if (message) {
           if (message.match('Invalid credentials')) {
             return dispatch(authError({
@@ -86,7 +84,8 @@ export const pressFacebook = () =>
             error({ message: '', error: 0 })
             await AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken)
 
-            return dispatch(authSuccess({ authToken }))
+            dispatch(authSuccess({ authToken }))
+            return navigation.navigate('App')
           }
 
           return error({

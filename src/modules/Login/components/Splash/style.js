@@ -49,6 +49,7 @@ export default StyleSheet.create({
     width: 270,
     alignItems: 'center',
     borderRadius: 30,
+    marginVertical: 10,
   },
 
   textPrimary: {
@@ -72,6 +73,7 @@ export default StyleSheet.create({
     borderRadius: 30,
     borderWidth: 3,
     borderColor: 'rgba(255, 255, 255, 1)',
+    marginVertical: 10,
   },
 
   textSecondary: {

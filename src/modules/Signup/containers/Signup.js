@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import * as actions from '../redux/actions'
+import { selectImage } from 'modules/Shared/redux/uploader/actions'
 
 import Signup from '../components'
 
@@ -81,6 +82,7 @@ const mapStateToProps = ({
   intl,
   navigation,
   validation: validation || {},
+  facebook: navigation.state.params.facebook || {},
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -93,6 +95,9 @@ const mapDispatchToProps = dispatch => ({
   clearErrors() {
     dispatch(actions.signupError({ error: 0, message: '' }))
   },
+  onSelectImage(image) {
+    dispatch(selectImage({ image }))
+  }
 })
 
 const SignupContainer = compose(

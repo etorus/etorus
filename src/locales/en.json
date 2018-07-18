@@ -3,6 +3,7 @@
   "login.splash.start_now": "Start now",
   "login.splash.or": "or",
   "login.splash.already_have_account": "Already have an account",
+  "login.splash.facebook": "Continue with Facebook",
   "login.form.placeholder_email": "Username or e-mail...",
   "login.form.placeholder_password": "Password...",
   "login.form.forget_my_password": "Forgot my password",

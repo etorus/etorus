@@ -13,6 +13,7 @@ import logo from 'images/complete_logo_white.png'
 
 import AlreadyRegisterButton from './AlreadyRegisterButton'
 import CreateAccountButton from './CreateAccountButton'
+import FBSignup from './FBSignup'
 
 class Splash extends PureComponent {
   render() {
@@ -20,6 +21,7 @@ class Splash extends PureComponent {
       intl,
       goSignup,
       goLogin,
+      goSignupFB,
     } = this.props
 
     return (
@@ -36,12 +38,8 @@ class Splash extends PureComponent {
 
         <View style={style.buttons}>
           <CreateAccountButton intl={intl} onPress={goSignup} />
-
-          <Text style={style.textBetween}>
-            { intl.formatMessage({ id: 'login.splash.or' }) }
-          </Text>
-
           <AlreadyRegisterButton intl={intl} onPress={goLogin} />
+          <FBSignup intl={intl} onPress={goSignupFB} />
         </View>
       </View>
     )

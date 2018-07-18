@@ -20,7 +20,6 @@ class Container extends PureComponent {
       pressSave,
       navigation,
       inputs: fields,
-      profile
     } = this.props
 
     return () => pressSave({ fields, navigation })

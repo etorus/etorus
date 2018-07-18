@@ -16,7 +16,31 @@ import fields from './fields'
 
 import logo from 'images/logo_horizontal_white.png'
 
+const mountFacebookFields = facebookData => ({
+  avatar: facebookData.picture ? facebookData.picture.data.url : '',
+  email: facebookData.email || '',
+  name: facebookData.name || '',
+  facebook_id: facebookData.id || '',
+})
+
 class Signup extends PureComponent {
+  componentDidMount() {
+    const {
+      facebook,
+      changeInput,
+      onSelectImage,
+    } = this.props
+
+    const facebookFields = mountFacebookFields(facebook)
+
+    Object.keys(facebookFields).map(key => changeInput({
+      name: key, 
+      value: facebookFields[key],
+    }))
+
+    onSelectImage(facebookFields.avatar)
+  }
+
   render() {
     const {
       changeInput,
@@ -27,10 +51,17 @@ class Signup extends PureComponent {
       goToLogin,
       calling,
       validation,
+      facebook,
     } = this.props
 
-    const fieldsWithErrors = fields(formatMessage).map(
-      field => ({ ...field, error: validation[field.name] })
+    const facebookFields = mountFacebookFields(facebook)
+
+    const fieldsWithValuesAndErrors = fields(formatMessage).map(
+      field => ({
+        ...field,
+        defaultValue: facebookFields[field.name],
+        error: validation[field.name]
+      })
     )
 
     return (
@@ -49,7 +80,7 @@ class Signup extends PureComponent {
           />
 
           {
-            fieldsWithErrors.map(
+            fieldsWithValuesAndErrors.map(
               field => <Input key={field.name} {...field} onChangeText={changeInput} />
             )
           }

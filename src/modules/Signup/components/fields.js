@@ -19,4 +19,9 @@ export default formatMessage => ([
     placeholder: formatMessage({ id: 'signup.form.password' }),
     secureTextEntry: true,
   },
+  {
+    name: 'password_confirmation',
+    placeholder: formatMessage({ id: 'signup.form.password_confirmation' }),
+    secureTextEntry: true,
+  },
 ])

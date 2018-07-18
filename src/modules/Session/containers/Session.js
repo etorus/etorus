@@ -56,8 +56,6 @@ class Container extends PureComponent {
 
     const {
       audio,
-      duration,
-      currentTime,
       playing,
     } = this.state
 

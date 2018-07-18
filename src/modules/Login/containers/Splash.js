@@ -1,3 +1,10 @@
+import {
+  LoginManager,
+  AccessToken,
+  GraphRequest,
+  GraphRequestManager,
+} from 'react-native-fbsdk'
+
 import React, { PureComponent } from 'react'
 
 import { injectIntl } from 'react-intl'
@@ -13,10 +20,44 @@ class Container extends PureComponent {
   goSignup = () =>
     () =>  this.props.navigation.navigate('Signup')
 
+  goSignupFacebook = () => {
+    const {
+      navigation: {
+        navigate,
+      },
+    } = this.props
+
+    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+      () => {
+        return AccessToken.getCurrentAccessToken().then(
+          data => {
+            new GraphRequestManager().addRequest(
+              new GraphRequest(
+                `/${data.userID}`, {
+                  parameters: {
+                    fields: {
+                      string: 'email,name,id,picture',
+                    },
+                  },
+                },
+                (_, data) => {
+                  navigate('Signup', {
+                    facebook: data,
+                  })
+                }
+              )
+            ).start();
+          },
+        )
+      },
+    )
+  }
+
   render() {
     return <Splash {...this.props}
       goLogin={this.goLogin()}
       goSignup={this.goSignup()}
+      goSignupFB={this.goSignupFacebook}
     />
   }
 }
