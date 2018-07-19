@@ -80,8 +80,8 @@ const mapDispatchToProps = dispatch => ({
   pressAccess({ email, password, navigation, formatMessage }) {
     dispatch(actions.pressAccess({ email, password, navigation, formatMessage }))
   },
-  pressFacebook() {
-    dispatch(actions.pressFacebook())
+  pressFacebook({ navigation }) {
+    dispatch(actions.pressFacebook({ navigation }))
   },
   clearErrors() {
     dispatch(actions.authError({ message: '', error: 0 }))

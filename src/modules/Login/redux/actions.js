@@ -65,7 +65,7 @@ export const pressAccess = ({ email, password, navigation, formatMessage }) =>
       )
   }
 
-export const pressFacebook = () =>
+export const pressFacebook = ({ navigation }) =>
   dispatch => {
     dispatch(authCalling())
 
@@ -73,7 +73,7 @@ export const pressFacebook = () =>
     const success = data =>
       facebook({ access_code: data.accessToken })
         .then(response => response.json())
-        .then(async ({ message, auth_token: authToken }) => {
+        .then(({ message, auth_token: authToken }) => {
           dispatch(authReceive())
 
           if (message) {
@@ -81,12 +81,13 @@ export const pressFacebook = () =>
           }
 
           if (authToken) {
-            error({ message: '', error: 0 })
-            await AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken)
+          dispatch(authError({ message: '', error: 0 }))
 
+          return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => {
             dispatch(authSuccess({ authToken }))
             return navigation.navigate('App')
-          }
+          })
+        }
 
           return error({
             message: `Message: ${message} - authToken: ${authToken}`,

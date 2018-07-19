@@ -58,6 +58,13 @@ export const pressSignup = ({ fields, formatMessage, navigation }) =>
             }))
           }
 
+          if (message.match('Facebook')) {
+            return dispatch(signupError({
+              message: formatMessage({ id: 'signup.errors.facebook_duplicated' }),
+              error: 1
+            }))
+          }
+
           return dispatch(signupError({
             message: formatMessage({ id: 'signup.errors.unknown' }, { code: '2' }),
             error: 2

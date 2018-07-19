@@ -88,7 +88,7 @@ class Form extends PureComponent {
 
           <View style={style.buttons}>
             <FacebookLogin
-              loginFacebook={pressFacebook}
+              loginFacebook={() => pressFacebook({ navigation })}
               formatMessage={formatMessage}
             />
           </View>

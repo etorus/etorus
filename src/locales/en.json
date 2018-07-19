@@ -33,6 +33,7 @@
   "signup.form.signup": "Signup",
   "signup.form.already_have_account": "Already have an account?",
   "signup.errors.email_duplicated": "Email already taken, try to use another address",
+  "signup.errors.facebook_duplicated": "Account with this Facebook ID already exist",
   "signup.errors.unknown": "Unknown error, please contact the support. Code: Signup#{code}",
   "signup.errors.title": "Signup error",
   "signup.errors.button": "Try again",

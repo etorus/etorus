@@ -33,6 +33,7 @@
   "signup.form.signup": "Cadastrar",
   "signup.form.already_have_account": "Já possui uma conta?",
   "signup.errors.email_duplicated": "Este email já está em uso, utilize outro email por favor",
+  "signup.errors.facebook_duplicated": "Conta com este Facebook ID já existe. Tente acessar a tela de login",
   "signup.errors.unknown": "Erro desconhecido, por favor contate o suporte. Código: Signup#{code}",
   "signup.errors.title": "Erro no cadastro",
   "signup.errors.button": "Tente novamente",
