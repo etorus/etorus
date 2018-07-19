@@ -82,7 +82,7 @@ const mapStateToProps = ({
   intl,
   navigation,
   validation: validation || {},
-  facebook: navigation.state.params.facebook || {},
+  facebook: navigation.state.params ? navigation.state.params.facebook : {},
 })
 
 const mapDispatchToProps = dispatch => ({
