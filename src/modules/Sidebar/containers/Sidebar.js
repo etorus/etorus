@@ -30,10 +30,26 @@ class Container extends PureComponent {
       this.props.navigation.navigate('Profile')
     )
 
+  onAddFacebook = () =>
+    this.requestAnimationFrame(() =>
+      this.props.addFacebook({
+        navigation: this.props.navigation,
+      })
+    )
+
+  onRemoveFacebook = () =>
+    this.requestAnimationFrame(() =>
+      this.props.removeFacebook({
+        navigation: this.props.navigation,
+      })
+    )
+
   render() {
     return <Sidebar {...this.props}
       goToProfile={this.goToProfile}
       logout={this.logout}
+      onAddFacebook={this.onAddFacebook}
+      onRemoveFacebook={this.onRemoveFacebook}
     />
   }
 }
@@ -61,6 +77,12 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   fetchProfile({ navigation }) {
     dispatch(actions.fetchProfile({ navigation }))
+  },
+  addFacebook({ navigation }) {
+    dispatch(actions.addFacebook({ navigation }))
+  },
+  removeFacebook({ navigation }) {
+    dispatch(actions.removeFacebook({ navigation }))
   }
 })
 

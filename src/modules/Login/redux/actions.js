@@ -81,13 +81,13 @@ export const pressFacebook = ({ navigation }) =>
           }
 
           if (authToken) {
-          dispatch(authError({ message: '', error: 0 }))
+            dispatch(authError({ message: '', error: 0 }))
 
-          return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => {
-            dispatch(authSuccess({ authToken }))
-            return navigation.navigate('App')
-          })
-        }
+            return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => {
+              dispatch(authSuccess({ authToken }))
+              return navigation.navigate('App')
+            })
+          }  
 
           return error({
             message: `Message: ${message} - authToken: ${authToken}`,

@@ -1,5 +1,7 @@
+import { LoginManager, AccessToken } from 'react-native-fbsdk'
+
 import * as constants from './constants'
-import { profile } from 'requests/user'
+import { profile, update } from 'requests/user'
 
 export const profileCalling = () =>
   ({ type: constants.PROFILE_CALLING })
@@ -34,3 +36,39 @@ export const fetchProfile = ({ navigation }) =>
         message => profileError({ message, error: 3 })
       )
   }
+
+export const addFacebook = ({ navigation }) =>
+  dispatch => {
+    dispatch(profileCalling())
+
+    LoginManager.logInWithReadPermissions(['public_profile']).then(
+      () => AccessToken.getCurrentAccessToken().then(
+        data => updateProfile(data.userID, dispatch, navigation)
+      )
+    )
+  }
+
+export const removeFacebook = ({ navigation }) =>
+  dispatch => {
+    dispatch(profileCalling())
+
+    return updateProfile('', dispatch, navigation)
+  }
+
+const updateProfile = (facebookId, dispatch, navigation) => 
+  update({ body: { facebook_id: facebookId }, navigation })
+    .then(
+      ({ message, data: profile }) => {
+        dispatch(profileReceive())
+
+        if (message) {
+          return dispatch(profileError({ error: 1, message }))
+        }
+
+        dispatch(profileError({ error: 0, message: '' }))
+        return dispatch(profileSuccess({ profile }))
+      },
+      error => dispatch(profileError({ error: 2, message: error }))
+    ).catch(
+      message => profileError({ message, error: 3 })
+    )

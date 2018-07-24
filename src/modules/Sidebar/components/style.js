@@ -61,4 +61,8 @@ export default StyleSheet.create({
   alert: {
     color: 'red',
   },
+
+  facebook: {
+    color: 'rgba(0, 133, 189, 1)',
+  },
 })

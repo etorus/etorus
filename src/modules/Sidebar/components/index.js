@@ -20,12 +20,27 @@ class Sidebar extends PureComponent {
         attributes: {
           avatar,
           name,
-          email
+          email,
+          facebook_id: facebookId,
         },
       },
       goToProfile,
       logout,
+      onAddFacebook,
+      onRemoveFacebook,
+      intl: {
+        formatMessage,
+      },
+      calling,
     } = this.props
+
+    const toggleMessage = !facebookId
+      ? formatMessage({ id: 'sidebar.connect_facebook' })
+      : formatMessage({ id: 'sidebar.disconnect_facebook' })
+
+    const toggleFacebook = !facebookId
+      ? onAddFacebook
+      : onRemoveFacebook
 
     return (
       <ScrollView>
@@ -53,11 +68,34 @@ class Sidebar extends PureComponent {
 
           <View style={style.buttons}>
             <TouchableOpacity style={style.button} onPress={goToProfile}>
-              <Text style={style.buttonText}>Editar perfil</Text>
+              <Text style={style.buttonText}>
+                { formatMessage({ id: 'sidebar.edit_profile' }) }
+              </Text>
             </TouchableOpacity>
 
+            {
+              calling
+                ? (
+                  <TouchableOpacity style={style.button} onPress={() => {}}>
+                    <Text style={[style.buttonText, style.facebook]}>
+                      { toggleMessage }
+                      <ActivityIndicator size="small" color="rgba(0, 133, 189, 1)" />
+                    </Text>
+                  </TouchableOpacity>
+                )
+                : (
+                  <TouchableOpacity style={style.button} onPress={toggleFacebook}>
+                    <Text style={[style.buttonText, style.facebook]}>
+                      { toggleMessage }
+                    </Text>
+                  </TouchableOpacity>
+                )
+            }
+
             <TouchableOpacity style={style.button} onPress={logout}>
-              <Text style={[style.buttonText, style.alert]}>Sair</Text>
+              <Text style={[style.buttonText, style.alert]}>
+                { formatMessage({ id: 'sidebar.logout' }) }
+              </Text>
             </TouchableOpacity>
           </View>
 

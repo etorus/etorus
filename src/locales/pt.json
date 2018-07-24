@@ -50,5 +50,9 @@
   "shared.errors.length": "{field} deve ter pelo menos {length} caracteres",
   "shared.errors.equality": "Sua {field} deve ser igual à {toEqual}",
   "password.form.send": "Enviar",
-  "password.form.back": "Voltar"
+  "password.form.back": "Voltar",
+  "sidebar.edit_profile": "Editar perfil",
+  "sidebar.connect_facebook": "Connectar com Facebook",
+  "sidebar.disconnect_facebook": "Desconectar do Facebook",
+  "sidebar.logout": "Sair"
 }
