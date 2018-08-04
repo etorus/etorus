@@ -11,8 +11,8 @@ import { compose } from 'redux'
 
 import  * as actions from '../redux/actions'
 
-import pusher from 'app/pusher'
-import { getNormalizedLocale } from 'app/moment'
+import pusher from 'config/pusher'
+import { getNormalizedLocale } from 'config/moment'
 
 import Session from '../components'
 

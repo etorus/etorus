@@ -8,7 +8,7 @@ import {
   Image,
 } from 'react-native'
 
-import moment from 'app/moment'
+import moment from 'config/moment'
 
 import Extra from './Extra'
 import Header from './Header'

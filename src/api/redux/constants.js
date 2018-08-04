@@ -6,7 +6,7 @@ export const apiStatuses = {
 }
 
 export const apiCalls = {
-  PROFILE_LOAD: 'apiCalls/PROFILE_LOAD',
+  AUTH_LOGIN: 'apiCalls/AUTH_LOGIN',
   MEDITATIONS_LOAD: 'apiCalls/MEDITATIONS_LOAD',
 }
 

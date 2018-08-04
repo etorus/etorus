@@ -11,20 +11,15 @@ import 'intl'
 import pt from 'react-intl/locale-data/pt'
 import { addLocaleData } from 'react-intl'
 addLocaleData([...pt])
-
 import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl'
+import { View, StatusBar } from 'react-native'
 
-import { View, AppRegistry, StatusBar } from 'react-native'
-
-import notificationConfiguration from './notification'
-
-import store from './store'
+import store from 'store'
 import * as locales from './locales'
-
-import { getNormalizedLocale } from './moment'
-
+import notificationConfiguration from 'config/notification'
+import { getNormalizedLocale } from 'config/moment'
 import Navigation from './Navigation'
 
 class App extends PureComponent {

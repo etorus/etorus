@@ -1,7 +1,7 @@
 import PushNotification from 'react-native-push-notification'
 import { Alert } from 'react-native'
 import uuidv4 from 'uuid/v4'
-import moment from 'app/moment'
+import moment from 'config/moment'
 
 import * as constants from './constants'
 import { leave, enter } from 'requests/meditation'

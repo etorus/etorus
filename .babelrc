@@ -3,12 +3,14 @@
   "plugins": [
     ["module-resolver", {
       "alias": {
-        "requests": "./src/requests",
-        "modules": "./src/modules",
-        "assets": "./src/assets",
-        "images": "./src/assets/images",
         "app": "./src",
-        "api": "./src/api"
+        "api": "./src/api",
+        "store": "./src/store",
+        "config": "./src/config",
+        "assets": "./src/assets",
+        "modules": "./src/modules",
+        "requests": "./src/requests",
+        "images": "./src/assets/images"
       }
     }]
   ]

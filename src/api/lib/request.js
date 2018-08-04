@@ -29,7 +29,7 @@ const unauthRequest = ({ path, body, method }) =>
     },
   }).catch(handleError)
 
-export default ({ auth, path, body, method }) => {
+export default ({ auth = false, path, body = {}, method = 'GET' }) => {
   return auth
     ? authRequest({ path, body, method })
     : unauthRequest({ path, body, method })

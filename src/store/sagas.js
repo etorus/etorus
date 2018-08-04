@@ -1,9 +1,9 @@
 import { all, fork } from 'redux-saga/effects'
 
-import { saga as api } from 'api'
+import { saga as login } from 'modules/Login'
 
 export default function *root() {
   yield all([
-    fork(api),
+    fork(login),
   ])
 }

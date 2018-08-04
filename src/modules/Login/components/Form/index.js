@@ -7,7 +7,6 @@ import {
   Image,
   StyleSheet,
   TouchableOpacity,
-  TextInput,
 } from 'react-native'
 
 import FacebookLogin from './FacebookLogin'
@@ -20,29 +19,19 @@ import logo from 'images/logo_horizontal_white.png'
 class Form extends PureComponent {
   render() {
     const {
-      inputs: {
-        password,
-        email,
-      },
       calling,
-      authToken,
-      error,
-      message,
       intl: {
         formatMessage,
       },
-      navigation,
-      changeInput,
       pressAccess,
       pressFacebook,
       goToSignup,
-      validation,
       goToPassword,
     } = this.props
 
-    const fieldsWithErrors = fields(formatMessage).map(
-      field => ({ ...field, error: validation[field.name] })
-    )
+    // const fieldsWithErrors = fields(formatMessage).map(
+    //   field => ({ ...field, error: validation[field.name] })
+    // )
 
     return (
       <View style={style.container}>
@@ -57,8 +46,12 @@ class Form extends PureComponent {
         <View style={style.inputs}>
 
           {
-            fieldsWithErrors.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
+            fields(formatMessage).map(
+              field => <Input
+                {...field}
+                key={field.name}
+                form='login'
+              />
             )
           }
 
@@ -70,7 +63,7 @@ class Form extends PureComponent {
         </View>
 
         <LoadingButton
-          onPress={() => pressAccess({ email, password, navigation, formatMessage })}
+          onPress={pressAccess}
           label={formatMessage({ id: 'login.form.access' }).toUpperCase()}
           loading={calling}
         />
@@ -87,10 +80,7 @@ class Form extends PureComponent {
           </Text>
 
           <View style={style.buttons}>
-            <FacebookLogin
-              loginFacebook={() => pressFacebook({ navigation })}
-              formatMessage={formatMessage}
-            />
+            <FacebookLogin loginFacebook={pressFacebook} formatMessage={formatMessage} />
           </View>
         </View>
       </View>

@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import TimerMixin from 'react-timer-mixin'
 import reactMixin from 'react-mixin'
 
-import moment from 'app/moment'
+import moment from 'config/moment'
 
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'

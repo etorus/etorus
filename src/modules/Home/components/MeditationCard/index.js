@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import moment from 'app/moment'
+import moment from 'config/moment'
 
 import TimerMixin from 'react-timer-mixin'
 import reactMixin from 'react-mixin'

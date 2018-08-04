@@ -15,32 +15,32 @@ class Container extends PureComponent {
   goToPassword = () =>
     () => this.props.navigation.navigate('Password')
 
-  showAlertErrors = () => {
-    const {
-      message,
-      error,
-      intl: {
-        formatMessage,
-      },
-      clearErrors,
-    } = this.props
+  // showAlertErrors = () => {
+  //   const {
+  //     message,
+  //     error,
+  //     intl: {
+  //       formatMessage,
+  //     },
+  //     clearErrors,
+  //   } = this.props
 
-    if (error) {
-      Alert.alert(
-        formatMessage({ id: 'login.errors.title' }),
-        message,
-        [
-          {
-            text: formatMessage({ id: 'login.errors.button' }),
-            onPress: clearErrors,
-          },
-        ],
-      )
-    }
-  }
+  //   if (error) {
+  //     Alert.alert(
+  //       formatMessage({ id: 'login.errors.title' }),
+  //       message,
+  //       [
+  //         {
+  //           text: formatMessage({ id: 'login.errors.button' }),
+  //           onPress: clearErrors,
+  //         },
+  //       ],
+  //     )
+  //   }
+  // }
 
   render() {
-    this.showAlertErrors()
+    //this.showAlertErrors()
 
     return <Form {...this.props}
       goToSignup={this.goToSignup()}
@@ -51,40 +51,19 @@ class Container extends PureComponent {
 
 const mapStateToProps = ({
   login: {
-    inputs,
     calling,
-    authToken,
-    message,
-    error,
-    validation,
   },
 },
 {
   intl,
   navigation,
 }) => ({
-  inputs,
   calling,
-  authToken,
-  message,
-  error,
-  intl,
-  navigation,
-  validation: validation || {},
 })
 
 const mapDispatchToProps = dispatch => ({
-  changeInput({ name, value }) {
-    dispatch(actions.changeInput({ name, value }))
-  },
-  pressAccess({ email, password, navigation, formatMessage }) {
-    dispatch(actions.pressAccess({ email, password, navigation, formatMessage }))
-  },
-  pressFacebook({ navigation }) {
-    dispatch(actions.pressFacebook({ navigation }))
-  },
-  clearErrors() {
-    dispatch(actions.authError({ message: '', error: 0 }))
+  pressAccess() {
+    dispatch(actions.pressAccess())
   },
 })
 
