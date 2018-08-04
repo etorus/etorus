@@ -1,4 +1,4 @@
-import { apiStatuses, actions } from './redux/constants'
+import { apiStatuses, actions } from '../redux/constants'
 
 const capitalizeEventName = status => 
   `on${status.charAt(0).toUpperCase()}${status.slice(1)}`

@@ -1,4 +1,4 @@
-import { apiCalls } from '../redux/constants';
+import { apiCalls } from './redux/constants';
 
 export default {
   load: {

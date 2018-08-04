@@ -1,4 +1,4 @@
-import { apiStatuses } from './redux/constants'
+import { apiStatuses } from '../redux/constants'
 
 const getStatus = ({ api }, key) => 
   ({ ...(api[key] || {}) })

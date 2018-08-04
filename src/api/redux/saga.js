@@ -2,12 +2,14 @@ import { call, put } from 'redux-saga/effects'
 import { apiStatuses } from './constants'
 import apiStatusChange from './actions'
 
-import api from '../index'
+import api from 'api'
 
 export default function *callApi(apiCall, ...args) {
   const { key, opts } = apiCall
 
   try {
+    debugger
+
     yield put(apiStatusChange(key, apiStatuses.STARTED))
 
     const { data } = yield call(api.request, { ...opts(...args) })

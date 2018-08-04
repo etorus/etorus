@@ -1,4 +1,4 @@
-import { actions } from './redux/constants'
+import { actions } from '../redux/constants'
 
 export default (keys, statuses) => {
   const normalizedKeys = keys.map(key => typeof key === 'string' ? key : key.key)

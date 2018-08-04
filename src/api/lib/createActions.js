@@ -1,4 +1,4 @@
-import apiStatusChange from './redux/actions';
+import apiStatusChange from '../redux/actions';
 
 export default key => ({
   statusChange: (status, payload, requestArgs) => 
