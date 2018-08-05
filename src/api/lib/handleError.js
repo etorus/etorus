@@ -5,23 +5,11 @@ export class ApiError extends Error {
   }
 }
 
-export default (error) => {
-  if (error.response) {
-    // Server-side error
-    // The request was made and the server responded with a status code
-    // that falls out of the range of 2xx
+export default error => {
+  if (error.message === 'Invalid credentials') {
     throw new ApiError({
-      source: 'server',
-      ...error.response.data
-    })
-  } else if (error.request) {
-    // Client-side error
-    // The request was made but no response was received
-    // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-    // http.ClientRequest in node.js
-    throw new ApiError({
-      source: 'client',
-      message: 'Network Error'
+      source: 'Server',
+      code: 1
     })
   } else {
     // Something happened in setting up the request that triggered an Error

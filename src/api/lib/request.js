@@ -1,7 +1,9 @@
-import handleError from './handleError';
+import handleError from './handleError'
+import handleResponse from './handleResponse'
 import { AsyncStorage } from 'react-native'
 
-const URI = 'https://etorus-staging.herokuapp.com'
+// const URI = 'https://etorus-staging.herokuapp.com'
+const URI = 'http://192.168.1.43:3000'
 
 export const getAuthToken = async () => {
   const authToken = AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
@@ -17,7 +19,9 @@ const authRequest = ({ path, body, method }) =>
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${authToken}`,
       },
-    }).catch(handleError)
+    })
+    .then(handleResponse)
+    .catch(handleError)
   )
 
 const unauthRequest = ({ path, body, method }) => 
@@ -27,7 +31,9 @@ const unauthRequest = ({ path, body, method }) =>
     headers: {
       'Content-Type': 'application/json',
     },
-  }).catch(handleError)
+  })
+  .then(handleResponse)
+  .catch(handleError)
 
 export default ({ auth = false, path, body = {}, method = 'GET' }) => {
   return auth

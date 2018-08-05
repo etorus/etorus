@@ -1,7 +1,7 @@
 import { apiStatuses, actions } from '../redux/constants'
 
 const capitalizeEventName = status => 
-  `on${status.charAt(0).toUpperCase()}${status.slice(1)}`
+  `on${status.charAt(0).toUpperCase()}${status.slice(1).toLowerCase()}`
 
 export const createReducer = matchAction =>
   (callback, initialState = {}) => (

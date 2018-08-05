@@ -8,15 +8,13 @@ export default function *callApi(apiCall, ...args) {
   const { key, opts } = apiCall
 
   try {
-    debugger
-
     yield put(apiStatusChange(key, apiStatuses.STARTED))
 
-    const { data } = yield call(api.request, { ...opts(...args) })
+    response = yield call(api.request, { ...opts(...args) })
 
-    yield put(apiStatusChange(key, apiStatuses.SUCCESS, data, args))
+    yield put(apiStatusChange(key, apiStatuses.SUCCESS, response, args))
     
-    return data
+    return response
   } catch (error) {
     yield put(apiStatusChange(key, apiStatuses.FAIL, error))
   }

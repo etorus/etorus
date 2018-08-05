@@ -1,15 +1,15 @@
 export const apiStatuses = {
-  NOT_STARTED: 'apiStatuses/NOT_STARTED',
-  STARTED: 'apiStatuses/STARTED',
-  SUCCESS: 'apiStatuses/SUCCESS',
-  FAIL: 'apiStatuses/FAIL',
+  NOT_STARTED: 'NOT_STARTED',
+  STARTED: 'STARTED',
+  SUCCESS: 'SUCCESS',
+  FAIL: 'FAIL',
 }
 
 export const apiCalls = {
-  AUTH_LOGIN: 'apiCalls/AUTH_LOGIN',
-  MEDITATIONS_LOAD: 'apiCalls/MEDITATIONS_LOAD',
+  AUTH_LOGIN: 'AUTH_LOGIN',
+  MEDITATIONS_LOAD: 'MEDITATIONS_LOAD',
 }
 
 export const actions = {
-  API_STATUS_CHANGE: 'actions/API_STATUS_CHANGE',
+  API_STATUS_CHANGE: 'API_STATUS_CHANGE',
 }

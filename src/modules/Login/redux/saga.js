@@ -6,6 +6,7 @@ import { selectors } from 'modules/Shared'
 
 export function *onPressAcess() {
   const { login } = yield select(selectors.forms);
+
   yield call(callApi, api.auth.login, login)
 }
 

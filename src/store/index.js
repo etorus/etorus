@@ -1,3 +1,4 @@
+import logger from 'redux-logger'
 import createSagaMiddleware from 'redux-saga'
 import {
   createStore,
@@ -19,7 +20,8 @@ import { reducer as password } from 'modules/Password'
 
 export const sagaMiddleware = createSagaMiddleware()
 export const middlewares = [
-  sagaMiddleware
+  sagaMiddleware,
+  logger,
 ]
 
 const store = createStore(

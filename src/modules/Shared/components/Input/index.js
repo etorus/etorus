@@ -8,7 +8,7 @@ class Input extends PureComponent {
     const {
       name,
       placeholder,
-      onChangeText,
+      changeInput,
       autoCapitalize,
       keyboardType,
       secureTextEntry,
@@ -20,7 +20,7 @@ class Input extends PureComponent {
     return (
       <View style={style.wrapper}>
         <TextInput
-          onChangeText={value => onChangeText({ name, value })}
+          onChangeText={value => changeInput({ name, value })}
           style={[ style.input, (error ? style.error : null ) ]}
           placeholder={placeholder}
           underlineColorAndroid="transparent"

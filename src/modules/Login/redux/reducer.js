@@ -1,9 +1,27 @@
-import * as constants from './constants'
+import api from 'api'
+import reduce from 'store/reduceReducers'
 
 const initial = {
   calling: false,
-  message: '',
-  error: 0,
-  validation: {},
+  authToken: null,
 }
 
+const onSuccess = ({ auth_token: authToken }) => ({ 
+  authToken,
+  calling: false,
+})
+
+const onStarted = () => ({
+  calling: true,
+})
+
+const reducers = [
+  api.auth.login.onStarted(onStarted),
+  api.auth.login.onSuccess(onSuccess),
+]
+
+export default (state = initial, action) => reduce(
+  reducers,
+  state,
+  action,
+)
