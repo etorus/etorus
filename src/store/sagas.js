@@ -5,6 +5,7 @@ import { saga as home } from 'modules/Home'
 import { saga as sidebar } from 'modules/Sidebar'
 import { saga as password } from 'modules/Password'
 import { saga as profile } from 'modules/Profile'
+import { sagas } from 'modules/Shared'
 
 export default function *root() {
   yield all([
@@ -13,5 +14,6 @@ export default function *root() {
     fork(sidebar),
     fork(password),
     fork(profile),
+    fork(sagas.uploader),
   ])
 }

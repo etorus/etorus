@@ -8,6 +8,7 @@ import { compose } from 'redux'
 import Uploader from '../components/Uploader'
 
 import * as actions from '../redux/uploader/actions'
+import * as formActions from '../redux/forms/actions'
 
 class Container extends PureComponent {
   openPicker = () => {
@@ -60,7 +61,7 @@ const mapDispatchToProps = (dispatch, { form, name }) => ({
     dispatch(actions.uploadImage({ options }, onUpload))
   },
   changeInput(value) {
-    dispatch(actions.changeInput({ form, name, value }))
+    dispatch(formActions.changeInput({ form, name, value }))
   },
 })
 

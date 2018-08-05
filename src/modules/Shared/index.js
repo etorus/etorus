@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 
 import uploader from './redux/uploader/reducer'
+import uploaderSaga from './redux/uploader/saga'
 import forms from './redux/forms/reducer'
 import formsActions from './redux/forms/actions'
 import formsSelector from './redux/forms/selector'
@@ -19,6 +20,10 @@ export const selectors = {
 
 export const actions = {
   forms: formsActions,
+}
+
+export const sagas = {
+  uploader: uploaderSaga,
 }
 
 export const reducer = combineReducers({
