@@ -18,9 +18,10 @@ class Container extends PureComponent {
 
   logout = () =>
     this.requestAnimationFrame(() =>
-      AsyncStorage.clear(() =>
-        this.props.navigation.navigate('Auth')
-      )
+      AsyncStorage.clear(() => {
+        this.props.logout()
+        return this.props.navigation.navigate('Auth')
+      })
     )
 
   goToProfile = () =>
@@ -54,6 +55,9 @@ const mapStateToProps = ({
 const mapDispatchToProps = dispatch => ({
   loadProfile() {
     dispatch(actions.loadProfile())
+  },
+  logout() {
+    dispatch(actions.logout())
   },
 })
 

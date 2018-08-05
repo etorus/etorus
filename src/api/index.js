@@ -1,14 +1,19 @@
-import auth from './auth'
-import profile from './profile'
-import meditations from './meditations'
 import createHelpers from './lib/createHelpers'
 import createMatcher from './lib/createMatcher'
 import request from './lib/request'
 
+import auth from './auth'
+import profile from './profile'
+import password from './password'
+import meditations from './meditations'
+import notifications from './notifications'
+
 const api = {
   auth,
   profile,
+  password,
   meditations,
+  notifications,
   createMatcher,
 }
 

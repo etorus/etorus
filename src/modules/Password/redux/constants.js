@@ -1,6 +1,1 @@
-export const PASSWORD_CALLING    = 'Password/PASSWORD_CALLING'
-export const PASSWORD_RECEIVE    = 'Password/PASSWORD_RECEIVE'
-export const PASSWORD_SUCCESS    = 'Password/PASSWORD_SUCCESS'
-export const PASSWORD_ERROR      = 'Password/PASSWORD_ERROR'
-export const CHANGE_INPUT        = 'Password/CHANGE_INPUT'
-export const PASSWORD_VALIDATION = 'Password/PASSWORD_VALIDATION'
+export const PRESS_SEND = 'Password/PRESS_SEND'

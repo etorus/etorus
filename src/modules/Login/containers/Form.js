@@ -47,8 +47,6 @@ class Container extends PureComponent {
       navigation,
     } = this.props
 
-    console.log(calling, authToken)
-
     if (!authToken && calling) {
       return
     }

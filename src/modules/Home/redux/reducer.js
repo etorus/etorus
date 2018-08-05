@@ -17,7 +17,7 @@ const onSuccess = ({ data, included }) => includedUserData(
 
 export default (state = [], action) => reduce(
   [
-    api.auth.login.onSuccess(onSuccess),
+    api.meditations.load.onSuccess(onSuccess),
   ],
   state,
   action,

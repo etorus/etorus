@@ -8,4 +8,18 @@ export default {
       auth: true,
     }),
   },
+  leave: {
+    key: apiCalls.MEDITATIONS_LEAVE,
+    opts: id => ({
+      path: `/meditations/${id}/leave`,
+      auth: true,
+    }),
+  },
+  enter: {
+    key: apiCalls.MEDITATIONS_ENTER,
+    opts: id => ({
+      path: `/meditations/${id}/enter`,
+      auth: true,
+    }),
+  },
 }

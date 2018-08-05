@@ -20,17 +20,11 @@ class Password extends PureComponent {
     const {
       goBack,
       calling,
-      validation,
-      onPressSend,
-      changeInput,
+      pressSend,
       intl: {
         formatMessage,
       },
     } = this.props
-
-    const fieldsWithErrors = fields(formatMessage).map(
-      field => ({ ...field, error: validation[field.name] })
-    )
 
     return (
       <View style={style.container}>
@@ -44,14 +38,18 @@ class Password extends PureComponent {
 
         <View style={style.inputs}>
           {
-            fieldsWithErrors.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
+            fields(formatMessage).map(
+              field => <Input 
+                {...field}
+                key={field.name}
+                form='password'
+              />
             )
           }
         </View>
 
         <LoadingButton
-          onPress={onPressSend}
+          onPress={pressSend}
           label={formatMessage({ id: 'password.form.send' }).toUpperCase()}
           loading={calling}
         />

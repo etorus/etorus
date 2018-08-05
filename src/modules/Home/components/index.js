@@ -8,19 +8,16 @@ import {
 import style from './style'
 
 import Header from './Header'
-import Filters from './Filters'
 import MeditationCard from './MeditationCard'
 
 class Home extends PureComponent {
   render() {
     const {
-      meditations,
-      calling,
-      navigation,
-      filteredMeditation,
-      intl,
-      pressMenu,
       go,
+      intl,
+      calling,
+      pressMenu,
+      filteredMeditation,
     } = this.props
 
     const data = filteredMeditation.map(

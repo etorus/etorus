@@ -14,7 +14,7 @@ class Container extends PureComponent {
     const {
       selectImage,
       uploadImage,
-      onUpload,
+      changeInput,
     } = this.props
 
     ImagePicker.openPicker({
@@ -23,14 +23,12 @@ class Container extends PureComponent {
       cropping: true,
     }).then(image => {
       selectImage({ image: `file://${image.path}` })
-      uploadImage({ options: image }, onUpload)
+      uploadImage({ options: image }, changeInput)
     })
   }
 
   render() {
-    return <Uploader {...this.props}
-      openPicker={this.openPicker}
-    />
+    return <Uploader {...this.props } openPicker={this.openPicker} />
   }
 }
 
@@ -44,21 +42,26 @@ const mapStateToProps = ({
 {
   intl,
   navigation,
-  onUpload,
+  form,
+  name,
 }) => ({
-  image,
   intl,
+  image,
+  form,
+  name,
   navigation,
-  onUpload,
 })
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch, { form, name }) => ({
   selectImage({ image }) {
     dispatch(actions.selectImage({ image }))
   },
   uploadImage({ options }, onUpload) {
     dispatch(actions.uploadImage({ options }, onUpload))
-  }
+  },
+  changeInput(value) {
+    dispatch(actions.changeInput({ form, name, value }))
+  },
 })
 
 const UploaderContainer = compose(

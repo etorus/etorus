@@ -6,66 +6,46 @@ import { compose } from 'redux'
 import * as actions from '../redux/actions'
 import { selectImage } from 'modules/Shared/redux/uploader/actions'
 
+import { apiCalls, apiStatuses } from 'api'
+
 import Profile from '../components'
 
 class Container extends PureComponent {
   componentDidMount() {
     this.props.selectImage({
-      image: this.props.profile.attributes.avatar,
+      image: this.props.profile.avatar,
     })
-  }
-
-  onPressSave = () => {
-    const {
-      pressSave,
-      navigation,
-      inputs: fields,
-    } = this.props
-
-    return () => pressSave({ fields, navigation })
   }
 
   goBack = () =>
     () => this.props.navigation.navigate('Home')
 
   render() {
-    return <Profile {...this.props}
-      onPressSave={this.onPressSave()}
-      goBack={this.goBack()}
-    />
+    return <Profile {...this.props} goBack={this.goBack()} />
   }
 }
 
 const mapStateToProps = ({
-  profile: {
-    inputs,
-    calling,
-    authToken,
-    message,
-    error,
-  },
   sidebar: {
-    profile,
+    attributes: profile,
+  },
+  api: {
+    [apiCalls.PROFILE_UPDATE]: {
+      status,
+    },
   },
 },
 {
   intl,
   navigation,
 }) => ({
-  profile,
-  inputs,
-  calling,
-  authToken,
-  message,
-  error,
   intl,
+  profile,
   navigation,
+  calling: status === apiStatuses.STARTED,
 })
 
 const mapDispatchToProps = dispatch => ({
-  changeInput({ name, value }) {
-    dispatch(actions.changeInput({ name, value }))
-  },
   pressSave({ fields, navigation }) {
     dispatch(actions.pressSave({ fields, navigation }))
   },

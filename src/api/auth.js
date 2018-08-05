@@ -9,4 +9,12 @@ export default {
       body,
     }),
   },
+  signup: {
+    key: apiCalls.AUTH_SIGNUP,
+    opts: body => ({
+      path: '/signup',
+      method: 'POST',
+      body,
+    }),
+  },
 }

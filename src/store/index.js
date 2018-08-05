@@ -15,8 +15,6 @@ import { reducer as home } from 'modules/Home'
 import { reducer as session } from 'modules/Session'
 import { reducer as signup } from 'modules/Signup'
 import { reducer as sidebar } from 'modules/Sidebar'
-import { reducer as profile } from 'modules/Profile'
-import { reducer as password } from 'modules/Password'
 
 export const sagaMiddleware = createSagaMiddleware()
 export const middlewares = [
@@ -24,18 +22,26 @@ export const middlewares = [
   logger,
 ]
 
+const appReducer = combineReducers({
+  api,
+  shared,
+  login,
+  home,
+  session,
+  signup,
+  sidebar,
+})
+
+const rootReducer = (state, action) => {
+  if (action.type === 'USER_LOGOUT') {
+    state = undefined
+  }
+
+  return appReducer(state, action)
+}
+
 const store = createStore(
-  combineReducers({
-    api,
-    shared,
-    login,
-    home,
-    session,
-    signup,
-    sidebar,
-    profile,
-    password,
-  }),
+  rootReducer,
   applyMiddleware(...middlewares),
 )
 

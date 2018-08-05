@@ -18,18 +18,17 @@ import logo from 'images/logo_horizontal_white.png'
 class Profile extends PureComponent {
   render() {
     const {
-      changeInput,
       intl: {
         formatMessage,
       },
-      onPressSave,
+      pressSave,
       goBack,
       profile,
       calling,
     } = this.props
 
     const fieldsWithValues = fields(formatMessage).map(
-      field => ({ ...field, defaultValue: profile.attributes[field.name] })
+      field => ({ ...field, defaultValue: profile[field.name] })
     )
 
     return (
@@ -43,18 +42,16 @@ class Profile extends PureComponent {
         <Image source={logo} style={style.brand} />
 
         <View style={style.inputs}>
-          <Uploader {...this.props}
-            onUpload={ value => changeInput({ name: 'avatar', value }) }
-          />
+          <Uploader {...this.props} name='avatar' form='profile' />
 
           {
             fieldsWithValues.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
+              field => <Input key={field.name} {...field} form='profile' />
             )
           }
 
           <LoadingButton
-            onPress={onPressSave}
+            onPress={pressSave}
             label={formatMessage({ id: 'profile.form.save' }).toUpperCase()}
             loading={calling}
           />
