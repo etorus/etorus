@@ -45,6 +45,16 @@ export function *onCreateNotification({
   })
 }
 
+export function *onLeaveLobby({ id }) {
+  yield call(callApi, api.meditations.leave, id)
+}
+
+export function *onEnterLobby({ id }) {
+  yield call(callApi, api.meditations.enter, id)
+}
+
 export default function *rootSession() {
   yield takeEvery(constants.CREATE_NOTIFICATION, onCreateNotification)
+  yield takeEvery(constants.LEAVE_LOBBY, onLeaveLobby)
+  yield takeEvery(constants.ENTER_LOBBY, onEnterLobby)
 }
