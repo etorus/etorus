@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import * as actions from '../redux/actions'
+import { apiCalls, apiStatuses } from 'api'
 
 import Form from '../components/Form'
 
@@ -69,8 +70,12 @@ class Container extends PureComponent {
 
 const mapStateToProps = ({
   login: {
-    calling,
     authToken,
+  },
+  api: {
+    [apiCalls.AUTH_LOGIN]: {
+      status,
+    },
   },
 },
 {
@@ -79,7 +84,7 @@ const mapStateToProps = ({
 }) => ({
   intl,
   navigation,
-  calling,
+  calling: status === apiStatuses.STARTED,
   authToken,
 })
 

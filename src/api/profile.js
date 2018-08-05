@@ -2,9 +2,9 @@ import { apiCalls } from './redux/constants';
 
 export default {
   load: {
-    key: apiCalls.MEDITATIONS_LOAD,
+    key: apiCalls.PROFILE_LOAD,
     opts: () => ({
-      path: '/meditations',
+      path: '/users/profile',
       auth: true,
     }),
   },

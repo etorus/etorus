@@ -8,6 +8,7 @@ export const apiStatuses = {
 export const apiCalls = {
   AUTH_LOGIN: 'AUTH_LOGIN',
   MEDITATIONS_LOAD: 'MEDITATIONS_LOAD',
+  PROFILE_LOAD: 'PROFILE_LOAD',
 }
 
 export const actions = {

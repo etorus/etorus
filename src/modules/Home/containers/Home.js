@@ -9,6 +9,7 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import  * as actions from '../redux/actions'
+import { apiCalls, apiStatuses } from 'api'
 
 import Home from '../components'
 
@@ -18,12 +19,7 @@ class Container extends PureComponent {
   }
 
   componentDidMount() {
-    const {
-      fetchMeditations,
-      navigation,
-    } = this.props
-
-    fetchMeditations({ navigation })
+    this.props.loadMeditations()
     this.timer = this.setInterval(() => this.tick(), 1000)
   }
 
@@ -69,11 +65,11 @@ const filterMeditationsStarted = meditations => {
 }
 
 const mapStateToProps = ({
-  home: {
-    meditations,
-    calling,
-    message,
-    error,
+  home: meditations,
+  api: {
+    [apiCalls.MEDITATIONS_LOAD]: {
+      status,
+    },
   },
 },
 {
@@ -81,37 +77,15 @@ const mapStateToProps = ({
   navigation,
 }) => ({
   meditations,
-  calling,
-  message,
-  error,
+  calling: status === apiStatuses.STARTED,
   intl,
   navigation,
 })
 
 const mapDispatchToProps = dispatch => ({
-  openNotifications() {
-    dispatch(actions.openNotifications())
+  loadMeditations() {
+    dispatch(actions.loadMeditations())
   },
-
-  closeNotifications() {
-    dispatch(actions.closeNotifications())
-  },
-
-  openMenu() {
-    dispatch(actions.openMenu())
-  },
-
-  closeMenu() {
-    dispatch(actions.closeMenu())
-  },
-
-  fetchMeditations({ navigation }) {
-    dispatch(actions.fetchMeditations({ navigation }))
-  },
-
-  pressMenu({ navigation }) {
-    navigation.toggleDrawer()
-  }
 })
 
 reactMixin.onClass(Container, TimerMixin)

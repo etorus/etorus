@@ -5,7 +5,7 @@ import api, { saga as callApi } from 'api'
 import { selectors } from 'modules/Shared'
 
 export function *onPressAcess() {
-  const { login } = yield select(selectors.forms);
+  const { login } = yield select(selectors.forms)
 
   yield call(callApi, api.auth.login, login)
 }

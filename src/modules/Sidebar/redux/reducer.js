@@ -1,40 +1,21 @@
-import * as constants from './constants'
-
 const initial = {
-  profile: {
-    attributes: {
-      name: '',
-      avatar: '',
-    },
+  attributes: {
+    name: '',
+    avatar: '',
   },
-  calling: false,
-  message: '',
-  error: 0,
 }
 
-export default (
-  state = initial,
-  {
-    type,
-    profile,
-    message,
-    error,
-  }
-) => {
-  switch (type) {
-    case constants.PROFILE_CALLING:
-      return { ...state, calling: true }
+import api from 'api'
+import reduce from 'store/reduceReducers'
 
-    case constants.PROFILE_RECEIVE:
-      return { ...state, calling: false }
+const onSuccess = ({ data }) => ({
+  ...data
+})
 
-    case constants.PROFILE_SUCCESS:
-      return { ...state, profile }
-
-    case constants.PROFILE_ERROR:
-      return { ...state, message, error }
-
-    default:
-      return state
-  }
-}
+export default (state = initial, action) => reduce(
+  [
+    api.profile.load.onSuccess(onSuccess),
+  ],
+  state,
+  action,
+)

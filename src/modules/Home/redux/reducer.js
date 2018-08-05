@@ -1,56 +1,24 @@
-import * as constants from './constants'
+import api from 'api'
+import reduce from 'store/reduceReducers'
 
-const initial = {
-  meditations: [],
-  calling: false,
-  message: '',
-  error: 0,
-  notification: false,
-  menu: false,
-  filter: constants.FILTER_STARTED,
-}
-
-export default (
-  state = initial,
+const includedUserData = (collection, included) => collection.map(item => (
   {
-    type,
-    meditations,
-    message,
-    error,
+    ...item,
+    user: included.find(
+      user => user.id === item.relationships.user.data.id
+    ),
   }
-) => {
-  switch (type) {
-    case constants.MEDITATION_CALLING:
-      return { ...state, calling: true }
+))
 
-    case constants.MEDITATION_RECEIVE:
-      return { ...state, calling: false }
+const onSuccess = ({ data, included }) => includedUserData(
+  data,
+  included,
+)
 
-    case constants.MEDITATION_SUCCESS:
-      return { ...state, meditations }
-
-    case constants.MEDITATION_ERROR:
-      return { ...state, message, error }
-
-    case constants.OPEN_NOTIFICATIONS:
-      return { ...state, notification: true }
-
-    case constants.CLOSE_NOTIFICATIONS:
-      return { ...state, notification: false }
-
-    case constants.OPEN_MENU:
-      return { ...state, menu: true }
-
-    case constants.CLOSE_MENU:
-      return { ...state, menu: false }
-
-    case constants.FILTER_STARTED:
-      return { ...state, filter: constants.FILTER_STARTED }
-
-    case constants.FILTER_NEXT:
-      return { ...state, filter: constants.FILTER_NEXT }
-
-    default:
-      return state
-  }
-}
+export default (state = [], action) => reduce(
+  [
+    api.auth.login.onSuccess(onSuccess),
+  ],
+  state,
+  action,
+)

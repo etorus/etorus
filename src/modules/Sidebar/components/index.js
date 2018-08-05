@@ -17,12 +17,10 @@ class Sidebar extends PureComponent {
   render() {
     const {
       profile: {
-        attributes: {
-          avatar,
-          name,
-          email,
-          facebook_id: facebookId,
-        },
+        avatar,
+        name,
+        email,
+        facebook_id: facebookId,
       },
       goToProfile,
       logout,
