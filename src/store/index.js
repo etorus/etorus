@@ -12,7 +12,6 @@ import { reducer as api } from 'api'
 import { reducer as shared } from 'modules/Shared'
 import { reducer as login } from 'modules/Login'
 import { reducer as home } from 'modules/Home'
-import { reducer as session } from 'modules/Session'
 import { reducer as signup } from 'modules/Signup'
 import { reducer as sidebar } from 'modules/Sidebar'
 
@@ -27,7 +26,6 @@ const appReducer = combineReducers({
   shared,
   login,
   home,
-  session,
   signup,
   sidebar,
 })

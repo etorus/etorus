@@ -41,7 +41,7 @@ class Container extends PureComponent {
       ({ data: { attributes: { lobby } } }) => this.lobbyChange(lobby)
     )
 
-    enterLobby({ navigation })
+    enterLobby()
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -84,7 +84,6 @@ class Container extends PureComponent {
     const {
       audio,
       updates,
-      currentTime,
     } = this.state
 
     if (!audio) {
@@ -106,7 +105,7 @@ class Container extends PureComponent {
 
     this.clearInterval(this.timer)
     this.sessionChannel.unsubscribe(this.getChannelName())
-    this.props.leaveLobby({ navigation: this.props.navigation })
+    this.props.leaveLobby()
   }
 
   lobbyChange = lobby => this.setState({ lobby })
@@ -118,15 +117,6 @@ class Container extends PureComponent {
 
   getChannelName = () =>
     `MEDITATION_LOBBY${this.props.navigation.state.params.sessionId}`
-
-  onCreateNotification = () =>
-    this.requestAnimationFrame(() =>
-      this.props.createNotification({
-        navigation: this.props.navigation,
-        formatMessage: this.props.intl.formatMessage,
-        meditationStart: this.props.meditation.attributes.start
-      })
-    )
 
   render() {
     const {
@@ -144,7 +134,6 @@ class Container extends PureComponent {
         currentTime={normalizedMinutes}
         progressPercent={progressPercent}
         back={this.back}
-        onCreateNotification={this.onCreateNotification}
         lobby={lobby === null ? this.props.meditation.attributes.lobby : lobby}
       />
     )
@@ -161,25 +150,36 @@ const mapStateToProps = (_,
   navigation,
 })
 
-const mapDispatchToProps = dispatch => ({
-  enterLobby({ navigation }) {
-    dispatch(actions.enterLobby({
-      navigation,
-      id: navigation.state.params.sessionId
-    }))
+const mapDispatchToProps = (
+dispatch, 
+{ 
+  navigation: {
+    state: {
+      params: {
+        meditation: {
+          id,
+          attributes: {
+            start: meditationStart, 
+          },
+        },
+      },
+    },
   },
-  leaveLobby({ navigation }) {
-    dispatch(actions.leaveLobby({
-      navigation,
-      id: navigation.state.params.sessionId
-    }))
+  intl: {
+    formatMessage,
   },
-  createNotification({ navigation, formatMessage, meditationStart }) {
+}) => ({
+  enterLobby() {
+    dispatch(actions.enterLobby({ id }))
+  },
+  leaveLobby() {
+    dispatch(actions.leaveLobby({ id }))
+  },
+  createNotification() {
     dispatch(actions.createNotification({
-      navigation,
       formatMessage,
       meditationStart,
-      meditationId: navigation.state.params.sessionId,
+      meditationId: id,
     }))
   },
 })

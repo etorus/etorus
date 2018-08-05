@@ -26,13 +26,12 @@ class Session extends PureComponent {
       progressPercent,
       back,
       lobby,
-      onCreateNotification,
+      createNotification,
       intl: {
         formatMessage,
       },
       meditation: {
         attributes: {
-          title,
           audio,
           start,
         },
@@ -81,7 +80,7 @@ class Session extends PureComponent {
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={onCreateNotification}
+          onPress={createNotification}
           style={style.notification}
         >
           <Image source={notification} style={style.notificationIcon} />
