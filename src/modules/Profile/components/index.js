@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   Text,
+  ScrollView,
 } from 'react-native'
 
 import { Uploader, Input, LoadingButton } from 'modules/Shared'
@@ -47,11 +48,13 @@ class Profile extends PureComponent {
             onUpload={ value => changeInput({ name: 'avatar', value }) }
           />
 
-          {
-            fieldsWithValues.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
-            )
-          }
+          <View style={style.inputs}>
+            {
+              fieldsWithValues.map(
+                field => <Input key={field.name} {...field} onChangeText={changeInput} />
+              )
+            }
+          </View>
 
           <LoadingButton
             onPress={onPressSave}

@@ -79,8 +79,8 @@ class Sidebar extends PureComponent {
                   <TouchableOpacity style={style.button} onPress={() => {}}>
                     <Text style={[style.buttonText, style.facebook]}>
                       { toggleMessage }
-                      <ActivityIndicator size="small" color="rgba(0, 133, 189, 1)" />
                     </Text>
+                    <ActivityIndicator size="small" color="rgba(0, 133, 189, 1)" />
                   </TouchableOpacity>
                 )
                 : (

@@ -5,6 +5,7 @@ import { YellowBox } from 'react-native'
 YellowBox.ignoreWarnings([
   'Warning: isMounted(...) is deprecated',
   'Module RCTImageLoader requires',
+  'Setting a timer',
 ])
 
 import 'intl'
@@ -16,7 +17,7 @@ import React, { PureComponent } from 'react'
 import { Provider } from 'react-redux'
 import { IntlProvider } from 'react-intl'
 
-import { View, AppRegistry, StatusBar } from 'react-native'
+import { View, StatusBar } from 'react-native'
 
 import notificationConfiguration from './notification'
 
@@ -45,7 +46,8 @@ class App extends PureComponent {
             <StatusBar
               barStyle="light-content"
               animated
-              backgroundColor="#c64d96"
+              translucent
+              backgroundColor="rgba(0, 0, 0, 0)"
             />
             <Navigation />
           </View>

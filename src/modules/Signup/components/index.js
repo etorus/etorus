@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import LinearGradient from 'react-native-linear-gradient'
 import {
   View,
-  TextInput,
+  ScrollView,
   StyleSheet,
   Image,
   TouchableOpacity,
@@ -74,7 +74,8 @@ class Signup extends PureComponent {
 
         <Image source={logo} style={style.brand} />
 
-        <View style={style.inputs}>
+        <ScrollView contentContainerStyle={style.inputs}>
+        
           <Uploader {...this.props}
             onUpload={ value => changeInput({ name: 'avatar', value }) }
           />
@@ -96,7 +97,7 @@ class Signup extends PureComponent {
               { formatMessage({ id: 'signup.form.already_have_account' }) }
             </Text>
           </TouchableOpacity>
-        </View>
+        </ScrollView>
       </View>
     )
   }

@@ -45,6 +45,8 @@ export const pressAccess = ({ email, password, navigation, formatMessage }) =>
             return navigation.navigate('App')
           })
         }
+
+        console.log(message)
         
         if (message) {
           if (message.match('Invalid credentials')) {
