@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { Alert } from 'react-native'
+import { Alert, AsyncStorage } from 'react-native'
 import { injectIntl } from 'react-intl'
 import { connect } from 'react-redux'
 import { compose } from 'redux'
@@ -39,8 +39,26 @@ class Container extends PureComponent {
   //   }
   // }
 
+  saveToken = () => {
+    const {
+      authToken,
+      calling,
+      navigation,
+    } = this.props
+
+    console.log(calling, authToken)
+
+    if (!authToken && calling) {
+      return
+    }
+
+    return AsyncStorage.setItem('@EtorusStorage::APIAuthToken', authToken, () => 
+      navigation.navigate('App')
+    )
+  }
+
   render() {
-    //this.showAlertErrors()
+    this.saveToken()
 
     return <Form {...this.props}
       goToSignup={this.goToSignup()}
@@ -52,13 +70,17 @@ class Container extends PureComponent {
 const mapStateToProps = ({
   login: {
     calling,
+    authToken,
   },
 },
 {
   intl,
   navigation,
 }) => ({
+  intl,
+  navigation,
   calling,
+  authToken,
 })
 
 const mapDispatchToProps = dispatch => ({
