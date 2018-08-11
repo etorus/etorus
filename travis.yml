@@ -39,9 +39,9 @@ install:
 script:
   - cd android && ./gradlew clean
   - fastlane android beta
-branches:
-  only:
-  - master
+# branches:
+#   only:
+#   - master
 notifications:
   email:
     on_success: never
