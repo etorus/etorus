@@ -3,45 +3,48 @@ jdk: oraclejdk8
 sudo: required
 dist: precise
 before_cache:
-  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
-  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   yarn: true
   directories:
-    - $HOME/.gradle/caches/
-    - $HOME/.gradle/wrapper/
-    - node_modules
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+  - node_modules
 android:
   components:
-    - platform-tools
-    - tools
-    - build-tools-26.0.2
-    - android-26
-    - extra-android-m2repository
-    - extra-google-google_play_services
-    - extra-google-m2repository
+  - platform-tools
+  - tools
+  - build-tools-26.0.2
+  - android-26
+  - extra-android-m2repository
+  - extra-google-google_play_services
+  - extra-google-m2repository
 licenses:
-  - android-sdk-preview-license-.+
-  - android-sdk-license-.+
-  - google-gdk-license-.+
+- android-sdk-preview-license-.+
+- android-sdk-license-.+
+- google-gdk-license-.+
 before_install:
-  - nvm install 7
-  - node --version
-  - travis_retry curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-  - echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-  - travis_retry sudo apt-get update -qq
-  - travis_retry sudo apt-get install -y -qq yarn
-  - chmod +x ./android/gradlew
-  - openssl aes-256-cbc -K $encrypted_2ebc06ca1396_key -iv $encrypted_2ebc06ca1396_iv -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore -d
-  - gem install fastlane --no-rdoc --no-ri --no-document --quiet
+- nvm install 7
+- node --version
+- travis_retry curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
+  -
+- echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+- travis_retry sudo apt-get update -qq
+- travis_retry sudo apt-get install -y -qq yarn
+- chmod +x ./android/gradlew
+- openssl aes-256-cbc -K $encrypted_2ebc06ca1396_key -iv $encrypted_2ebc06ca1396_iv
+  -in ./android/app/my-release-key.keystore.enc -out ./android/app/my-release-key.keystore
+  -d
+- gem install fastlane --no-rdoc --no-ri --no-document --quiet
 install:
-  - yarn install
+- yarn install
 script:
-  - fastlane android beta
-# branches:
-#   only:
-#   - master
+- fastlane android beta
 notifications:
   email:
     on_success: never
     on_failure: always
+env:
+  global:
+    secure: GpnspUIfPGy9dP4n8h/KxfZAKHpYLaum3S1uJAtS7ostiJaMXBVCqSy61V99hCkmclpiBaVjZYiMkAMQtFV9G2eckGYWSz5UuRYbi9fHGnnx8PqTyykKPIe5Zp7u7YOIcEeMA0AncPLiUVF7Kh03faUmVNhLfM/DbCl/NLO8igF5HlSG0LogoASZdOJEb3Jlk4uhJoNHKDo9lF3jnlghNrIb3R2ijmIThf5jH4SlzUUUiVZ2vML45zfZGy4bZ0GYFGax/+VN+SHIaz28vcOSbOYlyxLGvhU3emwazYvoU5gRBBy6TOUibomioVpL3xVZk7fB8L52dhipOaIDLjxg0szVcp/fEC92Cdx52FzSw4xGyBlpXPIlQ+IGjOFepeNpft7aQSWUUiw4b1essAScow98LkmKqJy7TR247SrwOIE666+Xnq3ipPCvmiI+8dAYKy+LVcBUdzrvBZY1zOOFMenYSB451blRRnoAQ8wlh97zaLJFtFGvaJQFMWHKw2KNCUIDCGWQDZPV47EZ7cw/EM/WMS0G49MHmjPUqt799o312ARe0vbxMbh1NJ55qlSjwL/wthiZ0E1wEaY9yNNdbkY6UdGP3wwTuCv+q7Q/5bYrpVyIn36+arJlILLP9Lwyi2APNcchvKxmAgZNWQQFF9rLBuIIjInjgv6LpsiI5Kg=
