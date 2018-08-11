@@ -37,7 +37,6 @@ before_install:
 install:
   - yarn install
 script:
-  - cd android && ./gradlew clean
   - fastlane android beta
 # branches:
 #   only:
