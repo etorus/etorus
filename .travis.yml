@@ -42,7 +42,7 @@ install:
 - yarn install
 script:
 - ./android/gradlew clean -p ./android
-- bundle exec fastlane android beta
+- fastlane android beta
 notifications:
   email:
     on_success: never
