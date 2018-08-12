@@ -26,7 +26,7 @@ licenses:
 - android-sdk-license-.+
 - google-gdk-license-.+
 before_install:
-- nvm install 7
+- nvm install 8
 - node --version
 - travis_retry curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add
   -
