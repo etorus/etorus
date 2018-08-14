@@ -1,6 +1,6 @@
 # Android
 json_key_file "fastlane/key.json"
-package_name "com.etorus"
+package_name "com.eightyseven.etorus"
 
 # Apple
 app_identifier "com.etorus.etorus"
