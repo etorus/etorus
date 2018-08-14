@@ -1,4 +1,4 @@
-package com.etorus;
+package com.eightyseven.etorus;
 
 import android.app.Application;
 
