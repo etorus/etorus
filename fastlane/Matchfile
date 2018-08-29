@@ -1,4 +1,4 @@
-git_url "git@github.com:viniciuspalma/etorus-certificates.git"
+git_url "git@github.com:87labs/ios-certificates.git"
 type "development"
-app_identifier ["com.etorus.etorus"]
-username "vpalma@87labs.com"
+app_identifier ["com.eightyseven.etorus"]
+username "dev@87labs.com"

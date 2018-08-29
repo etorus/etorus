@@ -3,6 +3,6 @@ json_key_file "fastlane/key.json"
 package_name "com.eightyseven.etorus"
 
 # Apple
-app_identifier "com.etorus.etorus"
-apple_id "vpalma@87labs.com"
-team_id "7L6V9UM76Y"
+app_identifier "com.eightyseven.etorus"
+apple_id "dev@87labs.com"
+team_id "PZJ7QL8SG6"
