@@ -1,4 +1,4 @@
 git_url "git@github.com:87labs/ios-certificates.git"
 type "development"
-app_identifier ["com.eightyseven.etorus"]
+app_identifier ["com.eightyseven.etorus", "com.eightyseven.smartnex"]
 username "dev@87labs.com"
