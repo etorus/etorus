@@ -5,80 +5,55 @@ import { connect } from 'react-redux'
 import { compose } from 'redux'
 
 import * as actions from '../redux/actions'
-import { selectImage } from 'modules/Shared/redux/uploader/actions'
+// import { selectImage } from 'modules/Shared/redux/uploader/actions'
 
 import Signup from '../components'
 
 class Container extends PureComponent {
-  onPressSignup = () => {
-    const {
-      pressSignup,
-      navigation,
-      inputs: fields,
-      intl: {
-        formatMessage,
-      },
-    } = this.props
+  // showAlertErrors = () => {
+  //   const {
+  //     message,
+  //     error,
+  //     intl: {
+  //       formatMessage,
+  //     },
+  //     clearErrors,
+  //   } = this.props
 
-    return () => pressSignup({ fields, navigation, formatMessage })
-  }
-
-  showAlertErrors = () => {
-    const {
-      message,
-      error,
-      intl: {
-        formatMessage,
-      },
-      clearErrors,
-    } = this.props
-
-    if (error) {
-      Alert.alert(
-        formatMessage({ id: 'signup.errors.title' }),
-        message,
-        [
-          {
-            text: formatMessage({ id: 'signup.errors.button' }),
-            onPress: clearErrors,
-          },
-        ],
-      )
-    }
-  }
+  //   if (error) {
+  //     Alert.alert(
+  //       formatMessage({ id: 'signup.errors.title' }),
+  //       message,
+  //       [
+  //         {
+  //           text: formatMessage({ id: 'signup.errors.button' }),
+  //           onPress: clearErrors,
+  //         },
+  //       ],
+  //     )
+  //   }
+  // }
 
   goToLogin = () =>
     () => this.props.navigation.navigate('Login')
 
   render() {
-    this.showAlertErrors()
+    // this.showAlertErrors()
 
-    return <Signup {...this.props}
-      onPressSignup={this.onPressSignup()}
-      goToLogin={this.goToLogin()}
-    />
+    return <Signup {...this.props} goToLogin={this.goToLogin()} />
   }
 }
 
 const mapStateToProps = ({
   signup: {
-    inputs,
-    calling,
     authToken,
-    message,
-    error,
-    validation,
   },
 },
 {
   intl,
   navigation,
 }) => ({
-  inputs,
-  calling,
   authToken,
-  message,
-  error,
   intl,
   navigation,
   validation: validation || {},
@@ -86,18 +61,9 @@ const mapStateToProps = ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  changeInput({ name, value }) {
-    dispatch(actions.changeInput({ name, value }))
+  pressSignup() {
+    dispatch(actions.pressSignup())
   },
-  pressSignup({ fields, navigation, formatMessage }) {
-    dispatch(actions.pressSignup({ fields, navigation, formatMessage }))
-  },
-  clearErrors() {
-    dispatch(actions.signupError({ error: 0, message: '' }))
-  },
-  onSelectImage(image) {
-    dispatch(selectImage({ image }))
-  }
 })
 
 const SignupContainer = compose(

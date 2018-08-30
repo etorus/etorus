@@ -12,8 +12,8 @@ import { reducer as api } from 'api'
 import { reducer as shared } from 'modules/Shared'
 import { reducer as login } from 'modules/Login'
 import { reducer as home } from 'modules/Home'
-import { reducer as signup } from 'modules/Signup'
 import { reducer as sidebar } from 'modules/Sidebar'
+import { reducer as signup } from 'modules/Signup'
 
 export const sagaMiddleware = createSagaMiddleware()
 export const middlewares = [
@@ -26,8 +26,8 @@ const appReducer = combineReducers({
   shared,
   login,
   home,
-  signup,
   sidebar,
+  signup,
 })
 
 const rootReducer = (state, action) => {

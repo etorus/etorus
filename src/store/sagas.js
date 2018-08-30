@@ -6,6 +6,7 @@ import { saga as sidebar } from 'modules/Sidebar'
 import { saga as password } from 'modules/Password'
 import { saga as profile } from 'modules/Profile'
 import { saga as session } from 'modules/Session'
+import { saga as signup } from 'modules/Signup'
 import { sagas } from 'modules/Shared'
 
 export default function *root() {
@@ -17,5 +18,6 @@ export default function *root() {
     fork(password),
     fork(profile),
     fork(session),
+    fork(signup),
   ])
 }

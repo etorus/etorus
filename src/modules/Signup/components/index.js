@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react'
 import LinearGradient from 'react-native-linear-gradient'
 import {
   View,
-  TextInput,
   StyleSheet,
   Image,
   TouchableOpacity,
@@ -24,45 +23,41 @@ const mountFacebookFields = facebookData => ({
 })
 
 class Signup extends PureComponent {
-  componentDidMount() {
-    const {
-      facebook,
-      changeInput,
-      onSelectImage,
-    } = this.props
+  // componentDidMount() {
+  //   const {
+  //     facebook,
+  //     changeInput,
+  //     onSelectImage,
+  //   } = this.props
 
-    const facebookFields = mountFacebookFields(facebook)
+  //   const facebookFields = mountFacebookFields(facebook)
 
-    Object.keys(facebookFields).map(key => changeInput({
-      name: key, 
-      value: facebookFields[key],
-    }))
+  //   Object.keys(facebookFields).map(key => changeInput({
+  //     name: key, 
+  //     value: facebookFields[key],
+  //   }))
 
-    onSelectImage(facebookFields.avatar)
-  }
+  //   onSelectImage(facebookFields.avatar)
+  // }
 
   render() {
     const {
-      changeInput,
       intl: {
         formatMessage,
       },
-      onPressSignup,
-      goToLogin,
+      pressSignup,
       calling,
-      validation,
-      facebook,
     } = this.props
 
-    const facebookFields = mountFacebookFields(facebook)
+    // const facebookFields = mountFacebookFields(facebook)
 
-    const fieldsWithValuesAndErrors = fields(formatMessage).map(
-      field => ({
-        ...field,
-        defaultValue: facebookFields[field.name],
-        error: validation[field.name]
-      })
-    )
+    // const fieldsWithValuesAndErrors = fields(formatMessage).map(
+    //   field => ({
+    //     ...field,
+    //     defaultValue: facebookFields[field.name],
+    //     error: validation[field.name]
+    //   })
+    // )
 
     return (
       <View style={style.container}>
@@ -80,13 +75,17 @@ class Signup extends PureComponent {
           />
 
           {
-            fieldsWithValuesAndErrors.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
+            fields.map(
+              field => <Input
+                {...field}
+                key={field.name}
+                form='signup'
+              />
             )
           }
 
           <LoadingButton
-            onPress={onPressSignup}
+            onPress={pressSignup}
             loading={calling}
             label={formatMessage({ id: 'signup.form.signup' }).toUpperCase()}
           />
