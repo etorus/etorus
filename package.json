@@ -7,6 +7,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "babel-plugin-module-resolver": "^3.2.0",
     "intl": "^1.2.5",
     "moment": "^2.22.1",
     "pusher-js": "^4.2.2",
@@ -16,12 +17,13 @@
     "react-native": "0.60.5",
     "react-native-aws3": "^0.0.8",
     "react-native-device-info": "^0.21.5",
-    "react-native-fbsdk": "0.7.0",
+    "react-native-fbsdk": "^1.0.3",
+    "react-native-gesture-handler": "^1.4.1",
     "react-native-image-crop-picker": "^0.20.3",
     "react-native-linear-gradient": "^2.4.0",
     "react-native-push-notification": "^3.0.2",
     "react-native-sound": "^0.10.9",
-    "react-navigation": "^2.2.4",
+    "react-navigation": "^4.0.5",
     "react-redux": "^5.0.7",
     "react-timer-mixin": "^0.13.3",
     "redux": "^4.0.0",
@@ -32,10 +34,9 @@
   },
   "devDependencies": {
     "babel-jest": "^24.8.0",
-    "metro-react-native-babel-preset": "^0.56.0",
-    "react-test-renderer": "16.8.6",
     "fetch-mock": "^6.3.0",
     "jest": "^24.8.0",
+    "metro-react-native-babel-preset": "^0.56.0",
     "react-test-renderer": "^16.3.0-alpha.1",
     "redux-mock-store": "^1.5.1"
   },
