@@ -1,11 +1,10 @@
 import React from 'react'
 import { Dimensions } from 'react-native'
 
-import {
-  createStackNavigator,
-  createSwitchNavigator,
-  createDrawerNavigator,
-} from 'react-navigation'
+import { createAppContainer, createSwitchNavigator } from 'react-navigation'
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
+
 
 import Home from './modules/Home'
 import Session from './modules/Session'
@@ -50,7 +49,7 @@ const AuthStack = createStackNavigator({
   headerMode: 'none',
 })
 
-export default createSwitchNavigator({
+const Navigation = createSwitchNavigator({
   AuthLoading: {
     screen: Loading,
   },
@@ -64,3 +63,5 @@ export default createSwitchNavigator({
 {
   initialRouteName: 'AuthLoading',
 })
+
+export default createAppContainer(Navigation)
