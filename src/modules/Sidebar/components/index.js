@@ -50,13 +50,13 @@ class Sidebar extends PureComponent {
         >
 
           <View style={style.brandContainer}>
-            <Image source={brand} style={style.brand} />
+            <Image source={brand} resizeMode={'contain'} style={style.brand} />
           </View>
 
           <View style={style.header}>
             {
               avatar
-                ? <Image source={{ uri: avatar }} style={style.image} />
+                ? <Image source={{ uri: avatar }} resizeMode={'contain'} style={style.image} />
                 : <ActivityIndicator size="small" color="#c64d96" />
             }
 

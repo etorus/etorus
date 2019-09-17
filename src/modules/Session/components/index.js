@@ -77,14 +77,14 @@ class Session extends PureComponent {
           onPress={back}
           style={[ StyleSheet.absoluteFill, style.arrowBack ]}
         >
-          <Image source={arrow} style={style.arrowBackImage} />
+          <Image source={arrow} resizeMode={'contain'} style={style.arrowBackImage} />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={onCreateNotification}
           style={style.notification}
         >
-          <Image source={notification} style={style.notificationIcon} />
+          <Image source={notification} resizeMode={'contain'} style={style.notificationIcon} />
         </TouchableOpacity>
       </View>
     )

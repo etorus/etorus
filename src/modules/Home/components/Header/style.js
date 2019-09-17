@@ -31,7 +31,6 @@ export default StyleSheet.create({
   brand: {
     height: 30,
     width: 113,
-    resizeMode: Image.resizeMode.contain,
   },
 
   menuWrapper: {
@@ -50,7 +49,6 @@ export default StyleSheet.create({
     height: 23,
     width: 21,
     marginTop: 2,
-    resizeMode: Image.resizeMode.contain,
   },
 
   menu: {
@@ -63,6 +61,5 @@ export default StyleSheet.create({
     width: 24,
     marginVertical: 12,
     marginHorizontal: 10,
-    resizeMode: Image.resizeMode.contain,
   },
 })

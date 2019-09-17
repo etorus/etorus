@@ -15,7 +15,7 @@ class GoogleLogin extends PureComponent {
     return (
       <TouchableOpacity style={style.button} onPress={loginGoogle}>
         <View style={style.wrapper}>
-          <Image source={google} style={style.google} />
+          <Image source={google} resizeMode={'contain'} style={style.google} />
           <Text style={style.text}>
             { intl.formatMessage({ id: 'login.form.google' }).toUpperCase() }
           </Text>

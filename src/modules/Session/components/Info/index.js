@@ -29,7 +29,7 @@ class Info extends PureComponent {
         </Text>
 
         <View style={style.audioArea}>
-          <Image source={play} style={style.audioIcon} />
+          <Image source={play} resizeMode={'contain'} style={style.audioIcon} />
           <Text style={style.audio}>
             { audio.replace(/_/g, ' ') }
           </Text>

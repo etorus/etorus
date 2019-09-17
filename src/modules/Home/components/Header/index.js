@@ -28,11 +28,11 @@ class Header extends PureComponent {
         />
 
         <View style={style.wrapper}>
-          <Image source={logo} style={style.brand} />
+          <Image source={logo} resizeMode={'contain'} style={style.brand} />
 
           <View style={style.menuWrapper}>
             <TouchableOpacity style={style.menu} onPress={onPressMenu}>
-              <Image source={menu} style={style.menuIcon} />
+              <Image source={menu} resizeMode={'contain'} style={style.menuIcon} />
             </TouchableOpacity>
           </View>
         </View>

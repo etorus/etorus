@@ -26,10 +26,10 @@ class Splash extends PureComponent {
 
     return (
       <View style={style.container}>
-        <Image source={background} style={[ StyleSheet.absoluteFill, style.background ]} />
+        <Image source={background} resizeMode={'contain'} style={[ StyleSheet.absoluteFill, style.background ]} />
 
         <View stye={style.imageContainer}>
-          <Image source={logo} style={style.brand} />
+          <Image source={logo} resizeMode={'contain'} style={style.brand} />
         </View>
 
         <Text style={style.text}>

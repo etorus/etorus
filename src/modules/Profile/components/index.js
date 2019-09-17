@@ -41,7 +41,7 @@ class Profile extends PureComponent {
           start={{ x: 0.5, y: 0.1 }} end={{ x: 0.8, y: 1.0 }}
         />
 
-        <Image source={logo} style={style.brand} />
+        <Image source={logo} resizeMode={'contain'} style={style.brand} />
 
         <View style={style.inputs}>
           <Uploader {...this.props}

@@ -1,4 +1,4 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   session: {
@@ -25,7 +25,6 @@ export default StyleSheet.create({
     height: 24,
     marginVertical: 8,
     marginHorizontal: 13,
-    resizeMode: Image.resizeMode.contain,
   },
 
   notification: {
@@ -42,6 +41,5 @@ export default StyleSheet.create({
     width: 21,
     marginVertical: 9,
     marginHorizontal: 10,
-    resizeMode: Image.resizeMode.contain,
   },
 })

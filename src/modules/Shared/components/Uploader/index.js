@@ -25,8 +25,8 @@ class Uploader extends PureComponent {
           <View style={style.wrapperImagem}>
             {
               image
-                ? <Image source={{ uri: image }} style={style.image} />
-                : <Image source={placeholder} style={style.image} />
+                ? <Image resizeMode={'contain'} source={{ uri: image }} style={style.image} />
+                : <Image resizeMode={'contain'} source={placeholder} style={style.image} />
             }
           </View>
         </TouchableOpacity>

@@ -24,7 +24,7 @@ class Loading extends PureComponent {
     return (
       <View style={style.container}>
         <View style={style.imageContainer}>
-          <Image source={completeLogo} style={style.brand} />
+          <Image source={completeLogo} resizeMode={'contain'} style={style.brand} />
         </View>
         <Text style={style.version}>
           Version 1.0.0

@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions, Image } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
   cardShadow: {
@@ -29,7 +29,6 @@ export default StyleSheet.create({
     left: 0,
     height: 114,
     width: 112.5,
-    resizeMode: Image.resizeMode.contain,
   },
 
   owner: {

@@ -21,7 +21,6 @@ export default StyleSheet.create({
     marginTop: 40,
     width: 170,
     height: 44,
-    resizeMode: Image.resizeMode.contain,
   },
 
   inputs: {

@@ -1,4 +1,4 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   wrapper: {
@@ -38,6 +38,5 @@ export default StyleSheet.create({
     borderRadius: 12,
     marginHorizontal: 2,
     marginVertical: 2,
-    resizeMode: Image.resizeMode.contain,
   },
 })

@@ -81,7 +81,7 @@ class MeditationCard extends PureComponent {
       <TouchableOpacity onPress={onPress}>
         <View style={style.cardShadow}>
           <View style={style.card}>
-            <Image source={background} style={style.background} />
+            <Image source={background} resizeMode={'contain'} style={style.background} />
 
             <Text style={style.owner}>
               { formatMessage({ id: 'home.meditation_card.session_of' }) } { name }
