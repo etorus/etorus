@@ -11,6 +11,7 @@ import com.facebook.react.bridge.JavaScriptExecutorFactory;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.facebook.react.ReactApplication;
+import com.swmansion.reanimated.ReanimatedPackage;
 import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
@@ -39,15 +40,6 @@ public class MainApplication extends Application implements ReactApplication {
       // Packages that cannot be autolinked yet can be added manually here, for example:
       // packages.add(new MyReactNativePackage());
       return packages;
-      // return Arrays.<ReactPackage>asList(
-      //     new MainReactPackage(),
-      //       new RNDeviceInfo(),
-      //     new PickerPackage(),
-      //     new ReactNativePushNotificationPackage(),
-      //     new RNSoundPackage(),
-      //     new LinearGradientPackage(),
-      //     new FBSDKPackage(mCallbackManager)
-      // );
     }
 
     @Override
