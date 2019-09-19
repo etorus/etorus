@@ -3,8 +3,9 @@ import {
   View,
   Text,
   Image,
-  AsyncStorage,
 } from 'react-native'
+
+import AsyncStorage from '@react-native-community/async-storage'
 
 import style from './style'
 import completeLogo from 'images/complete_logo.png'
