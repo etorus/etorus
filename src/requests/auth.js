@@ -29,7 +29,7 @@ export const signup = body => unauthRequest({
 })
 
 export const loginFacebookSDK = (successAction, errorAction) =>
-  LoginManager.logInWithReadPermissions(['public_profile']).then(
+  LoginManager.logInWithPermissions(['public_profile']).then(
     result => {
       if (result.error) {
         return errorAction({ error: 6, message: result.error })
