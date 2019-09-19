@@ -93,32 +93,4 @@ describe('Home actions', () => {
 
     expect(actions.closeMenu()).toEqual(expectedAction)
   })
-
-  it('should fetch meditations endpoint and trigger the actions', () => {
-    const data = [{ id: 1, type: 'meditation' }]
-
-    // TODO: Change the endpoint to an env variable
-    fetchMock.getOnce(
-      'https://etorus-staging.herokuapp.com/importations',
-      {
-        body: { data },
-        headers: {
-          'content-type': 'application/json',
-        }
-      }
-    )
-
-    const expectedActions = [
-      { type: constants.MEDITATION_CALLING },
-      { type: constants.MEDITATION_RECEIVE },
-      { type: constants.MEDITATION_ERROR, error: 0, message: '' },
-      { type: constants.MEDITATION_SUCCESS, meditations: data }
-    ]
-
-    const store = mockStore({ meditations: [] })
-
-    return store.dispatch(actions.fetch()).then(() => {
-      expect(store.getActions()).toEqual(expectedActions)
-    })
-  })
 })

@@ -63,7 +63,7 @@ describe('Login actions', () => {
 
     // TODO: Change the endpoint to an env variable
     fetchMock.postOnce(
-      'https://etorus-staging.herokuapp.com/auth/login',
+      'https://etorus-production.herokuapp.com/auth/login',
       {
         body: data,
         headers: {
@@ -73,15 +73,17 @@ describe('Login actions', () => {
     )
 
     const expectedActions = [
-      { type: constants.AUTH_CALLING },
-      { type: constants.AUTH_RECEIVE },
-      { type: constants.AUTH_ERROR, error: 0, message: '' },
-      { type: constants.AUTH_SUCCESS, authToken: data.auth_token }
-    ]
+        { type: constants.AUTH_VALIDATION, validation: undefined },
+        { type: constants.AUTH_CALLING },
+        { type: constants.AUTH_RECEIVE },
+        { type: constants.AUTH_ERROR, error: 0, message: '' }
+      ]
+
 
     const store = mockStore({ authToken: '' })
+    const formatMessage = () => ({})
 
-    return store.dispatch(actions.pressAccess({})).then(() => {
+    return store.dispatch(actions.pressAccess({ formatMessage })).then(() => {
       expect(store.getActions()).toEqual(expectedActions)
     })
   })
