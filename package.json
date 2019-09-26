@@ -38,7 +38,6 @@
     "validate.js": "^0.12.0"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
     "babel-jest": "^24.8.0",
     "fetch-mock": "^6.3.0",
     "jest": "^24.8.0",
