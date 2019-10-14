@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 import * as constants from './constants'
 import { index as meditationIndex } from 'requests/meditation'

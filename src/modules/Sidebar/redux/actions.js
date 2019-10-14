@@ -41,7 +41,7 @@ export const addFacebook = ({ navigation }) =>
   dispatch => {
     dispatch(profileCalling())
 
-    LoginManager.logInWithReadPermissions(['public_profile']).then(
+    LoginManager.logInWithPermissions(['public_profile']).then(
       () => AccessToken.getCurrentAccessToken().then(
         data => updateProfile(data.userID, dispatch, navigation)
       )

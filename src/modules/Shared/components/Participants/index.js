@@ -44,6 +44,7 @@ class Participants extends PureComponent {
                     ? { uri: participant.avatar }
                     : placeholder
                 }
+                resizeMode={'contain'}
                 style={[ baseStyle.participant, style.participant ]}
                 key={index}
               />

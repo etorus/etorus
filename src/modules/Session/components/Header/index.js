@@ -19,7 +19,7 @@ class Header extends PureComponent {
   render() {
     return (
       <View>
-        <ImageBackground source={placeholder} style={[ StyleSheet.absoluteFill, style.background ]}>
+        <ImageBackground source={placeholder} resizeMode={'contain'} style={[ StyleSheet.absoluteFill, style.background ]}>
           <Image source={upper} style={[ StyleSheet.absoluteFill, style.upperGradient ]} />
 
           <LinearGradient
@@ -29,7 +29,7 @@ class Header extends PureComponent {
             start={{ x: 0.5, y: 0.1 }} end={{ x: 0.5, y: 1 }}
           />
         </ImageBackground>
-        <Image source={overlay} style={[ StyleSheet.absoluteFill, style.overlay ]} />
+        <Image source={overlay} resizeMode={'contain'} style={[ StyleSheet.absoluteFill, style.overlay ]} />
       </View>
     )
   }

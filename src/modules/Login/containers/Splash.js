@@ -27,7 +27,7 @@ class Container extends PureComponent {
       },
     } = this.props
 
-    LoginManager.logInWithReadPermissions(['public_profile', 'email']).then(
+    LoginManager.logInWithPermissions(['public_profile', 'email']).then(
       () => {
         return AccessToken.getCurrentAccessToken().then(
           data => {

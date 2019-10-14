@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Image,
 } from 'react-native'
 
 export default StyleSheet.create({
@@ -42,6 +41,5 @@ export default StyleSheet.create({
   audioIcon: {
     height: 20,
     width: 20,
-    resizeMode: Image.resizeMode.contain,
   },
 })

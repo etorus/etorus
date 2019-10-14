@@ -1,4 +1,4 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
@@ -13,7 +13,6 @@ export default StyleSheet.create({
   brand: {
     height: 95,
     width: 100,
-    resizeMode: Image.resizeMode.contain
   },
 
   header: {

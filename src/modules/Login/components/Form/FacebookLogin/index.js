@@ -16,7 +16,7 @@ class FacebookLogin extends PureComponent {
     return(
       <TouchableOpacity style={style.button} onPress={loginFacebook}>
         <View style={style.wrapper}>
-          <Image source={facebook} style={style.facebook} />
+          <Image source={facebook} resizeMode={'contain'} style={style.facebook} />
           <Text style={style.text}>
             { formatMessage({ id: 'login.form.facebook' }).toUpperCase() }
           </Text>

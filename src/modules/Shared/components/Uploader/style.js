@@ -1,4 +1,4 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   uploader: {
@@ -19,7 +19,6 @@ export default StyleSheet.create({
     height: 80,
     width: 80,
     borderRadius: 40,
-    resizeMode: Image.resizeMode.contain,
   },
 
   text: {

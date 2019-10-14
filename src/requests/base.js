@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 // TODO: Change to an env variable
 const URI = 'https://etorus-production.herokuapp.com'

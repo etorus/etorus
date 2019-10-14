@@ -3,8 +3,9 @@ import {
   View,
   Text,
   Image,
-  AsyncStorage,
 } from 'react-native'
+
+import AsyncStorage from '@react-native-community/async-storage'
 
 import style from './style'
 import completeLogo from 'images/complete_logo.png'
@@ -24,7 +25,7 @@ class Loading extends PureComponent {
     return (
       <View style={style.container}>
         <View style={style.imageContainer}>
-          <Image source={completeLogo} style={style.brand} />
+          <Image source={completeLogo} resizeMode={'contain'} style={style.brand} />
         </View>
         <Text style={style.version}>
           Version 1.0.0

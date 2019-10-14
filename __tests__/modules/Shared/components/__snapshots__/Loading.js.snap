@@ -21,6 +21,7 @@ exports[`renders a Loading correctly 1`] = `
     }
   >
     <Image
+      resizeMode="contain"
       source={
         Object {
           "testUri": "../../../src/assets/images/complete_logo.png",
@@ -29,16 +30,12 @@ exports[`renders a Loading correctly 1`] = `
       style={
         Object {
           "height": 145,
-          "resizeMode": "contain",
           "width": 245,
         }
       }
     />
   </View>
   <Text
-    accessible={true}
-    allowFontScaling={true}
-    ellipsizeMode="tail"
     style={
       Object {
         "fontFamily": "Branding",

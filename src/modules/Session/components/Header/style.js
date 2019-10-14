@@ -1,7 +1,6 @@
 import {
   StyleSheet,
   Dimensions,
-  Image,
 } from 'react-native'
 
 export default StyleSheet.create({
@@ -28,6 +27,5 @@ export default StyleSheet.create({
     width: 307.5,
     height: 362,
     top: 32,
-    resizeMode: Image.resizeMode.contain,
   },
 })

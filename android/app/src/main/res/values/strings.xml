@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">etorus</string>
-    <string name="facebook_app_id">986809631467739</string>
+    <string name="facebook_app_id">719318111865845</string>
+    <string name="fb_login_protocol_scheme">fb719318111865845</string>
 </resources>

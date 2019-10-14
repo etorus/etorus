@@ -1,6 +1,5 @@
 import {
   StyleSheet,
-  Image,
 } from 'react-native'
 
 export default StyleSheet.create({
@@ -23,7 +22,6 @@ export default StyleSheet.create({
     marginLeft: 10,
     width: 27,
     height: 27,
-    resizeMode: Image.resizeMode.contain,
   },
 
   text: {

@@ -1,7 +1,6 @@
 import {
   StyleSheet,
   Dimensions,
-  Image,
 } from 'react-native'
 
 export default StyleSheet.create({
@@ -16,7 +15,6 @@ export default StyleSheet.create({
   background: {
     width: Dimensions.get('screen').width,
     height: Dimensions.get('screen').height,
-    resizeMode: Image.resizeMode.contain,
   },
 
   imageContainer: {
@@ -27,7 +25,6 @@ export default StyleSheet.create({
     marginTop: 90,
     height: 142,
     width: 242,
-    resizeMode: Image.resizeMode.contain,
   },
 
   text: {

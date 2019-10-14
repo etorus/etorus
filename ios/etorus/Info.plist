@@ -27,16 +27,16 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb986809631467739</string>
+				<string>fb719318111865845</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>FacebookAppID</key>
-	<string>986809631467739</string>
+	<string>719318111865845</string>
 	<key>FacebookDisplayName</key>
-	<string>Etorus Test App</string>
+	<string>etorus</string>	
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
