@@ -5015,10 +5015,10 @@ react-native-gesture-handler@^1.4.1:
     invariant "^2.2.4"
     prop-types "^15.7.2"
 
-react-native-image-crop-picker@^0.20.3:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.20.3.tgz#565d69c1764e96abef23871fe4d6d58b1ee35e18"
-  integrity sha512-jzaU/1HnLJhRgV5oSBfIvLKU15OdCxAl0KtAHzdJfnyP4cbG5hJjhtXAN3pqz2Z7qH1kJgVPvkifrO+Hvqmumg==
+react-native-image-crop-picker@^0.27.0:
+  version "0.27.0"
+  resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.27.0.tgz#f4684e77e6b25bb6d2cb5e37cfad130b4ed23e90"
+  integrity sha512-QR9d3FQVYO1vIUOHt5kozyyTUzHV71wGsLKbzqINjF4kKW9++lHHt7DgEkXBuOHWOZ26LHyQHXV6GdQRPA2EkQ==
 
 react-native-linear-gradient@^2.4.0:
   version "2.5.6"
