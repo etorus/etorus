@@ -1,8 +1,8 @@
 # Android
 json_key_file "fastlane/key.json"
-package_name "com.etorus"
+package_name "com.appworldpeace.etorus"
 
 # Apple
-app_identifier "com.etorus.etorus"
+app_identifier "com.appworldpeace.etorus.etorus"
 apple_id "vpalma@87labs.com"
 team_id "7L6V9UM76Y"

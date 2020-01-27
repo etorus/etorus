@@ -1,4 +1,4 @@
-package com.etorus;
+package com.appworldpeace.etorus;
 
 import android.app.Application;
 import android.util.Log;

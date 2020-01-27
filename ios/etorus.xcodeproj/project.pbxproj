@@ -1623,7 +1623,7 @@
 				);
 				PRODUCT_NAME = etorus;
 				PROVISIONING_PROFILE = "4fb7dd41-e35d-4142-a5e1-2a310d27387b";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.etorus.etorus";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.appworldpeace.etorus.etorus";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1660,7 +1660,7 @@
 				);
 				PRODUCT_NAME = etorus;
 				PROVISIONING_PROFILE = "4fb7dd41-e35d-4142-a5e1-2a310d27387b";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.etorus.etorus";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.appworldpeace.etorus.etorus";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

@@ -1,4 +1,4 @@
 git_url "git@github.com:viniciuspalma/etorus-certificates.git"
 type "development"
-app_identifier ["com.etorus.etorus"]
+app_identifier ["com.appworldpeace.etorus.etorus"]
 username "vpalma@87labs.com"
