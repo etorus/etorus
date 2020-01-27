@@ -36,7 +36,7 @@
 	<key>FacebookAppID</key>
 	<string>719318111865845</string>
 	<key>FacebookDisplayName</key>
-	<string>etorus</string>	
+	<string>etorus</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
