@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage'
 
 // TODO: Change to an env variable
-const URI = 'https://etorus-production.herokuapp.com'
+const URI = 'https://etorus.herokuapp.com'
 
 export const getAuthToken = async () => {
   const authToken = AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
