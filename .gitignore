@@ -20,8 +20,10 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-project.xcworkspace
 ios/Podfile.lock
+
+#CocoaPods
+/ios/Pods/
 
 # Android/IntelliJ
 #
@@ -41,6 +43,7 @@ yarn-error.log
 buck-out/
 \.buckd/
 *.keystore
+!debug.keystore
 
 # fastlane
 #
