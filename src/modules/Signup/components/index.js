@@ -9,7 +9,7 @@ import {
   Text,
 } from 'react-native'
 
-import { Uploader, Input, LoadingButton } from 'modules/Shared'
+import { Uploader, Input, InputDate, LoadingButton } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
@@ -82,7 +82,12 @@ class Signup extends PureComponent {
 
           {
             fieldsWithValuesAndErrors.map(
-              field => <Input key={field.name} {...field} onChangeText={changeInput} />
+              field => {
+                if (field.name === 'age') {
+                  return <InputDate key={field.name} {...field} onChangeText={changeInput} />
+                }
+                return <Input key={field.name} {...field} onChangeText={changeInput} />
+              }
             )
           }
 
