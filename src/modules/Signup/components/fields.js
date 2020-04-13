@@ -15,6 +15,10 @@ export default formatMessage => ([
     keyboardType: 'phone-pad',
   },
   {
+    name: 'age',
+    placeholder: formatMessage({ id: 'signup.form.age' }),
+  },
+  {
     name: 'password',
     placeholder: formatMessage({ id: 'signup.form.password' }),
     secureTextEntry: true,
