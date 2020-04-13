@@ -6,6 +6,7 @@ export const reducer = combineReducers({
 })
 
 export { default as Input } from './components/Input'
+export { default as InputDate } from './components/Input/date'
 export { default as Loading } from './components/Loading'
 export { default as ProgressBar } from './components/ProgressBar'
 export { default as Participants } from './components/Participants'
