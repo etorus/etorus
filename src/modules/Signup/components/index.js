@@ -9,7 +9,7 @@ import {
   Text,
 } from 'react-native'
 
-import { Uploader, Input, InputDate, LoadingButton } from 'modules/Shared'
+import { Uploader, Input, InputDate, LoadingButton, ButtonTermsOfUse } from 'modules/Shared'
 
 import style from './style'
 import fields from './fields'
@@ -90,6 +90,7 @@ class Signup extends PureComponent {
               }
             )
           }
+          <ButtonTermsOfUse />
 
           <LoadingButton
             onPress={onPressSignup}
