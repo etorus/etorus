@@ -25,6 +25,8 @@
   "session.extra.participating": "Participando",
   "session.info.session_of": "Sessão do",
   "session.progress_bar.session_time": "Tempo da sessão",
+  "signup.form.terms_of_use": "Termos de Uso",
+  "signup.form.terms_of_use.agreement": "Li e concordo",
   "signup.form.age": "Idade",
   "signup.form.name": "Nome",
   "signup.form.email": "E-mail",

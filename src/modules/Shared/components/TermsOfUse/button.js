@@ -6,26 +6,25 @@ Icon.loadFont();
 import * as S from './styled.js'
 
 const Button = ({
+    formatMessage,
     navigation,
     status = false,
     callBack = () => {}
-}) => {
-    return (
-        <S.ButtonWrapper>
-            <CheckBox
-                onPress={() => console.log('Press')}
-                center
-                containerStyle={{ backgroundColor: null, borderWidth: 0 }}
-                title='Terms & Conditions'
-                checkedIcon='dot-circle-o'
-                uncheckedIcon='circle-o'
-                checked={true}
-                textStyle={{ color: '#fff' }}
-                uncheckedColor='#fff'
-                checkedColor='#000'
-            />
-        </S.ButtonWrapper>
-    )
-}
+}) => (
+    <S.ButtonWrapper>
+        <CheckBox
+            onPress={() => navigation.navigate('TermsOfUse', { callBack, formatMessage })}
+            center
+            containerStyle={{ backgroundColor: null, borderWidth: 0 }}
+            title={formatMessage({ id: 'signup.form.terms_of_use' })}
+            checkedIcon='dot-circle-o'
+            uncheckedIcon='circle-o'
+            checked={status}
+            textStyle={{ color: '#fff' }}
+            uncheckedColor='#fff'
+            checkedColor='#000'
+        />
+    </S.ButtonWrapper>
+)
 
 export default Button

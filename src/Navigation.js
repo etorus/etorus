@@ -10,7 +10,7 @@ import Home from './modules/Home'
 import Session from './modules/Session'
 import Signup from './modules/Signup'
 import { Login, Splash } from './modules/Login'
-import { Loading }  from './modules/Shared'
+import { Loading, TermsOfUse }  from './modules/Shared'
 import Sidebar from './modules/Sidebar'
 import Profile from './modules/Profile'
 import Password from './modules/Password'
@@ -34,6 +34,9 @@ const AppStack = createDrawerNavigator({
 const AuthStack = createStackNavigator({
   Splash: {
     screen: Splash,
+  },
+  TermsOfUse: {
+    screen: TermsOfUse,
   },
   Login: {
     screen: Login,

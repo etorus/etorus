@@ -24,6 +24,11 @@ const mountFacebookFields = facebookData => ({
 })
 
 class Signup extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = { agreement: false }
+  }
+
   componentDidMount() {
     const {
       facebook,
@@ -41,6 +46,12 @@ class Signup extends PureComponent {
     onSelectImage(facebookFields.avatar)
   }
 
+  updateAgreement() {
+    this.setState({
+      agreement: true
+    })
+  }
+
   render() {
     const {
       changeInput,
@@ -52,6 +63,7 @@ class Signup extends PureComponent {
       calling,
       validation,
       facebook,
+      navigation,
     } = this.props
 
     const facebookFields = mountFacebookFields(facebook)
@@ -90,7 +102,12 @@ class Signup extends PureComponent {
               }
             )
           }
-          <ButtonTermsOfUse />
+          <ButtonTermsOfUse
+            callBack={() => this.updateAgreement()}
+            status={this.state.agreement}
+            navigation={navigation}
+            formatMessage={formatMessage}  
+          />
 
           <LoadingButton
             onPress={onPressSignup}
