@@ -69,6 +69,7 @@
 		<string>Branding Medium.otf</string>
 		<string>Branding Semibold.otf</string>
 		<string>Branding Semilight.otf</string>
+		<string>MaterialIcons.ttf</string>
 		<string>Branding Thin.otf</string>
 	</array>
 	<key>UIBackgroundModes</key>
