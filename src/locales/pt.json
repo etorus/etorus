@@ -1,4 +1,5 @@
 {
+  "app.continue": "Continuar",
   "login.splash.initial_message": "Espaços de 30 minutos de \nmeditação coletiva",
   "login.splash.start_now": "Começar agora",
   "login.splash.or": "ou",
@@ -58,5 +59,9 @@
   "sidebar.edit_profile": "Editar perfil",
   "sidebar.connect_facebook": "Connectar com Facebook",
   "sidebar.disconnect_facebook": "Desconectar do Facebook",
-  "sidebar.logout": "Sair"
+  "sidebar.logout": "Sair",
+  "use_conditions.title": "Avisos importantes",
+  "use_conditions.subTitle": "Quem não deve praticar a Meditação:",
+  "use_conditions.age": "Aqueles com menos de 16 anos de idade",
+  "use_conditions.health": "Aqueles com doença cardíaca, hipertensão, glaucoma, doenças renais graves, e mulheres grávidas em gestação de risco."
 }
