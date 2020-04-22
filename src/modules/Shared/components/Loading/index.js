@@ -17,8 +17,12 @@ class Loading extends PureComponent {
   }
 
   fetchAuthToken = async () => {
+    const { navigation: { navigate }} = this.props
     const authToken = await AsyncStorage.getItem('@EtorusStorage::APIAuthToken')
-    this.props.navigation.navigate(authToken ? 'App' : 'Auth')
+    const noteAdvise = await AsyncStorage.getItem('@EtorusStorage::NotesAdvise')
+
+    if (!noteAdvise) return navigate('UseConditions')
+    navigate(authToken ? 'App' : 'Auth')
   }
 
   render() {
