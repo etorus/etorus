@@ -6,6 +6,8 @@ import style from './style'
 class LoadingButton extends PureComponent {
   render() {
     const {
+      customText = {},
+      customWrapper = {},
       loading,
       onPress,
       label,
@@ -18,11 +20,11 @@ class LoadingButton extends PureComponent {
     }
 
     return (
-      <TouchableOpacity style={style.button} onPress={handleOnPress()}>
+      <TouchableOpacity style={{...style.button, ...customWrapper}} onPress={handleOnPress()}>
         {
           loading
             ? <ActivityIndicator size="small" color="#c64d96" />
-            : <Text style={style.text}>{ label }</Text>
+            : <Text style={{...style.text, ...customText}}>{ label }</Text>
         }
       </TouchableOpacity>
     )

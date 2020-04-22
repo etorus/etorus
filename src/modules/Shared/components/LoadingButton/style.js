@@ -17,4 +17,11 @@ export default StyleSheet.create({
     fontFamily: 'Branding',
     fontWeight: '400',
   },
+
+  customText: {
+    color: 'rgba(255, 255, 255, 1)',
+    fontSize: 20,
+    fontFamily: 'Branding',
+    fontWeight: '400',
+  }
 })
