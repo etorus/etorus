@@ -14,9 +14,9 @@ import logo from 'images/logo_horizontal_white.png'
 
 const style = StyleSheet.create({
   filterBackground: {
-    paddingTop: '25%',
-    borderRadius: 15,
+    paddingTop: '10%',
     flexDirection:'column',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
 })

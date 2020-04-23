@@ -8,7 +8,6 @@ export const Wrapper = styled.View`
     height: 100%;
 `
 export const TextWrapper = styled.View`
-    padding-top: 15%;
     display: flex;
     align-items: center;
     width: 100%;
@@ -20,7 +19,7 @@ export const TextBox = styled.View`
 `
 
 export const Title = styled.Text`
-    margin-top: 15%;
+    margin-top: 10%;
     margin-bottom: 28px;
     font-size: 30px;
     font-weight: 900;
