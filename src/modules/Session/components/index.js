@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react'
 import {
+  ScrollView,
   View,
   Text,
   ActivityIndicator,
@@ -7,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
 } from 'react-native'
+import Swiper from 'react-native-swiper';
 
 import moment from 'app/moment'
 
@@ -14,6 +16,9 @@ import Extra from './Extra'
 import Header from './Header'
 import Info from './Info'
 import ProgressArea from './ProgressArea'
+
+import { Exercises } from 'modules/Shared'
+import { getListAndChunk } from 'modules/Shared/components/Exercises/Helpers/index.js'
 
 import style from './style'
 import arrow from 'images/arrow.png'
@@ -46,7 +51,7 @@ class Session extends PureComponent {
     } = this.props
 
     return (
-      <View style={style.session}>
+      <ScrollView style={style.session}>
         <Header />
 
         <View style={style.wrapper}>
@@ -69,9 +74,23 @@ class Session extends PureComponent {
               participants={lobby}
               formatMessage={formatMessage}
             />
+
+            <Swiper
+              style={style.swipper}
+              pagingEnabled={true}
+              showsPagination={true}
+              dot={<View style={style.swipperDot} />}
+              activeDot={<View style={style.swipperActiveDot} />}
+              paginationStyle={style.swipperPaginationStyle}
+            >
+              {
+                getListAndChunk().map((list, i) =>
+                  <Exercises key={i} list={list} fm={formatMessage} />
+                )
+              }
+            </Swiper>
           </View>
         </View>
-
 
         <TouchableOpacity
           onPress={back}
@@ -86,7 +105,7 @@ class Session extends PureComponent {
         >
           <Image source={notification} resizeMode={'contain'} style={style.notificationIcon} />
         </TouchableOpacity>
-      </View>
+      </ScrollView>
     )
   }
 }

@@ -42,4 +42,39 @@ export default StyleSheet.create({
     marginVertical: 9,
     marginHorizontal: 10,
   },
+
+  swipperDot: {
+    backgroundColor: '#A9A5A5',
+    width: 5,
+    height: 5,
+    borderRadius: 4,
+    marginLeft: 3,
+    marginRight: 3,
+    marginTop: 3,
+    marginBottom: 3,
+    borderWidth: .5,
+    borderColor: '#000',
+  },
+
+  swipperActiveDot: {
+    backgroundColor: '#000',
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    borderWidth: .5,
+    borderColor: '#fff',
+  },
+
+  swipperPaginationStyle: {
+    bottom: 390,
+    left: 0,
+    right: 0,
+  },
+
+  swipper: {
+    marginTop: 40,
+    height: 300,
+    paddingBottom: 40,
+    backgroundColor: '#eff0f0',
+  }
 })
