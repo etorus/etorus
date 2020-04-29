@@ -32,6 +32,7 @@ class Sidebar extends PureComponent {
         formatMessage,
       },
       calling,
+      navigation: { navigate },
     } = this.props
 
     const toggleMessage = !facebookId
@@ -67,9 +68,16 @@ class Sidebar extends PureComponent {
           </View>
 
           <View style={style.buttons}>
-            <TouchableOpacity style={style.button} onPress={goToProfile}>
+          <TouchableOpacity style={style.button} onPress={(goToProfile)}>
               <Text style={style.buttonText}>
                 { formatMessage({ id: 'sidebar.edit_profile' }) }
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={style.button} onPress={() => navigate('Exercises', {
+              formatMessage
+            })}>
+              <Text style={style.buttonText}>
+                { formatMessage({ id: 'exercise_list' }) }
               </Text>
             </TouchableOpacity>
 

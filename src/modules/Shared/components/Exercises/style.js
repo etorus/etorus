@@ -21,3 +21,8 @@ export const Text = styled.Text`
     font-weight: 400;
     font-size: 18px;
 `
+
+export const Exercises = styled.ScrollView `
+    height: 100%;
+    margin-bottom: 50px;
+`

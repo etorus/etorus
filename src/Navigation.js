@@ -10,7 +10,7 @@ import Home from './modules/Home'
 import Session from './modules/Session'
 import Signup from './modules/Signup'
 import { Login, Splash } from './modules/Login'
-import { Loading, TermsOfUse, UseConditions }  from './modules/Shared'
+import { Loading, TermsOfUse, UseConditions, Exercises }  from './modules/Shared'
 import Sidebar from './modules/Sidebar'
 import Profile from './modules/Profile'
 import Password from './modules/Password'
@@ -24,6 +24,9 @@ const AppStack = createDrawerNavigator({
   },
   Profile: {
     screen: Profile,
+  },
+  Exercises: {
+    screen: Exercises
   },
 },
 {

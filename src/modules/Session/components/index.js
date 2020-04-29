@@ -17,7 +17,7 @@ import Header from './Header'
 import Info from './Info'
 import ProgressArea from './ProgressArea'
 
-import { Exercises } from 'modules/Shared'
+import { ExercisesList } from 'modules/Shared'
 import { getListAndChunk } from 'modules/Shared/components/Exercises/Helpers/index.js'
 
 import style from './style'
@@ -85,7 +85,7 @@ class Session extends PureComponent {
             >
               {
                 getListAndChunk().map((list, i) =>
-                  <Exercises key={i} list={list} fm={formatMessage} />
+                  <ExercisesList key={i} list={list} fm={formatMessage} />
                 )
               }
             </Swiper>

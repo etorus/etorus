@@ -21,6 +21,7 @@ class Container extends PureComponent {
     const {
       fetchMeditations,
       navigation,
+      meditations,
     } = this.props
 
     fetchMeditations({ navigation })

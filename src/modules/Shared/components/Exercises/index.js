@@ -1,19 +1,22 @@
 import React, { useEffect, useState} from 'react'
+
+import { default as List } from './List'
+import Header from 'modules/Home/components/Header'
+import { getExerciseListKey } from 'modules/Shared/components/Exercises/Helpers/index.js'
 import * as S from './style'
 
-const Exercises = ({ list, fm }) => {
-    const [ isTitle, setTitle ] = useState(false)
+const Exercises = ({
+    navigation
+}) => {
+    if (navigation?.state?.params?.formatMessage === undefined) {
+        return null
+    } else {
+        return <S.Exercises>
+            <Header onPressMenu={() => navigation.goBack()} />
+            <List list={getExerciseListKey()} fm={navigation?.state?.params?.formatMessage} />
+        </S.Exercises>
+    }
 
-    useEffect(() => {
-        if (list[0].includes('number_0')) {
-            setTitle(list.shift())
-        }
-    }, [])
-
-    return <S.Wrapper>
-        { isTitle && <S.Title>{ fm({ id: isTitle }) }</S.Title> }
-        { list.map(key => <S.Text key={key}>• { fm({ id: key }) }</S.Text>) }
-    </S.Wrapper>
 
 }
 
