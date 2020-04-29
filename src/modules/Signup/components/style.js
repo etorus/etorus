@@ -34,5 +34,6 @@ export default StyleSheet.create({
     fontWeight: '400',
     fontSize: 16,
     marginTop: 10,
+    marginBottom: 30,
   },
 })
