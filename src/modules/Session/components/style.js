@@ -66,14 +66,14 @@ export default StyleSheet.create({
   },
 
   swipperPaginationStyle: {
-    bottom: 390,
+    bottom: 525,
     left: 0,
     right: 0,
   },
 
   swipper: {
     marginTop: 40,
-    height: 300,
+    height: 430,
     paddingBottom: 40,
     backgroundColor: '#eff0f0',
   }
