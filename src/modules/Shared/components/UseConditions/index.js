@@ -52,6 +52,7 @@ const UseConditions = ({
                 <S.TextBox>
                   <S.Text>• { formatMessage({ id: 'use_conditions.age' }) }</S.Text>
                   <S.Text>•{ formatMessage({ id: 'use_conditions.health' }) }</S.Text>
+                  <S.Text>• { formatMessage({ id: 'use_conditions.pregnancy' }) }</S.Text>
                 </S.TextBox>
             </S.TextWrapper>
 
